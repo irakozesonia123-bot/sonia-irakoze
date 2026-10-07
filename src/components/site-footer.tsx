@@ -1,4 +1,4 @@
-import { profile } from "@/content/portfolio";
+import { profile } from "@/content/profile";
 import { Logo } from "./logo";
 
 export function SiteFooter() {

@@ -23,31 +23,39 @@ Copy `.env.example` to `.env.local` for local overrides. No secrets are used.
 
 ## Editing content (no component changes needed)
 
-Everything lives in **`src/content/portfolio.ts`**. Search for `[ADD` to find placeholders.
+All copy lives in **`src/content/`**. Types are in `types.ts`.
 
-| To change | Edit in `portfolio.ts` |
+| To change | File → export |
 |---|---|
-| Name, headline, intro, status, email, social links | `profile` |
-| Bio and interests, About photo | `about` |
-| Jobs and internships | `experience` |
-| Projects and case-study pages (`/projects/[slug]`) | `projects` |
-| Schools, coursework | `education` |
-| Awards | `awards` |
-| Leadership & volunteering | `leadership` |
-| Skills | `skills` |
-| Journey timeline | `journey` |
-| Recommendations | `recommendations` |
-| Navigation order | `nav` |
+| Name, headline, positioning, "Now", links, navigation | `profile.ts` → `profile`, `nav` |
+| Education, skills | `profile.ts` → `education`, `skills` |
+| Projects and their case studies (`/work/[slug]`) | `projects.ts` → `projects` |
+| Jobs and internships | `experience.ts` → `experience` |
+| Leadership (with level: Elected / Appointed / Selected / …) | `experience.ts` → `leadership` |
+| Recommendations (attach to a job with `experienceId`) | `experience.ts` → `recommendations` |
+| Conferences, talks, programs | `field-notes.ts` → `fieldNotes` |
+| Grants, scholarships, awards | `field-notes.ts` → `recognition` |
+| Features and published work | `record.ts` → `features` |
+| Map stops and Journey turning points | `record.ts` → `places`, `turningPoints` (map positions in `components/journey-map.tsx`) |
+| Personal interests | `record.ts` → `interests` |
 
-- **Photos:** add files to `public/images/` and reference them as `/images/your-file.jpg`.
-- **Resume:** replace `public/resume/Sonia_Irakoze_Resume.pdf` (keep the filename, or update `profile.links.resume`).
-- **Types** for all content are in `src/content/types.ts`.
+**Tiers.** `tier: "flagship"` items lead /work and the homepage; `"supporting"` get cards; `"archive"` appear in the index and on /workbench.
+
+**Case studies** are built from `story` blocks: `text`, `list`, `steps`, `stats`, `architecture`, `compare` (before/after images), `status` (done/underway/next/not-started), `gallery`, `quote`, `lesson`. Mix them per project.
+
+**Evidence drawer.** Add `artifacts: [{ kind, label, href?, src?, note? }]` to a project.
+
+**Unverified items.** Set `visibility: "hidden"` to keep something off the site. Missing evidence goes in `needs: [...]` and in `docs/CONTENT_NEEDED.md`; neither is ever rendered.
+
+- **Photos:** add to `public/images/` and reference as `/images/name.jpg`.
+- **Resume:** replace `public/resume/Sonia_Irakoze_Resume.pdf` (public copy has no phone number).
 
 ## Structure
 
 ```
 src/
-  app/                 layout, home page, /projects/[slug], 404, sitemap, robots, OG image, icon
+  app/                 home, /work, /work/[slug], /workbench, /experience, /journey, /field-notes,
+                       /recognition, /on-the-record, /about, 404, sitemap, robots, OG image, icon
   components/          header + mobile menu, ⌘K palette, sections, project grid, experience list
   content/             portfolio.ts (all copy) and types.ts
 public/images, public/resume
@@ -55,7 +63,7 @@ public/images, public/resume
 
 ## Design notes
 
-Visual motif: a survey alignment. Section labels are stations (`STA 03+00`), the hero has a topographic contour field, and the Journey section is drawn as a road centerline with control points. Light and dark themes, reduced-motion support, and a ⌘K / Ctrl K quick-jump palette.
+Visual motif: an engineering field book. Pages are drawing sheets (S-01…S-09), sections are survey stations (`STA 03+00`), the hero has a topographic contour field, the Journey is a road centerline with an optional schematic map, conferences are event passes, features are publication clippings, and the Workbench is a pinned drafting board. Light and dark themes, reduced-motion support, and a ⌘K / Ctrl K quick-jump palette.
 
 ## Deploy
 
