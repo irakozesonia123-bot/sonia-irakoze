@@ -47,8 +47,13 @@ Items marked **hidden** use `visibility: "hidden"` and stay off the site until f
 
 **Recommendations** · a CDOT supervisor · an engineering professor · a CubeSat/Aero Design lead
 
-## Claims deliberately NOT used (from older CVs)
-These contradict newer, primary evidence, so they are not on the site:
-- "Taught 300+ residents water-conservation engineering": the 2026 narrative report says 53 workshop participants.
-- "Solar-powered filtration prototype that removes 80%+ of contaminants in Lake Mirayi field trials": the report says no system has been built and testing is ongoing.
-- "Improved lift-to-drag by 5%", "enhanced structural alignment by 15%", "customer satisfaction by 90%", "45% event efficiency": not verifiable.
+## Metrics from older CVs: attribution and status
+Older CVs (Oct–Dec 2025) grouped several water metrics under one "AquaSolve Rwanda" heading. Sonia has worked on separate water/community projects at different times. Don't assume a water/WASH metric belongs to SAquaSolve unless the source says so.
+
+| Metric | Source text (older CV) | Belongs to | Status on site |
+|---|---|---|---|
+| 300+ residents reached | "Launched a sustainability initiative teaching 300+ residents water-conservation engineering and pollution prevention" (CVs 30 Nov–1 Dec 2025, listed under the AquaSolve heading); "educating 300+ residents near Lake Mirayi" (Oct 2025 resume) | **TechGirls Community Action Project, 2023** (confirmed by Sonia; matches her Aug 2026 position memo describing the CAP as water-conservation, pollution, and hygiene workshops) | **Shown** on `/work/techgirls-community-action-project`, the TechGirls program note, Journey, and map |
+| 53 participants, 4 Youth Ambassadors | 2026 SAquaSolve Narrative Implementation Report | **SAquaSolve Rwanda, Aug 20–21, 2026** | Shown on the SAquaSolve case study |
+| 80%+ contaminant removal by a solar filtration prototype | "Developing a solar-powered filtration prototype that removes 80%+ of contaminants in Lake Mirayi field trials to produce safe drinking water" (5 CV versions, 30 Nov–1 Dec 2025, under "AquaSolve Rwanda — Solar Water Filtration Project"); Oct 2025 resume instead says "early prototypes of solar filtration systems" with no figure | **Unconfirmed.** The source attaches it to AquaSolve; no source links it to TechGirls (the CAP memo says "no money and no equipment"). | **Not shown** until Sonia confirms what the prototype was, when and where it was tested, who measured 80%, and how |
+| $500 funding; weekly workshops with local schools | Oct 2025 resume, under AquaSolve Rwanda | **Unconfirmed**: TechGirls CAP or later AquaSolve work? | Not shown |
+| Lift-to-drag +5% (Aero), structural alignment +15% (CubeSat), customer satisfaction +90% / 20% downtime (IT), 45% event efficiency (UWP) | Older CVs | Respective roles | Not shown: not verifiable or dropped earlier by Sonia |
