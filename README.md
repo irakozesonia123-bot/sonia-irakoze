@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sonia Irakoze — portfolio
 
-## Getting Started
+Personal site for Sonia Irakoze, mechanical engineering student at the University of Rochester who also builds software.
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router, React Server Components, Cache Components) · React 19 · TypeScript · Tailwind CSS 4 · Motion · Lucide · deployed on Vercel.
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production check
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Name | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Recommended | Canonical URL for metadata, Open Graph, sitemap, and JSON-LD. Defaults to `https://sonia-irakoze.vercel.app`. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` for local overrides. No secrets are used.
 
-## Learn More
+## Editing content (no component changes needed)
 
-To learn more about Next.js, take a look at the following resources:
+Everything lives in **`src/content/portfolio.ts`**. Search for `[ADD` to find placeholders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| To change | Edit in `portfolio.ts` |
+|---|---|
+| Name, headline, intro, status, email, social links | `profile` |
+| Bio and interests, About photo | `about` |
+| Jobs and internships | `experience` |
+| Projects and case-study pages (`/projects/[slug]`) | `projects` |
+| Schools, coursework | `education` |
+| Awards | `awards` |
+| Leadership & volunteering | `leadership` |
+| Skills | `skills` |
+| Journey timeline | `journey` |
+| Recommendations | `recommendations` |
+| Navigation order | `nav` |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Photos:** add files to `public/images/` and reference them as `/images/your-file.jpg`.
+- **Resume:** replace `public/resume/Sonia_Irakoze_Resume.pdf` (keep the filename, or update `profile.links.resume`).
+- **Types** for all content are in `src/content/types.ts`.
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/                 layout, home page, /projects/[slug], 404, sitemap, robots, OG image, icon
+  components/          header + mobile menu, ⌘K palette, sections, project grid, experience list
+  content/             portfolio.ts (all copy) and types.ts
+public/images, public/resume
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Design notes
+
+Visual motif: a survey alignment. Section labels are stations (`STA 03+00`), the hero has a topographic contour field, and the Journey section is drawn as a road centerline with control points. Light and dark themes, reduced-motion support, and a ⌘K / Ctrl K quick-jump palette.
+
+## Deploy
+
+Pushed to GitHub and connected to Vercel; every push to `main` deploys production. Manual deploy: `npx vercel --prod`.
