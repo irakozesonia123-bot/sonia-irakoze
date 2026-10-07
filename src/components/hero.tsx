@@ -49,16 +49,14 @@ export function Hero() {
           <div className="relative aspect-[4/3.4]">
             <Image src={profile.headshot.src} alt={profile.headshot.alt} fill priority sizes="(min-width: 1024px) 384px, 90vw" className="object-cover object-[50%_22%]" />
           </div>
-          <dl className="border-t border-ink/80 text-sm">
-            <div className="border-b border-line px-4 py-2.5">
+          <dl className="grid grid-cols-2 border-t border-ink/80 text-sm">
+            <div className="col-span-2 border-b border-line px-4 py-2.5">
               <dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">Now</dt>
               <dd className="mt-1 space-y-0.5 leading-snug">{profile.now.map((n) => <span key={n} className="block">{n}</span>)}</dd>
             </div>
-            <div className="grid grid-cols-2">
-              <div className="border-r border-line px-4 py-2.5"><dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">From</dt><dd className="mt-0.5">{profile.origin}</dd></div>
-              <div className="px-4 py-2.5"><dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">Based in</dt><dd className="mt-0.5">{profile.location}</dd></div>
-            </div>
-            <div className="border-t border-line px-4 py-2.5">
+            <div className="border-r border-line px-4 py-2.5"><dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">From</dt><dd className="mt-0.5">{profile.origin}</dd></div>
+            <div className="px-4 py-2.5"><dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">Based in</dt><dd className="mt-0.5">{profile.location}</dd></div>
+            <div className="col-span-2 border-t border-line px-4 py-2.5">
               <dt className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-ink-3">Looking for</dt>
               <dd className="mt-0.5 leading-snug">{profile.lookingFor}</dd>
             </div>
