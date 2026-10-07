@@ -52,9 +52,9 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-50 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-2xl border border-line bg-surface/80 px-3 py-2 shadow-[0_8px_30px_-18px_rgba(15,36,39,0.45)] backdrop-blur-md">
-          <Link href="/" className="flex items-center gap-2.5 rounded-lg px-1.5 py-1 font-display text-[1.02rem] font-bold" aria-label={`${profile.name}, home`}>
+          <Link href="/" className="flex items-center gap-2.5 rounded-lg px-1.5 py-1 font-display text-[1.02rem] font-bold">
             <Logo className="h-7 w-7" />
-            <span className="hidden sm:inline">{profile.name}</span>
+            <span className="sr-only sm:not-sr-only">{profile.name}</span>
           </Link>
 
           <nav aria-label="Sections" className="hidden lg:block">

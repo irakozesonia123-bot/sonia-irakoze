@@ -10,7 +10,7 @@ export function Hero() {
       <div className="drafting-grid pointer-events-none absolute inset-0" aria-hidden />
       <ContourField className="pointer-events-none absolute inset-0 h-full w-full" />
       <div className="relative mx-auto grid max-w-6xl gap-12 px-5 pb-20 pt-14 sm:px-8 md:pt-20 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16 lg:pb-28">
-        <div className="rise">
+        <div>
           <p className="station">STA 00+00 · {profile.location} · from {profile.origin}</p>
           <h1 id="hero-title" className="mt-5 text-[clamp(3.2rem,9vw,6.6rem)] font-extrabold leading-[0.9] tracking-[-0.04em]">
             Sonia
