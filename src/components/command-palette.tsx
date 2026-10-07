@@ -60,7 +60,9 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return items.filter((i) => !i.secret);
-    return items.filter((i) => `${i.label} ${i.group} ${i.hint ?? ""} ${i.keywords ?? ""}`.toLowerCase().includes(q));
+    // Label matches rank above keyword-only matches
+    const hits = items.filter((i) => `${i.label} ${i.group} ${i.hint ?? ""} ${i.keywords ?? ""}`.toLowerCase().includes(q));
+    return [...hits.filter((i) => i.label.toLowerCase().includes(q)), ...hits.filter((i) => !i.label.toLowerCase().includes(q))];
   }, [items, query]);
 
   useEffect(() => {
@@ -72,6 +74,15 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
       requestAnimationFrame(() => input.current?.focus());
     } else if (!open && d.open) d.close();
   }, [open]);
+
+  // Keep React state in sync however the dialog closes (Escape, backdrop, or code).
+  useEffect(() => {
+    const d = dialog.current;
+    if (!d) return;
+    const handle = () => onClose();
+    d.addEventListener("close", handle);
+    return () => d.removeEventListener("close", handle);
+  }, [onClose]);
 
   const activate = (item?: Item) => {
     if (!item) return;
@@ -89,8 +100,7 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   return (
     <dialog
       ref={dialog}
-      onClose={onClose}
-      onClick={(e) => e.target === dialog.current && onClose()}
+      onClick={(e) => e.target === dialog.current && dialog.current?.close()}
       aria-label="Quick search"
       className="m-auto mt-[10vh] w-[min(580px,calc(100vw-24px))] rounded-2xl border border-line-strong bg-surface p-0 text-ink shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-[2px]"
     >
