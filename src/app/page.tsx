@@ -20,6 +20,13 @@ export default function Home() {
   const doors = turningPoints.filter((t) => ["ggast", "techgirls", "p4p", "cdot"].includes(t.id));
   const recog = publicRecognition.filter((r) => ["p4p", "handler", "eac-essay"].includes(r.id));
   const quote = recommendations.find((r) => r.name === "David Beyerlein");
+  const mechanical = [
+    { href: "/work/cubesat-structures", kind: "Aerospace", title: "UR CubeSat frame", line: "Modeling the structural frame against launch loads; vibration and thermal simulations.", tools: "Siemens NX · MATLAB" },
+    { href: "/work/aero-design-glider", kind: "Aerospace", title: "Aero Design aircraft", line: "Wing and tail studies with FEA; laser-cut prototypes over 15+ team iterations.", tools: "Siemens NX · FEA" },
+    { href: "/work/timber-truss-bridge", kind: "Structures", title: "52 m timber truss bridge", line: "Three designs against buckling, stress, and a 5 cm deflection limit.", tools: "Dr.Frame" },
+    { href: "/work/cdot-bridge-asset-management", kind: "Infrastructure", title: "Bridge plan-set review", line: "Treatment identification across 16 CDOT projects, plus field inspections.", tools: "SNBI · SQL" },
+    { href: "/work/saquasolve-rwanda", kind: "Water systems", title: "Lake-to-tap system concept", line: "Solar intake, gravity treatment, storage, and distribution, designed after testing.", tools: "Systems design" },
+  ];
   const counts: Record<string, string> = {
     "/work": `${publicProjects.length} projects`,
     "/workbench": `${publicProjects.filter((p) => p.tier === "archive").length} pinned`,
@@ -65,12 +72,27 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="mechanical" station="01+50" kicker="Mechanical" title="Structures, aircraft, and systems" intro="The mechanical engineering thread through my work. CAD, analysis, and prototype images for CubeSat and Aero Design are on their way, and those two will become full case studies." action={{ href: "/work?filter=Mechanical#archive", label: "All mechanical work" }}>
+        <ul className="grid grid-cols-[minmax(0,1fr)] gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+          {mechanical.map((m) => (
+            <li key={m.href} className="bg-surface">
+              <Link href={m.href} className="group flex h-full flex-col p-5 transition-colors hover:bg-surface-2">
+                <p className="font-mono text-[0.68rem] uppercase tracking-[0.12em] text-survey-ink">{m.kind}</p>
+                <p className="mt-1 font-bold leading-snug group-hover:text-lake">{m.title}</p>
+                <p className="mt-1 text-sm text-ink-2">{m.line}</p>
+                <span className="mt-auto pt-3 font-mono text-[0.68rem] text-ink-3">{m.tools}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       <Section id="now" station="02+00" kicker="Now" title="On the bench this fall" intro="What I’m doing week to week, alongside a full mechanical engineering course load.">
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
           <li className="bg-surface p-5">
-            <p className="font-mono text-xs text-ink-3">Founder · since 2023</p>
+            <p className="font-mono text-xs text-ink-3">President & Legal Representative</p>
             <p className="mt-1 font-bold">SAquaSolve Rwanda</p>
-            <p className="mt-1 text-sm text-ink-2">Waiting on Lake Mirayi lab results to start the engineering design.</p>
+            <p className="mt-1 text-sm text-ink-2">Coordinating Lake Mirayi lab testing with RICA, which will set the engineering design.</p>
           </li>
           {now.map((e) => (
             <li key={e.id} className="bg-surface p-5">

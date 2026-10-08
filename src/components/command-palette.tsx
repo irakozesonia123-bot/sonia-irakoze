@@ -40,7 +40,7 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
       ...publicProjects.map((p) => ({ id: `w-${p.slug}`, label: p.title, group: "Projects", hint: p.year, icon: "file" as const, keywords: `${p.categories.join(" ")} ${p.tools.join(" ")}`, run: go(`/work/${p.slug}`) })),
       {
         id: "a-building", label: "What is Sonia building right now?", group: "Ask", icon: "spark", keepOpen: true, keywords: "current now",
-        run: () => setNote("The engineering design for SAquaSolve’s Gashora water system, waiting on Lake Mirayi lab results, plus CropSight’s knowledge base at AGR Sensors."),
+        run: () => setNote("CubeSat and Aero Design structures at Rochester, CropSight’s knowledge base at AGR Sensors, and SAquaSolve’s Lake Mirayi water system, now at the lab-testing stage before engineering design."),
       },
       { id: "a-random", label: "Show me something unexpected", group: "Ask", icon: "shuffle", keywords: "random surprise", run: () => { const p = archive[Math.floor(Math.random() * archive.length)]; router.push(`/work/${p.slug}`); } },
       { id: "a-email", label: "Copy email address", group: "Contact", hint: profile.email, icon: "mail", keepOpen: true, keywords: "contact sonia", run: () => { navigator.clipboard?.writeText(profile.email).then(() => setNote("Email copied.")).catch(() => setNote(profile.email)); } },

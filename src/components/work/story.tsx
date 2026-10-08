@@ -7,6 +7,7 @@ export const blockId = (b: StoryBlock) =>
 const stateStyle = {
   done: { label: "Done", cls: "text-ok bg-ok/12 border-ok/30", dot: "bg-current" },
   underway: { label: "Underway", cls: "text-wip bg-wip/12 border-wip/35", dot: "bg-current" },
+  coordinating: { label: "Coordinating", cls: "text-wip bg-wip/12 border-wip/35", dot: "border border-current" },
   next: { label: "Next", cls: "text-lake bg-lake/10 border-lake/30", dot: "border border-current" },
   "not-started": { label: "Not started", cls: "text-ink-3 bg-surface-2 border-line-strong", dot: "border border-current" },
 } as const;

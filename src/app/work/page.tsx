@@ -12,7 +12,9 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   const flagship = publicProjects.filter((p) => p.tier === "flagship");
-  const supporting = publicProjects.filter((p) => p.tier === "supporting");
+  // Mechanical and aerospace work first, so it's easy to find
+  const mechFirst = (c: string[]) => (c.includes("Aerospace") || c.includes("Mechanical") ? 0 : 1);
+  const supporting = publicProjects.filter((p) => p.tier === "supporting").sort((a, b) => mechFirst(a.categories) - mechFirst(b.categories));
   return (
     <>
       <PageHeader

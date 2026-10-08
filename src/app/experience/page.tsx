@@ -19,6 +19,7 @@ const levelStyle: Record<LeadershipLevel, string> = {
   Selected: "border-lake/60 text-lake",
   Hired: "border-line-strong text-ink-2",
   "Co-founder": "border-ink text-ink",
+  Mentor: "border-line-strong text-ink-2",
   Volunteer: "border-line-strong text-ink-2",
   Member: "border-line text-ink-3",
 };
@@ -103,7 +104,7 @@ export default function ExperiencePage() {
         </ol>
       </Section>
 
-      <Section id="leadership" station="04+20" kicker="Leadership" title="Leadership & community" intro="Each role is labeled for how I got it: elected, appointed, selected, co-founded, volunteered, or joined as a member.">
+      <Section id="leadership" station="04+20" kicker="Leadership" title="Leadership & community" intro="Each role is labeled for how I got it or what it is: elected, appointed, selected, co-founded, mentor, volunteer, or member.">
         <div className="space-y-10">
           {groups.map((g) => {
             const items = publicLeadership.filter((l) => l.group === g);

@@ -14,12 +14,13 @@ export const metadata: Metadata = {
 const story = [
   "I’m from Rwanda. I spent three years as a boarding student at Gashora Girls Academy of Science and Technology, beside Lake Mirayi, a lake many nearby residents use even though the water isn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
   "In 2023, TechGirls took me to Virginia Tech, where I ran flume experiments and wrote my first Python, and then to a two-day job shadow at the Colorado Department of Transportation. I remember quietly wishing I could come back. In 2026 I did, as an engineering intern on the team that tracks Colorado’s bridges.",
-  "At the University of Rochester I study mechanical engineering and keep ending up as the person on the team who also builds the software: a web tool CDOT published, the website for my own water project, and data checks for an AI that diagnoses crop disease. I like work where the physical system and the information about it both have to be right.",
+  "TechGirls also sent me home with a Community Action Project. Mine was water-education workshops that reached 300+ residents. They mattered, but awareness doesn’t make lake water safe to drink. That gap led, three years later, to a Projects for Peace grant and to SAquaSolve Rwanda, which is developing a community water system for Lake Mirayi.",
+  "At the University of Rochester I study mechanical engineering: satellite frames on UR CubeSat, aircraft structures on Aero Design, and bridge trusses in class. I also tend to be the person who builds the software: a web tool CDOT published, the SAquaSolve website, and data checks for an AI that diagnoses crop disease. I like work where the physical system and the information about it both have to be right.",
   "Next I want internships and research where mechanical design meets infrastructure, water, energy, or aerospace, especially where better tools help engineers make better decisions.",
 ];
 
 const scrapbook = [
-  { src: "/images/eac-award-1.jpg", alt: "Sonia receiving an award from an official in Arusha", caption: "Arusha, 2022. An essay prize, my first time representing Rwanda.", tilt: "-rotate-2" },
+  { src: "/images/eac-award-1.jpg", alt: "Sonia receiving an award from an official in Arusha", caption: "Arusha, 2023. Receiving my 2022 EAC essay prize.", tilt: "-rotate-2" },
   { src: "/images/techgirls-virginia-tech.jpg", alt: "Sonia on the Virginia Tech campus at sunset", caption: "Virginia Tech, 2023. TechGirls.", tilt: "rotate-1" },
   { src: "/images/nsbe-chicago-2025.jpg", alt: "Sonia and a friend at the NSBE 50th anniversary backdrop", caption: "Chicago, 2025. First NSBE convention.", tilt: "-rotate-1" },
   { src: "/images/sonia-saa-portrait.jpg", alt: "Sonia smiling, chin resting on her hand", caption: "Rochester. Student Alumni Ambassador portraits.", tilt: "rotate-2" },
@@ -29,7 +30,7 @@ const scrapbook = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader sheet="S-09" kicker="About" title="The person behind the field book" intro="Engineering student, founder, and the person on the team who also writes the code. Also: a rower, a karateka, a singer, and a painter." />
+      <PageHeader sheet="S-09" kicker="About" title="The person behind the field book" intro="Mechanical Engineering student who builds across physical and digital systems. Also: a rower, a karateka, a singer, and a painter." />
       <Section id="story" station="09+10" kicker="Story" title="How I got here">
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.8fr)]">
           <div className="space-y-5 text-[1.08rem] leading-relaxed">

@@ -3,19 +3,19 @@ import type { Education, NavItem, Profile, SkillGroup } from "./types";
 export const profile: Profile = {
   name: "Sonia Irakoze",
   pronouns: "she/her",
-  descriptor: "Mechanical engineering student · University of Rochester ’28",
-  builderLine: "Infrastructure · water systems · software · design",
+  descriptor: "Mechanical Engineering student · University of Rochester ’28",
+  builderLine: "Building across physical and digital systems",
   positioning:
-    "I’ve measured bridge clearances in Colorado, planned a solar water system for a lake in Rwanda, and shipped a web tool a state transportation agency published.",
+    "Satellite and aircraft structures at Rochester, bridge records checked against the field in Colorado, a solar-powered water system in development in Rwanda, and the web tools in between.",
   intro:
-    "I’m drawn to whole systems: the structure, the data that describes it, and the people who depend on it. Right now that means bridge data at CDOT this past summer, an AI knowledge base at AGR Sensors, and SAquaSolve, the water project I founded in Gashora.",
+    "Mechanical engineering is the core. This summer I interned on the Colorado Department of Transportation’s bridge asset management team and built a web tool CDOT published. Now I’m a data research intern at AGR Sensors, a structures member on UR CubeSat and design lead on Aero Design, and President & Legal Representative of SAquaSolve Rwanda, which is developing a community water system for Lake Mirayi.",
   location: "Rochester, NY",
   origin: "Kigali, Rwanda",
   coordinates: "43.1566° N, 77.6088° W",
   now: [
+    "Structures, UR CubeSat · Design Lead, Aero Design",
     "Data Research Intern, AGR Sensors",
-    "Founder, SAquaSolve Rwanda",
-    "Publications Chair, NSBE Region 1 Upstate Zone",
+    "President & Legal Representative, SAquaSolve Rwanda",
   ],
   lookingFor: "Summer 2027 internships and undergraduate research in mechanical, infrastructure, aerospace, or water systems",
   email: "irakozesonia123@gmail.com",
@@ -28,7 +28,7 @@ export const profile: Profile = {
   headshot: { src: "/images/portrait.jpg", alt: "Sonia Irakoze in a pink blazer, smiling" },
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sonia-irakoze.vercel.app",
   seoDescription:
-    "Sonia Irakoze is a mechanical engineering student at the University of Rochester working across infrastructure, water systems, software, and design: bridge asset data at CDOT, CDOT Compass, CropSight at AGR Sensors, and SAquaSolve, a solar-powered water project in Gashora, Rwanda.",
+    "Sonia Irakoze is a Mechanical Engineering student at the University of Rochester who builds across physical and digital systems: CubeSat and Aero Design structures, bridge asset data at the Colorado Department of Transportation, CDOT Compass, CropSight at AGR Sensors, and SAquaSolve Rwanda, which is developing a solar-powered community water system.",
 };
 
 /** Sheet numbers follow an engineering drawing set. */

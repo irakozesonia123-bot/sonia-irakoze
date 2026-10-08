@@ -60,7 +60,7 @@ export type StoryBlock =
   | { type: "stats"; title?: string; stats: { value: string; label: string; note?: string }[] }
   | { type: "architecture"; title: string; intro?: string; parts: { label: string; detail: string }[]; caption?: string }
   | { type: "compare"; title: string; intro?: string; before: Image & { label: string }; after: Image & { label: string } }
-  | { type: "status"; title: string; rows: { state: "done" | "underway" | "next" | "not-started"; text: string }[] }
+  | { type: "status"; title: string; rows: { state: "done" | "underway" | "coordinating" | "next" | "not-started"; text: string }[] }
   | { type: "gallery"; title: string; images: Image[] }
   | { type: "quote"; quote: string; cite: string }
   | { type: "lesson"; title: string; body: string; differently?: string };
@@ -115,7 +115,7 @@ export type Experience = {
   needs?: string[];
 };
 
-export type LeadershipLevel = "Elected" | "Appointed" | "Selected" | "Hired" | "Co-founder" | "Volunteer" | "Member";
+export type LeadershipLevel = "Elected" | "Appointed" | "Selected" | "Hired" | "Co-founder" | "Mentor" | "Volunteer" | "Member";
 
 export type Leadership = {
   id: string;

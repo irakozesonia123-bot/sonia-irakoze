@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Sonia Irakoze — Mechanical engineering & software";
+export const alt = "Sonia Irakoze, Mechanical Engineering student";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,7 +16,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 112, fontWeight: 800, lineHeight: 0.95, letterSpacing: -4 }}>Sonia</div>
           <div style={{ fontSize: 112, fontWeight: 800, lineHeight: 0.95, letterSpacing: -4, color: "#7cc6d6" }}>Irakoze</div>
-          <div style={{ marginTop: 28, fontSize: 34, color: "#a6b9b6", maxWidth: 820 }}>Mechanical engineering + software · bridges at CDOT · water systems in Rwanda</div>
+          <div style={{ marginTop: 28, fontSize: 34, color: "#a6b9b6", maxWidth: 820 }}>Mechanical Engineering · building across physical and digital systems</div>
         </div>
       </div>
     ),

@@ -8,15 +8,15 @@ export const projects: Project[] = [
   {
     slug: "saquasolve-rwanda",
     title: "SAquaSolve Rwanda",
-    tagline: "Turning a lake people already use into water they can safely drink.",
-    year: "2023 – now",
+    tagline: "Developing a system to turn a lake people already use into water they can safely drink.",
+    year: "2026 – now",
     sort: 2026.08,
     tier: "flagship",
     visibility: "public",
-    role: "Founder & Legal Representative",
-    team: "With Nadine Uwizeyimana (technical lead, water and sanitation engineer) and a workshop team in Gashora",
+    role: "Co-founder · President & Legal Representative",
+    team: "With Nadine Uwizeyimana (Vice-President & Deputy Legal Representative; water and wastewater engineer at RICA) and a workshop team in Gashora",
     status: "in-development",
-    statusLabel: "Phase 1 done · system not built",
+    statusLabel: "Phase 1 complete · system not built",
     categories: ["Water", "Infrastructure", "Mechanical"],
     tools: ["Systems design", "Solar pumping", "Water treatment", "Field assessment", "Community engagement", "Grant writing"],
     cover: { src: "/images/sq-ws-hall-wide.jpg", alt: "A full community hall at Gashora Girls Academy during the SAquaSolve WASH workshops" },
@@ -26,14 +26,14 @@ export const projects: Project[] = [
     ],
     challenge: "Designing a water system before knowing what’s in the water.",
     summary:
-      "Lake Mirayi sits beside communities in Gashora, but its water is untreated. In 2026, a $10,000 Projects for Peace grant funded phase one: community workshops, field assessment, and water testing that will decide the design. The system itself hasn’t been built.",
+      "SAquaSolve Rwanda is developing a solar-powered community water system for Lake Mirayi in Gashora. In 2026, a $10,000 Projects for Peace grant funded phase one: community workshops, a field assessment, and coordination of laboratory testing that will set the design. The organization was founded in August 2026 and its registration is in progress. The system hasn’t been built.",
     story: [
       {
         type: "stats",
         stats: [
           { value: "$10,000", label: "Davis Projects for Peace grant", note: "Funds phase one, not construction" },
-          { value: "53", label: "people from Gashora Sector at the workshops" },
-          { value: "4", label: "student Youth Ambassadors selected" },
+          { value: "53", label: "people from Gashora Sector took part in the 2026 workshops" },
+          { value: "4", label: "student Youth Ambassadors selected by SAquaSolve" },
           { value: "7", label: "engineering decision gates before construction" },
         ],
       },
@@ -43,7 +43,7 @@ export const projects: Project[] = [
         body: [
           "Bugesera District has nine lakes and three rivers. Lake Mirayi sits right beside the communities of Gashora Sector, and many residents collect from it despite parasites, bacteria, and the risk of crocodiles.",
           "Having water nearby isn’t the same as having safe water. District survey data cited in our technical report show that 20.9% of Bugesera households don’t use the drinking-water source closest to them, and 65.7% of those say it doesn’t work properly.",
-          "I spent three years as a boarding student at Gashora Girls Academy, so this isn’t an abstract site for me. It’s why SAquaSolve started here.",
+          "I spent three years as a boarding student at Gashora Girls Academy, so this isn’t an abstract site for me. In 2023, my TechGirls Community Action Project ran water-education workshops in this community. Education mattered, but it couldn’t make the lake safe to drink. SAquaSolve is the attempt to build the system that can.",
         ],
       },
       {
@@ -51,25 +51,26 @@ export const projects: Project[] = [
         title: "From proposal to evidence",
         intro: "2026 was about replacing assumptions with information before anyone spends money on hardware.",
         steps: [
-          { label: "Spring 2026", title: "Proposal and grant", body: "Wrote the Projects for Peace proposal for solar-powered water filtration on Lake Mirayi and won the University of Rochester’s 2026 grant." },
+          { label: "Spring 2026", title: "Proposal and grant", body: "Wrote the Projects for Peace proposal, “AquaSolve Rwanda: Solar-Powered Filtration for Peace,” and was one of two University of Rochester students funded in 2026." },
           { label: "July 2026", title: "Technical review", body: "Led a 32-page technical concept and pre-feasibility report, and took the concept to an informal listening session with practicing hydraulic, water-quality, and environmental engineers." },
           { label: "August 2026", title: "Field assessment", body: "Our team made field visits and initial assessments around Lake Mirayi, the candidate source, to understand the site, local water conditions, and community needs." },
           { label: "20–21 Aug 2026", title: "Two days of WASH workshops", body: "Hosted by Gashora Girls Academy. 53 people from Gashora Sector covered safe drinking water, waterborne disease, safe storage, sanitation, and environmental protection, and told us about their own water challenges." },
           { label: "August 2026", title: "Youth Ambassadors", body: "Selected four Gashora Girls Academy students to keep water, sanitation, and hygiene awareness going after we left." },
-          { label: "Ongoing", title: "Water-quality testing", body: "Coordinating laboratory testing of Lake Mirayi with the Rwanda Institute for Conservation Agriculture (RICA). The results will set the treatment design." },
+          { label: "20 Aug 2026", title: "Founding the organization", body: "SAquaSolve Rwanda’s founding members met in Kigali to establish the organization and elected me President and Legal Representative. Registration as a Rwandan NGO is in progress." },
+          { label: "September 2026", title: "Testing scope agreed", body: "Coordinating laboratory testing of Lake Mirayi with the Rwanda Institute for Conservation Agriculture (RICA), which has quoted the testing scope. Results aren’t in yet; they will set the treatment design." },
         ],
       },
       {
         type: "compare",
         title: "The engineering pivot",
-        intro: "My proposal pictured a pumping station feeding a single kiosk. The technical review changed the shape of the system: solar power drives the lift, storage is sized properly, and one treatment hub feeds several community access points, which is easier to monitor and maintain than standalone kiosks.",
-        before: { src: "/images/sq-concept-early.jpg", alt: "Early concept sketch: intake pumping station, pipeline, containerized treatment plant, tank, and one water kiosk", label: "Early concept · single kiosk" },
+        intro: "My grant proposal described one or two solar-powered filtration kiosks. The technical review taught us that a kiosk on its own isn’t a water service: safe water that lasts needs intake, treatment, storage, distribution, monitoring, and trained local operators. So we deferred the physical kiosk. Test the lake first, design the complete system, then build.",
+        before: { src: "/images/sq-concept-early.jpg", alt: "Earlier concept sketch: intake pumping station, pipeline, containerized treatment plant, tank, and one water kiosk", label: "Earlier sketch · supply to a single kiosk" },
         after: { src: "/images/sq-concept-current.jpg", alt: "Current preliminary concept: solar-powered intake, raw-water pipeline, containerized treatment, treated-water storage, and distribution to several access points", label: "Current concept · one hub, many access points" },
       },
       {
         type: "architecture",
         title: "The reference system",
-        intro: "The goal is a complete service from source to tap, not a standalone treatment device. Every component exists as proven, commercially available equipment, so the engineering work is careful selection and integration for this site.",
+        intro: "The system we’re designing toward is a complete service from source to tap, not a standalone treatment device. Each component exists as proven, commercially available equipment, so the engineering task is careful selection and integration for this site.",
         parts: [
           { label: "Intake", detail: "Screened lake intake at a location set by the field assessment" },
           { label: "Lift", detail: "A single solar-powered lift to the head of a gravity treatment train" },
@@ -100,7 +101,9 @@ export const projects: Project[] = [
           { state: "done", text: "Four Youth Ambassadors selected" },
           { state: "done", text: "Initial field assessment of the project area and Lake Mirayi" },
           { state: "done", text: "Preliminary system concept and technical report (v1.1)" },
-          { state: "underway", text: "Lake Mirayi water-quality testing with RICA" },
+          { state: "done", text: "SAquaSolve Rwanda founded at its general assembly (20 August 2026)" },
+          { state: "underway", text: "NGO registration in Rwanda" },
+          { state: "coordinating", text: "Lake Mirayi laboratory testing with RICA: testing scope quoted (September 2026); samples and results not yet reported" },
           { state: "next", text: "Engineering design, approvals with local authorities, and resource mobilization" },
           { state: "not-started", text: "Construction and operation" },
         ],
@@ -108,7 +111,7 @@ export const projects: Project[] = [
       {
         type: "steps",
         title: "2026–27 plan",
-        intro: "Six workstreams from our annual action plan. This is a plan with a planned budget of $145,000. That funding isn’t secured.",
+        intro: "Six workstreams from our 2026–27 action plan. This is a plan; its funding isn’t secured.",
         steps: [
           { label: "Testing", title: "Water quality & community assessment", body: "Four rounds of lake sampling, lab testing, and seasonal monitoring." },
           { label: "Engineering", title: "Infrastructure & engineering development", body: "Hydraulic and intake design, treatment selection, solar and pumping design, storage and distribution, site planning, supplier quotes." },
@@ -152,11 +155,12 @@ export const projects: Project[] = [
     related: { projects: ["saquasolve-website"], experience: ["uwp"] },
     needs: [
       "Lake Mirayi field photos taken by Sonia (current lake photo is by Nadine Uwizeyimana)",
-      "Water-quality results from RICA when released",
+      "Water-quality results from RICA when released (update the status row when samples are collected and when results arrive)",
       "Service-area map",
       "Short workshop video (five clips exist in Media/; need review and consent check)",
       "Which photos show Sonia (for captions)",
       "What would you do differently? (case-study question 11)",
+      "Confirm title wording: legal documents say President / Legal Representative and “one of the founding members”; LinkedIn and the technical report say Founder",
     ],
   },
   {
@@ -182,7 +186,7 @@ export const projects: Project[] = [
         type: "stats",
         stats: [
           { value: "3,500+", label: "bridges in the statewide inventory the team manages" },
-          { value: "16", label: "projects reviewed for bridge treatment identification" },
+          { value: "16", label: "projects I reviewed for bridge treatment identification" },
           { value: "3", label: "record systems cross-checked (SIMSA, OnBase, OTIS)" },
         ],
       },
@@ -242,6 +246,7 @@ export const projects: Project[] = [
       "Any CDOT-approved visuals of your work (no internal data)",
       "Recommendation from a CDOT supervisor",
       "Confirm internship end date",
+      "Confirm the 16 projects were yours (not split with other interns)",
     ],
   },
   {
@@ -450,7 +455,8 @@ export const projects: Project[] = [
       "Exact location(s) and dates of the workshops",
       "How the 300+ was counted (attendance across sessions?)",
       "Copy of the Community Action Project certificate image",
-      "Confirm whether the $500 funding and weekly school workshops (Oct 2025 resume) belong to this project or to later AquaSolve work",
+      "Confirm whether the $500 funding and weekly school workshops (Mar–Oct 2025 resumes) belong to this project",
+      "Confirm these 2023 workshops are the “AquaSolve Rwanda” education initiative (Sep 2023 – ) described in your 2024–25 resumes",
     ],
   },
   {
@@ -499,7 +505,7 @@ export const projects: Project[] = [
     challenge: "Cutting weight without losing stiffness or stability.",
     summary: "Modeling wing, tail, and fuselage structures in Siemens NX, comparing configurations with FEA, and building laser-cut prototypes across 15+ iterations. The team cut airframe weight by about 10%.",
     story: [
-      { type: "stats", stats: [{ value: "15+", label: "design iterations" }, { value: "~10%", label: "airframe weight reduction (team result)" }] },
+      { type: "stats", stats: [{ value: "15+", label: "design iterations (team)" }, { value: "~10%", label: "airframe weight reduction (team result)" }] },
       { type: "list", title: "What I do", items: [
         "Model wing, tail, and fuselage structures in Siemens NX.",
         "Use FEA to compare wing and tail configurations for stress and stability.",
@@ -566,15 +572,15 @@ export const projects: Project[] = [
     links: [],
     challenge: "Saving weight without crossing buckling or deflection limits.",
     learned: "Every member you lighten changes the load path somewhere else.",
-    summary: "Designed and analyzed three truss configurations for a 52 m timber bridge in Dr.Frame, checking buckling, compressive stress, and a displacement limit under 5 cm. The final design came out 34% lighter.",
+    summary: "Designed and analyzed three truss configurations for a 52 m timber bridge in Dr.Frame, checking buckling, compressive stress, and a displacement limit under 5 cm. The optimized design was 34% lighter than my starting design.",
     story: [
-      { type: "stats", stats: [{ value: "52 m", label: "span" }, { value: "3", label: "truss designs compared" }, { value: "< 5 cm", label: "displacement limit" }, { value: "34%", label: "lighter final design" }] },
+      { type: "stats", stats: [{ value: "52 m", label: "span" }, { value: "3", label: "truss designs compared" }, { value: "< 5 cm", label: "displacement limit" }, { value: "34%", label: "lighter than the starting design" }] },
       { type: "list", title: "Constraints", items: ["Member buckling limits", "Compressive stress limits", "Maximum displacement under 5 cm", "Balanced load paths"] },
       { type: "text", title: "Approach", body: ["I modeled and simulated three truss designs in Dr.Frame, then iterated member sizes on the best one to minimize weight while keeping stiffness and every limit satisfied."] },
     ],
     artifacts: [],
     bench: { note: "First-year course, first real optimization problem.", sticker: "ME 104" },
-    needs: ["Dr.Frame screenshots or final drawing", "Calculation sheet or report", "Baseline the 34% is measured against"],
+    needs: ["Dr.Frame screenshots or final drawing", "Calculation sheet or report", "Confirm the 34% baseline is your starting design", "Individual or team project?"],
   },
   {
     slug: "bowl-voyage",
