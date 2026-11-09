@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { getProject, publicProjects } from "@/content/projects";
 import { publicExperience } from "@/content/experience";
-import { StatusPill } from "@/components/status-pill";
-import { Evidence } from "@/components/evidence";
-import { Story, blockId } from "@/components/work/story";
-import { DataPlate } from "@/components/work/project-cards";
+import { Story } from "@/components/work/story";
+import { ProjectCover } from "@/components/work/project-card";
+import { Tag } from "@/components/section";
 
 export function generateStaticParams() {
   return publicProjects.map((p) => ({ slug: p.slug }));
@@ -20,9 +18,9 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   if (!p) return {};
   return {
     title: p.title,
-    description: `${p.tagline} ${p.summary}`.slice(0, 300),
+    description: `${p.kind} ${p.outcome}.`.slice(0, 300),
     alternates: { canonical: `/work/${p.slug}` },
-    openGraph: { title: p.title, description: p.tagline, url: `/work/${p.slug}`, images: p.cover ? [{ url: p.cover.src, alt: p.cover.alt }] : undefined },
+    openGraph: { title: p.title, description: p.kind, url: `/work/${p.slug}` },
   };
 }
 
@@ -30,76 +28,106 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) notFound();
-  const idx = publicProjects.findIndex((x) => x.slug === p.slug);
-  const next = publicProjects[(idx + 1) % publicProjects.length];
-  const relatedProjects = (p.related?.projects ?? []).map((s) => getProject(s)).filter(Boolean);
+  const main = publicProjects.filter((x) => x.prominence === p.prominence);
+  const next = main[(main.findIndex((x) => x.slug === p.slug) + 1) % main.length];
+  const relatedProjects = (p.related?.projects ?? []).map((s) => getProject(s)).filter((x) => x !== undefined);
   const relatedExp = publicExperience.filter((e) => p.related?.experience?.includes(e.id));
-  const toc = (p.story ?? []).map((b) => ({ id: blockId(b), title: "title" in b ? b.title : undefined })).filter((t) => t.id && t.title);
-  const tierLabel = p.tier === "flagship" ? "Flagship" : p.tier === "supporting" ? "Supporting" : "Archive";
 
   return (
     <article>
-      <header className="relative overflow-hidden border-b border-line">
-        <div className="drafting-grid pointer-events-none absolute inset-0" aria-hidden />
-        <div className="relative mx-auto max-w-6xl px-5 pb-10 pt-10 sm:px-8">
-          <Link href="/work" className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
-            <ArrowLeft className="h-4 w-4" aria-hidden /> All work
-          </Link>
-          <div className="mt-8 flex flex-wrap items-center gap-2">
-            <span className="station">Case study · {tierLabel} · {p.year}</span>
-            <StatusPill status={p.status} label={p.statusLabel} />
-          </div>
-          <h1 className="mt-4 max-w-4xl text-[clamp(2.4rem,6vw,4.4rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">{p.title}</h1>
-          <p className="mt-4 max-w-2xl font-display text-xl font-medium leading-snug text-ink-2 sm:text-2xl">{p.tagline}</p>
-          <dl className="mt-8 grid grid-cols-[minmax(0,1fr)] gap-px overflow-hidden rounded-2xl border border-line bg-line text-sm sm:grid-cols-3">
-            <div className="bg-surface p-4"><dt className="station !text-ink-3">My role</dt><dd className="mt-1">{p.role}{p.team ? <span className="mt-1 block text-ink-2">{p.team}</span> : null}</dd></div>
-            <div className="bg-surface p-4"><dt className="station !text-ink-3">Tools & methods</dt><dd className="mt-1">{p.tools.join(", ")}</dd></div>
-            <div className="bg-surface p-4">
-              <dt className="station !text-ink-3">Links</dt>
-              <dd className="mt-1 flex flex-col gap-1">
-                {p.links.length ? p.links.map((l) => (
-                  <a key={l.href} href={l.href} target="_blank" rel="noopener" className="inline-flex w-fit items-center gap-1 underline decoration-line-strong underline-offset-4 hover:decoration-survey">{l.label} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>
-                )) : <span className="text-ink-3">Coursework, proprietary, or private repository</span>}
-              </dd>
+      <header className="mx-auto max-w-6xl px-5 pt-10 sm:px-8">
+        <Link href="/work" className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
+          <ArrowLeft className="h-4 w-4" aria-hidden /> All work
+        </Link>
+        <div className="mt-8 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start">
+          <div>
+            <p className="label">{p.area}</p>
+            <h1 className="mt-3 text-[clamp(2.4rem,6vw,4rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">{p.title}</h1>
+            <p className="mt-4 max-w-[46ch] font-display text-xl font-medium leading-snug text-ink-2 sm:text-[1.4rem]">{p.kind}</p>
+
+            <div className="mt-7 rounded-xl bg-coral-soft/70 px-5 py-4">
+              <p className="label !text-coral-ink">Key outcome</p>
+              <p className="mt-1 text-[1.08rem] font-semibold leading-snug">{p.outcome}</p>
             </div>
-          </dl>
+
+            <dl className="mt-7 grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-4 text-[0.98rem] sm:grid-cols-2">
+              <div><dt className="label">My role</dt><dd className="mt-0.5">{p.role}</dd></div>
+              <div><dt className="label">Dates</dt><dd className="mt-0.5">{p.dates}</dd></div>
+              {p.team && <div className="sm:col-span-2"><dt className="label">Team</dt><dd className="mt-0.5 text-ink-2">{p.team}</dd></div>}
+              <div><dt className="label">Status</dt><dd className="mt-0.5">{p.status}</dd></div>
+            </dl>
+
+            {p.links.length > 0 && (
+              <ul className="mt-7 flex flex-wrap gap-2.5">
+                {p.links.map((l, i) => (
+                  <li key={l.href}>
+                    <a href={l.href} target="_blank" rel="noopener" className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.95rem] font-semibold transition-colors ${i === 0 ? "bg-ink text-bg hover:bg-teal-strong" : "border border-line-strong hover:border-ink"}`}>
+                      {l.label} <ArrowUpRight className="h-4 w-4" aria-hidden />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <ProjectCover p={p} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 540px, 100vw" priority />
         </div>
       </header>
 
-      <div className="mx-auto max-w-6xl px-5 pb-24 pt-10 sm:px-8">
-        <div className="relative aspect-[16/8] overflow-hidden rounded-3xl border border-line bg-surface-2">
-          {p.cover ? <Image src={p.cover.src} alt={p.cover.alt} fill priority sizes="(min-width: 1152px) 1088px, 100vw" className="object-cover object-top" /> : <DataPlate p={p} />}
+      {p.facts && (
+        <div className="mx-auto max-w-6xl px-5 pt-14 sm:px-8">
+          <dl className="grid grid-cols-2 gap-x-8 gap-y-6 border-y border-line py-7 md:grid-cols-4">
+            {p.facts.map((f) => (
+              <div key={f.label}>
+                <dt className="sr-only">{f.label}</dt>
+                <dd className="font-display text-[2.2rem] font-extrabold leading-none tracking-tight text-teal">{f.value}</dd>
+                <dd className="mt-2 text-[0.95rem] leading-snug text-ink-2">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
+      )}
 
-        <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_15rem]">
-          <div className="min-w-0">
-            {p.story ? <Story blocks={p.story} /> : <p className="text-lg text-ink-2">{p.summary}</p>}
-            {p.artifacts && p.artifacts.length > 0 && (
-              <section aria-label="Evidence" className="mt-14"><Evidence items={p.artifacts} /></section>
-            )}
-          </div>
-          <aside className="hidden lg:block">
-            <nav aria-label="On this page" className="sticky top-28 space-y-2 text-sm text-ink-2">
-              <p className="station !text-ink-3">On this sheet</p>
-              {toc.map((t) => <a key={t.id} href={`#${t.id}`} className="block hover:text-ink">{t.title}</a>)}
-              {(relatedProjects.length > 0 || relatedExp.length > 0) && (
-                <div className="mt-6 border-t border-line pt-4">
-                  <p className="station !text-ink-3">Connected to</p>
-                  {relatedProjects.map((r) => r && <Link key={r.slug} href={`/work/${r.slug}`} className="mt-2 block hover:text-ink">{r.title}</Link>)}
-                  {relatedExp.map((e) => <Link key={e.id} href={`/experience#${e.id}`} className="mt-2 block hover:text-ink">{e.org}</Link>)}
-                </div>
-              )}
-            </nav>
-          </aside>
-        </div>
+      <div className="mx-auto max-w-6xl px-5 pb-24 pt-20 sm:px-8">
+        {p.story && <Story blocks={p.story} />}
 
-        <Link href={`/work/${next.slug}`} className="group mt-20 flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-6 hover:border-line-strong">
+        <div className="mt-20 grid grid-cols-[minmax(0,1fr)] gap-10 border-t border-line pt-10 md:grid-cols-3">
           <div>
-            <p className="station !text-ink-3">Next sheet</p>
-            <p className="mt-1 text-xl font-bold group-hover:text-lake">{next.title}</p>
+            <h2 className="label">Tools & methods</h2>
+            <div className="mt-3 flex flex-wrap gap-1.5">{p.tools.map((t) => <Tag key={t}>{t}</Tag>)}</div>
           </div>
-          <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden />
-        </Link>
+          {p.documents && p.documents.length > 0 && (
+            <details className="group">
+              <summary className="flex cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden">
+                <h2 className="label">Supporting documents ({p.documents.length})</h2>
+                <ChevronDown className="h-4 w-4 text-ink-3 transition-transform group-open:rotate-180" aria-hidden />
+              </summary>
+              <ul className="mt-3 space-y-2">
+                {p.documents.map((d) => (
+                  <li key={d.href}><a href={d.href} target={d.href.startsWith("http") ? "_blank" : undefined} rel="noopener" className="ulink">{d.label}</a></li>
+                ))}
+              </ul>
+            </details>
+          )}
+          {(relatedProjects.length > 0 || relatedExp.length > 0) && (
+            <div>
+              <h2 className="label">Related</h2>
+              <ul className="mt-3 space-y-2">
+                {relatedProjects.map((r) => <li key={r.slug}><Link href={`/work/${r.slug}`} className="ulink">{r.title}</Link></li>)}
+                {relatedExp.map((e) => <li key={e.id}><Link href={`/experience#${e.id}`} className="ulink">{e.org}</Link></li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {next && next.slug !== p.slug && (
+          <Link href={`/work/${next.slug}`} className="group mt-16 flex items-center justify-between gap-4 border-y border-line py-6">
+            <span>
+              <span className="label">Next project</span>
+              <span className="mt-1 block font-display text-2xl font-extrabold group-hover:text-teal">{next.title}</span>
+            </span>
+            <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" aria-hidden />
+          </Link>
+        )}
       </div>
     </article>
   );

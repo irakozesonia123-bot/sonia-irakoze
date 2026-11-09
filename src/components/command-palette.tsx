@@ -2,14 +2,14 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowUpRight, FileText, Filter, Hash, Mail, MapPin, Moon, Search, Shuffle, Sparkles } from "lucide-react";
+import { ArrowUpRight, FileText, Filter, Hash, Mail, Moon, Search, Shuffle, Sparkles } from "lucide-react";
 import { nav, profile } from "@/content/profile";
 import { publicProjects } from "@/content/projects";
 
-type Icon = "hash" | "file" | "link" | "mail" | "theme" | "filter" | "pin" | "shuffle" | "spark";
+type Icon = "hash" | "file" | "link" | "mail" | "theme" | "filter" | "shuffle" | "spark";
 type Item = { id: string; label: string; group: string; hint?: string; icon: Icon; keywords?: string; secret?: boolean; keepOpen?: boolean; run: () => void };
 
-const icons: Record<Icon, typeof Hash> = { hash: Hash, file: FileText, link: ArrowUpRight, mail: Mail, theme: Moon, filter: Filter, pin: MapPin, shuffle: Shuffle, spark: Sparkles };
+const icons: Record<Icon, typeof Hash> = { hash: Hash, file: FileText, link: ArrowUpRight, mail: Mail, theme: Moon, filter: Filter, shuffle: Shuffle, spark: Sparkles };
 
 export function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   const router = useRouter();
@@ -22,29 +22,19 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   const items = useMemo<Item[]>(() => {
     const go = (path: string) => () => router.push(path);
     const ext = (url: string) => () => window.open(url, "_blank", "noopener");
-    // Full navigation so pages that read ?filter= / ?place= on load always pick it up
+    // Full navigation so the Work page reads ?filter= on load
     const hard = (path: string) => () => window.location.assign(path);
-    const show = (label: string, filter: string, kw: string): Item => ({ id: `f-${filter}`, label, group: "Show me", icon: "filter", keywords: kw, run: hard(`/work?filter=${encodeURIComponent(filter)}#archive`) });
-    const archive = publicProjects.filter((p) => p.tier !== "flagship");
+    const show = (label: string, filter: string, kw: string): Item => ({ id: `f-${filter}`, label, group: "Show me", icon: "filter", keywords: kw, run: hard(`/work?filter=${encodeURIComponent(filter)}`) });
+    const more = publicProjects.filter((p) => p.prominence === "more");
     return [
-      { id: "home", label: "Home", group: "Pages", hint: "S-01", icon: "hash", run: go("/") },
-      ...nav.map((n) => ({ id: `n-${n.href}`, label: n.label, group: "Pages", hint: n.sheet, icon: "hash" as const, keywords: n.blurb, run: go(n.href) })),
-      show("Show flagship projects", "Flagship", "best strongest featured"),
-      show("Show software projects", "Software", "code web react java"),
-      show("Show engineering projects", "Mechanical", "mechanical cad nx structures"),
-      show("Show water projects", "Water", "saquasolve rwanda lake"),
-      show("Show aerospace projects", "Aerospace", "cubesat aero plane satellite"),
-      { id: "p-rwanda", label: "Take me to Rwanda", group: "Places", icon: "pin", keywords: "gashora kigali lake mirayi map", run: hard("/journey?place=gashora#map") },
-      { id: "p-colorado", label: "Take me to Colorado", group: "Places", icon: "pin", keywords: "denver cdot map", run: hard("/journey?place=denver#map") },
-      { id: "p-rochester", label: "Take me to Rochester", group: "Places", icon: "pin", keywords: "university map", run: hard("/journey?place=rochester#map") },
-      ...publicProjects.map((p) => ({ id: `w-${p.slug}`, label: p.title, group: "Projects", hint: p.year, icon: "file" as const, keywords: `${p.categories.join(" ")} ${p.tools.join(" ")}`, run: go(`/work/${p.slug}`) })),
-      {
-        id: "a-building", label: "What is Sonia building right now?", group: "Ask", icon: "spark", keepOpen: true, keywords: "current now",
-        run: () => setNote("CubeSat and Aero Design structures at Rochester, CropSight’s knowledge base at AGR Sensors, and SAquaSolve’s Lake Mirayi water system, now at the lab-testing stage before engineering design."),
-      },
-      { id: "a-random", label: "Show me something unexpected", group: "Ask", icon: "shuffle", keywords: "random surprise", run: () => { const p = archive[Math.floor(Math.random() * archive.length)]; router.push(`/work/${p.slug}`); } },
+      { id: "home", label: "Home", group: "Pages", icon: "hash", run: go("/") },
+      ...nav.map((n) => ({ id: `n-${n.href}`, label: n.label, group: "Pages", icon: "hash" as const, run: go(n.href) })),
+      show("Engineering projects", "Engineering", "mechanical cad structures aerospace water bridge"),
+      show("Software & data projects", "Software & Data", "code web react python sql"),
+      show("Ventures & community projects", "Ventures & Community", "startup nonprofit saquasolve hackathon"),
+      ...publicProjects.map((p) => ({ id: `w-${p.slug}`, label: p.title, group: "Projects", hint: p.dates, icon: "file" as const, keywords: `${p.area} ${p.tools.join(" ")}`, run: go(`/work/${p.slug}`) })),
+      { id: "a-random", label: "Show me something unexpected", group: "Ask", icon: "shuffle", keywords: "random surprise", run: () => { const p = more[Math.floor(Math.random() * more.length)]; router.push(`/work/${p.slug}`); } },
       { id: "a-email", label: "Copy email address", group: "Contact", hint: profile.email, icon: "mail", keepOpen: true, keywords: "contact sonia", run: () => { navigator.clipboard?.writeText(profile.email).then(() => setNote("Email copied.")).catch(() => setNote(profile.email)); } },
-      { id: "a-contact", label: "Contact Sonia", group: "Contact", icon: "mail", keywords: "email hire talk", run: go("/#contact") },
       { id: "a-resume", label: "Open resume (PDF)", group: "Contact", icon: "file", run: ext(profile.links.resume) },
       { id: "a-linkedin", label: "LinkedIn", group: "Contact", icon: "link", run: ext(profile.links.linkedin) },
       { id: "a-github", label: "GitHub", group: "Contact", icon: "link", run: ext(profile.links.github) },
@@ -113,7 +103,7 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
           value={query}
           onChange={(e) => { setQuery(e.target.value); setIndex(0); setNote(""); }}
           onKeyDown={onKeyDown}
-          placeholder="Try “software”, “Rwanda”, or “unexpected”…"
+          placeholder="Search projects and pages…"
           role="combobox"
           aria-expanded="true"
           aria-controls="cmdk-list"
@@ -124,14 +114,14 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
       </div>
       {note && <p className="border-b border-line bg-surface-2 px-4 py-3 text-[0.95rem]" role="status">{note}</p>}
       <ul id="cmdk-list" role="listbox" className="max-h-[52vh] overflow-y-auto p-2">
-        {filtered.length === 0 && <li className="px-3 py-6 text-center text-ink-3">Nothing on this survey. Try another word.</li>}
+        {filtered.length === 0 && <li className="px-3 py-6 text-center text-ink-3">No matches. Try another word.</li>}
         {filtered.map((item, i) => {
           const header = item.group !== lastGroup ? item.group : null;
           lastGroup = item.group;
           const I = icons[item.icon];
           return (
             <li key={item.id} role="presentation">
-              {header && <p className="station px-3 pb-1 pt-3 !text-ink-3">{header}</p>}
+              {header && <p className="label px-3 pb-1 pt-3">{header}</p>}
               <div
                 id={`cmdk-${item.id}`}
                 role="option"

@@ -15,8 +15,8 @@ export function CopyEmail({ email }: { email: string }) {
     setTimeout(() => setState("idle"), 2000);
   };
   return (
-    <button type="button" onClick={copy} className="inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-sm font-semibold transition-colors hover:border-ink">
-      {state === "copied" ? <Check className="h-4 w-4 text-ok" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
+    <button type="button" onClick={copy} className="inline-flex items-center gap-1.5 rounded-full border border-line-strong px-3.5 py-1.5 text-sm font-semibold transition-colors hover:border-ink">
+      {state === "copied" ? <Check className="h-4 w-4 text-teal" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
       <span aria-live="polite">{state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : "Copy"}</span>
     </button>
   );

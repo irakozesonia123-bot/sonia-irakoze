@@ -16,10 +16,10 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch between light and dark theme"
-      className="grid h-9 w-9 place-items-center rounded-lg border border-line text-ink-2 transition-colors hover:border-line-strong hover:text-ink"
+      className="grid h-10 w-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink"
     >
-      <Sun className="hidden h-4 w-4 dark:block" aria-hidden />
-      <Moon className="h-4 w-4 dark:hidden" aria-hidden />
+      <Sun className="hidden h-[18px] w-[18px] dark:block" aria-hidden />
+      <Moon className="h-[18px] w-[18px] dark:hidden" aria-hidden />
     </button>
   );
 }
