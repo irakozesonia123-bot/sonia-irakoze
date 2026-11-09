@@ -7,7 +7,7 @@ export const profile = {
   school: "University of Rochester",
   classOf: "Class of 2028",
   intro:
-    "I’m from Kigali, Rwanda, and I study mechanical engineering because I like building things people depend on. Right now that means a water project on the lake where I went to school, aircraft structures with my design team, and software that makes engineering information easier to use.",
+    "Born and raised in Kigali, Rwanda, I’m a mechanical engineering student at the University of Rochester, founder of SAquaSolve Rwanda, and an artist. Engineering, creativity, faith, and service shape how I approach my work and the life I’m building. Thank you for being here. I’m excited to share my work with you.",
   location: "Rochester, NY",
   origin: "Kigali, Rwanda",
   lookingFor:
@@ -57,9 +57,9 @@ export const education: Education[] = [
 ];
 
 export const skills: SkillGroup[] = [
-  { title: "Mechanical design & analysis", items: ["Siemens NX", "Fusion 360", "FEA", "GD&T", "Engineering drawings", "Dr.Frame", "OpenRoads Designer", "ProjectWise"] },
-  { title: "Fabrication", items: ["Lathe", "Knee mill", "Drill press", "Sheet metal", "3D printing", "Laser cutting"] },
-  { title: "Software & data", items: ["Python", "SQL (SSMS)", "MATLAB", "TypeScript", "React", "Next.js", "Java", "Git", "JSON Schema"] },
-  { title: "Design & communication", items: ["Adobe InDesign", "Illustrator", "Figma", "Canva", "Grant writing", "Technical reports"] },
+  { title: "Mechanical design & analysis", items: ["Siemens NX", "Fusion 360", "FEA", "GD&T", "Engineering drawings", "Dr.Frame", "OpenRoads Designer", "ProjectWise"], seenIn: [{ label: "Aero Design", href: "/work/aero-design" }, { label: "CubeSat", href: "/work/cubesat-structures" }, { label: "Timber truss", href: "/work/timber-truss-bridge" }, { label: "CDOT bridge work", href: "/work/cdot-bridge-asset-management" }] },
+  { title: "Fabrication", items: ["Lathe", "Knee mill", "Drill press", "Sheet metal", "3D printing", "Laser cutting"], seenIn: [{ label: "Aero Design prototypes", href: "/work/aero-design" }] },
+  { title: "Software & data", items: ["Python", "SQL (SSMS)", "MATLAB", "TypeScript", "React", "Next.js", "Java", "Git", "JSON Schema"], seenIn: [{ label: "CDOT Compass", href: "/work/cdot-compass" }, { label: "CropSight", href: "/work/cropsight-knowledge-base" }, { label: "saquasolverwanda.org", href: "/work/saquasolve-website" }] },
+  { title: "Design & communication", items: ["Adobe InDesign", "Illustrator", "Figma", "Canva", "Grant writing", "Technical reports"], seenIn: [{ label: "Blake Quarterly cover", href: "/work/blake-quarterly-cover" }, { label: "SAquaSolve", href: "/work/saquasolve-rwanda" }] },
   { title: "Languages", items: ["Kinyarwanda (native)", "English (fluent)", "French (intermediate)"] },
 ];

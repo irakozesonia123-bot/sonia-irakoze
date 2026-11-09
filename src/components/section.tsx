@@ -36,7 +36,7 @@ export function Section({ id, title, intro, children, action, className = "", to
 export function PageHeader({ title, intro, children, eyebrow }: { title: ReactNode; intro: string; children?: ReactNode; eyebrow?: string }) {
   return (
     <header className="relative overflow-hidden border-b border-line bg-gradient-to-br from-rose-soft/60 via-bg to-lav/70">
-      <Bouquet className="pointer-events-none absolute -right-6 -top-4 h-44 w-44 opacity-70 sm:right-6 sm:h-56 sm:w-56" />
+      <Bouquet className="pointer-events-none absolute right-6 top-0 hidden h-56 w-56 opacity-70 md:block" />
       <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-14 sm:px-8 sm:pt-20">
         {eyebrow ? <p className="label">{eyebrow}</p> : <Sprig />}
         <h1 className="mt-3 max-w-[18ch] text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.02em]">{title}</h1>

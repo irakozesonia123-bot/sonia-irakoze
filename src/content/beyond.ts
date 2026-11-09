@@ -21,7 +21,7 @@ export const eagle = {
 
 export type Artwork = Figure & { title: string; note: string; visibility: "public" | "slot" };
 
-/** The browsable art stack. Add paintings as you send them; slots stay off the live site. */
+/** The art collection: painting, sketching, and design. Slots stay off the live site. */
 export const artworks: Artwork[] = [
   {
     title: "Blake Quarterly cover",
@@ -43,19 +43,19 @@ export const artworks: Artwork[] = [
     visibility: "slot",
   },
   {
-    title: "Another painting",
+    title: "A sketch",
     note: "Title, year, and medium.",
-    src: "/images/beyond/painting-2.jpg",
-    alt: "Another of Sonia’s paintings",
+    src: "/images/beyond/sketch-1.jpg",
+    alt: "One of Sonia’s sketches",
     fit: "contain",
     tag: "My work",
-    want: "A second painting or sketch.",
+    want: "A scan or photo of a sketch.",
     visibility: "slot",
   },
 ];
 
-/** The photo strip: movement and music. `hue` colors the illustrated stand-in. */
-export const strip: { id: string; label: string; line: string; hue: "rose" | "lav" | "sky"; figure: Figure }[] = [
+/** Movement: annotated photographs. Leave `line` empty until you supply your own words. */
+export const movement: { id: string; label: string; line?: string; hue: "rose" | "lav" | "sky"; figure: Figure }[] = [
   {
     id: "rowing",
     label: "Rowing",
@@ -68,33 +68,41 @@ export const strip: { id: string; label: string; line: string; hue: "rose" | "la
     label: "Shotokan karate",
     line: "Something I started in high school at Gashora.",
     hue: "rose",
-    figure: { src: "/images/beyond/karate.jpg", alt: "Sonia in a karate gi", want: "A karate photo (training, a kata, or your belt)." },
+    figure: { src: "/images/beyond/karate.jpg", alt: "Sonia in a karate gi", want: "A karate photo: training, teaching, a kata, or your belt." },
   },
   {
-    id: "choir",
-    label: "Singing",
-    line: "I sing in my church choir, where I also serve as a deaconess.",
+    id: "dance",
+    label: "Dance and Rwandan culture",
     hue: "lav",
-    figure: { src: "/images/beyond/choir.jpg", alt: "Sonia singing with her church choir", want: "A choir photo, with the choir’s permission." },
+    figure: { src: "/images/beyond/dance.jpg", alt: "Sonia dancing", want: "A dance photo, ideally Rwandan dance or a cultural event." },
   },
 ];
 
-/** The notebook: reading and writing. Leave `reading` empty until you choose what to share. */
-export const notebook = {
+/** Singing and faith. */
+export const music = {
+  line: "I sing in my church choir, where I also serve as a deaconess.",
+  figure: { src: "/images/beyond/choir.jpg", alt: "Sonia singing with her church choir", want: "A choir photo, with the choir’s permission." } as Figure,
+};
+
+/** Words: writing and speaking. Leave `reading` empty until you choose what to share. */
+export const words = {
   writing: "Essays took me further than I expected: to Arusha for the East African Community prize, and to a Silver Award in the Queen’s Commonwealth Essay Competition. Now most of my writing is grant proposals and technical reports.",
+  speaking: [
+    { when: "2022", text: "Named “Miss Creativity” for the most outstanding speech creativity at an inter-club competition, Gashora Girls Academy Gavel Club." },
+    { when: "2023", text: "Gave the TechGirls information session at Gashora Girls Academy, two months after the exchange." },
+    { when: "2026", text: "Presented the problem and market slides in MarketBite’s Heist Hackathon pitch." },
+  ],
+  speakingFigure: { src: "/images/techgirls-info-session.jpg", alt: "Sonia speaking to a room of students at Gashora Girls Academy", caption: "TechGirls information session, Gashora, October 2023.", tag: "Event", pos: "60% 40%" } as Figure,
   reading: [] as { title: string; author: string; note?: string }[],
 };
 
-/** Expandable notes on Rwanda and mentoring. */
-export const notes: { id: string; title: string; body: string; figure?: Figure }[] = [
-  {
-    id: "mentoring",
-    title: "Mentoring, and staying connected to home",
-    body: "Two months after TechGirls, I went back to Gashora Girls Academy to walk younger students through the application. Since 2024 I have mentored high school students in Rwanda through their university applications with NextGen4All.",
-    figure: { src: "/images/techgirls-info-session.jpg", alt: "Sonia speaking to a room of students at Gashora Girls Academy", caption: "TechGirls info session, Gashora, October 2023.", tag: "Event", pos: "60% 40%" },
-  },
+/** Service, then and now. Historical items stay historical; add Shoes For Love and SOS tutoring once described. */
+export const service: { when: string; text: string; href?: string }[] = [
+  { when: "2023", text: "Water-education workshops in Gashora through my TechGirls Community Action Project, reaching 300+ residents.", href: "/work/techgirls-community-action-project" },
+  { when: "2024 –", text: "College-access mentoring for high school students in Rwanda with NextGen4All." },
+  { when: "2025 –", text: "Math and science tutoring at the Boys & Girls Club of Rochester, and mentoring new international students." },
+  { when: "2026 –", text: "Founding SAquaSolve Rwanda, including its Youth Ambassador program.", href: "/work/saquasolve-rwanda" },
 ];
-
 /** An example day: not a fixed routine. Edit freely. */
 export const day: { when: string; title: string; body: string; icon: "sunrise" | "book" | "laptop" | "wrench" | "moon" }[] = [
   { when: "Early", title: "Practice", body: "An early start, before the day fills up.", icon: "sunrise" },

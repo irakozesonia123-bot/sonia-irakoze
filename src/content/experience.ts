@@ -18,7 +18,7 @@ export const experience: Experience[] = [
       "Wrote SQL queries on the SIMSA bridge database and reconciled records against OnBase, OTIS, and project files",
       "Built CDOT Compass, named Headquarters Division Winner for Outstanding AI Improvement in the 2026 CDOT Innovations Challenge",
     ],
-    tools: ["OpenRoads Designer", "ProjectWise", "SQL", "SNBI"],
+    tools: ["OpenRoads Designer", "ProjectWise", "SQL (SSMS)", "SIMSA", "SNBI"],
     relatedProjects: ["cdot-bridge-asset-management", "cdot-compass"],
   },
   {
@@ -49,7 +49,7 @@ export const experience: Experience[] = [
     preview: true,
     roles: [
       { title: "Level 2 Training Coordinator (Student Lead)", start: "Jan 2026", end: "Present", note: "Promoted" },
-      { title: "Help Desk Technician", start: "Jan 2025", end: "Jun 2026" },
+      { title: "Help Desk Technician", start: "Jan 2025", end: "Jan 2026" },
     ],
     summary: "Started on the help desk; a year later, promoted to train new staff and take escalated cases.",
     highlights: [
@@ -68,7 +68,7 @@ export const experience: Experience[] = [
     current: false,
     preview: true,
     roles: [{ title: "Development Intern", start: "Jun 2025", end: "Aug 2025" }],
-    summary: "Fundraising, donor data, and communications for a nonprofit building clean-water infrastructure in Uganda.",
+    summary: "Supported a clean-water nonprofit’s projects in Uganda from its Lima, New York office: fundraising, donor data, and communications.",
     highlights: [
       "Contacted 100+ donors and corporate sponsors, helping raise $5K+",
       "Cleaned donor records and ran communications for the annual golf tournament",
@@ -122,11 +122,11 @@ export const experience: Experience[] = [
 
 /** SAquaSolve leadership lives on its case study; this list is everything else. */
 export const leadership: Leadership[] = [
-  { id: "saquasolve", org: "SAquaSolve Rwanda", role: "Founder; President & Legal Representative", how: "Founder", start: "2023", end: "Present", visibility: "public", detail: "Lead the organization’s strategy, governance, budget, fundraising, and community programs." },
+  { id: "saquasolve", org: "SAquaSolve Rwanda", role: "Founder; President & Legal Representative", how: "Founder", start: "2023", end: "Present", visibility: "public", detail: "Lead the organization’s strategy, governance, budget, fundraising, and community programs.", project: "saquasolve-rwanda" },
   { id: "foreverbetter", org: "For Ever Better: The Campaign for the University of Rochester", role: "Campaign Steering Committee Member; Student Alumni Ambassadors Campaign Chair", how: "Appointed", start: "Sep 2025", end: "Present", visibility: "public", detail: "One of two students selected for the university campaign’s steering committee." },
   { id: "nsbe-pubs", org: "NSBE Region 1, Upstate Zone", role: "Publications Chair", how: "Elected", start: "May 2026", end: "Present", visibility: "public", detail: "Visual identity, a shared Canva design system for chapters, and promotion for zone conferences." },
   { id: "nsbe-senator", org: "NSBE, University of Rochester chapter", role: "Chapter Senator", how: "Elected", start: "Apr 2025", end: "Jun 2026", visibility: "public", detail: "Represented the chapter in national governance and at the 2026 convention." },
-  { id: "unibooth", org: "UniBooth", role: "Co-founder, COO & CFO", how: "Co-founder", start: "Sep 2025", end: "Present", visibility: "public", detail: "Operations and financial planning for a student photo-booth startup." },
+  { id: "unibooth", org: "UniBooth", role: "Co-founder, COO & CFO", how: "Co-founder", start: "Sep 2025", end: "Present", visibility: "public", detail: "Operations and financial planning for a student photo-booth startup.", project: "unibooth" },
   { id: "techgirls-aac", org: "TechGirls Alumnae Advisory Council (U.S. Department of State)", role: "Core Council Member", how: "Selected", start: "2024", end: "2025", visibility: "public", detail: "Peer mentoring and alumnae events across 25+ countries." },
   { id: "saa", org: "Student Alumni Ambassadors, University of Rochester", role: "Ambassador", how: "Selected", start: "Mar 2025", end: "Present", visibility: "public", detail: "Alumni events including Meliora Weekend." },
   { id: "iso-mentor", org: "International Services Office, University of Rochester", role: "International Student Mentor", how: "Mentor", start: "Aug 2025", end: "Present", visibility: "public", detail: "One-on-one mentoring for new international students." },

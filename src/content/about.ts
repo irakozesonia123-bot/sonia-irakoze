@@ -1,26 +1,25 @@
-import type { EventNote, Feature, Figure, Milestone, Recognition } from "./types";
+import type { EventNote, Feature, Figure, Recognition } from "./types";
 
 /**
- * Everything on the About page: story, milestones, recognition, events, and media. Personal interests live in beyond.ts.
+ * Everything on the About page: story, values, places, recognition, events, and media. Personal interests live in beyond.ts.
  * Items with visibility "slot" are empty spaces for new photos; they show on local and
  * preview builds only. Fill one by saving the photo at its `src` and switching it to "public".
  */
 
 export const story = [
-  "I was born and raised in Kigali, Rwanda. For secondary school I moved to Gashora Girls Academy, a boarding school beside Lake Mirayi, where many of our neighbors collect drinking water from a lake that isn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
-  "Writing took me abroad first: an essay prize sent me to Arusha to represent Rwanda. In 2023 the TechGirls exchange brought me to Virginia Tech for flume experiments and my first Python, and then to a job shadow at the Colorado Department of Transportation. Back home I ran water-education workshops. Three years later that project had become SAquaSolve Rwanda, and I was back at CDOT as an engineering intern.",
-  "At Rochester I study mechanical engineering and work on aircraft and satellite structures. I am also often the one who builds the software: a tool CDOT recognized, a nonprofit’s website. I like work where the physical system and the information about it both have to be right.",
+  "I was born and raised in Kigali, Rwanda, and spent my secondary-school years at Gashora Girls Academy, a boarding school beside Lake Mirayi. Many of our neighbors collected drinking water from that lake even though it wasn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
+  "Writing and speaking opened doors early: an essay prize took me to Arusha to represent Rwanda, and the TechGirls exchange brought me to the United States in 2023. Since 2024 I have studied mechanical engineering at the University of Rochester as a Handler Scholar.",
+  "Outside class, I serve in several communities, from NSBE to the students I mentor in Rwanda, and I make room for art, music, and faith. My roles are on Experience, my work is on Projects, and the rest is in Beyond the blueprint.",
 ];
 
-export const milestones: Milestone[] = [
-  { year: "2021", place: "Gashora", text: "Started at Gashora Girls Academy, beside Lake Mirayi" },
-  { year: "2023", place: "Arusha", text: "Received my East African Community essay prize, representing Rwanda" },
-  { year: "2023", place: "Virginia · Denver", text: "TechGirls exchange, including a job shadow at CDOT" },
-  { year: "2023", place: "Gashora", text: "Community water workshops that reached 300+ residents" },
-  { year: "2024", place: "Rochester", text: "Began mechanical engineering as a Handler Scholar" },
-  { year: "2026", place: "Denver", text: "Returned to CDOT as an engineering intern" },
-  { year: "2026", place: "Gashora · Kigali", text: "Projects for Peace grant, workshops, and the founding of SAquaSolve Rwanda" },
+/** What shapes how I work: four short pointers, each to where the detail lives. */
+export const values: { title: string; text: string; href: string; link: string; hue: "rose" | "lav" | "sky" }[] = [
+  { title: "Engineering", text: "Aircraft and satellite structures at Rochester, and bridge plans, data, and a recognized tool at CDOT.", href: "/work", link: "Projects", hue: "sky" },
+  { title: "Creativity", text: "Painting, sketching, and design, including a published journal cover.", href: "/about/beyond#art", link: "Art", hue: "rose" },
+  { title: "Faith", text: "Choir, my role as a deaconess, and the eagle I keep in mind.", href: "/about/beyond#faith", link: "Singing and faith", hue: "lav" },
+  { title: "Service", text: "From community workshops in Gashora to mentoring students in Rwanda and Rochester.", href: "/about/beyond#service", link: "Service", hue: "sky" },
 ];
+
 
 export const recognition: Recognition[] = [
   {

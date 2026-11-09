@@ -78,26 +78,60 @@ function Petals() {
   );
 }
 
-/** The SI monogram inside a ring of petals: used by the logo and the welcome animation. */
-export function Monogram({ className, animated }: P & { animated?: boolean }) {
+/* ───────── Botanical bloom ─────────
+   An original five-petal flower drawn as overlapping, slightly irregular petals in two layers,
+   with soft gradients, fine veins, and a stamen-ringed center. */
+
+const PETAL = "M0 0 C -15 -7, -24 -28, -14 -43 C -9 -50, -3 -48, 0 -44 C 3 -48, 9 -51, 14 -43 C 24 -28, 15 -7, 0 0Z";
+const VEINS = "M0 -3 C -1 -16, 0 -29, 0 -40 M0 -12 C -4 -20, -7 -26, -9 -33 M0 -12 C 4 -20, 7 -26, 9 -33";
+const BACK = [
+  { r: 36, s: 0.9 }, { r: 106, s: 0.86 }, { r: 182, s: 0.92 }, { r: 250, s: 0.85 }, { r: 322, s: 0.9 },
+];
+const FRONT = [
+  { r: 0, s: 1 }, { r: 70, s: 0.95 }, { r: 145, s: 1.03 }, { r: 218, s: 0.97 }, { r: 290, s: 1.01 },
+];
+const STAMENS = Array.from({ length: 12 }, (_, i) => {
+  const a = (i / 12) * Math.PI * 2;
+  const rr = i % 2 ? 9.5 : 11;
+  return { x: +(Math.cos(a) * rr).toFixed(2), y: +(Math.sin(a) * rr).toFixed(2) };
+});
+
+export function Bloom({ className, animated, id = "bloom" }: P & { animated?: boolean; id?: string }) {
+  const petal = (fill: string, i: number, layer: number, r: number, sc: number) => (
+    <g key={`${layer}-${i}`} transform={`rotate(${r}) scale(${sc})`}>
+      <g className={animated ? "bloom-petal" : undefined} style={animated ? { animationDelay: `${layer * 120 + i * 45}ms` } : undefined}>
+        <path d={PETAL} fill={`url(#${id}-${fill})`} stroke="var(--bloom-edge)" strokeWidth="0.8" />
+        <path d={VEINS} fill="none" stroke="var(--bloom-vein)" strokeWidth="0.7" strokeLinecap="round" opacity="0.7" />
+      </g>
+    </g>
+  );
   return (
-    <svg viewBox="-50 -50 100 100" className={className} aria-hidden focusable="false">
-      {PETALS.map((r, i) => (
-        <g key={r} transform={`rotate(${r})`}>
-          <path
-            d="M0 -16 C -12 -22, -12 -40, 0 -46 C 12 -40, 12 -22, 0 -16Z"
-            fill={i % 2 ? "var(--lav)" : "var(--rose-soft)"}
-            stroke="var(--rose)"
-            strokeWidth="1.4"
-            className={animated ? "intro-petal" : undefined}
-            style={animated ? { animationDelay: `${i * 60}ms` } : undefined}
-          />
-        </g>
-      ))}
-      <circle r="17" fill="var(--surface)" stroke="var(--rose)" strokeWidth="1.4" />
-      <text y="6.5" textAnchor="middle" fontSize="18" fontStyle="italic" fontWeight="600" fill="var(--berry)" style={{ fontFamily: "var(--font-display)" }} className={animated ? "intro-letters" : undefined}>
-        SI
-      </text>
+    <svg viewBox="-60 -60 120 120" className={className} aria-hidden focusable="false">
+      <defs>
+        <radialGradient id={`${id}-pink`} cx="0" cy="0" r="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="var(--bloom-pink-in)" />
+          <stop offset="1" stopColor="var(--bloom-pink-out)" />
+        </radialGradient>
+        <radialGradient id={`${id}-lav`} cx="0" cy="0" r="46" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="var(--bloom-lav-in)" />
+          <stop offset="1" stopColor="var(--bloom-lav-out)" />
+        </radialGradient>
+        <radialGradient id={`${id}-core`} cx="-2" cy="-2" r="9" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#f8de8a" />
+          <stop offset="1" stopColor="#d9a23c" />
+        </radialGradient>
+      </defs>
+      {BACK.map((p, i) => petal("lav", i, 0, p.r, p.s))}
+      {FRONT.map((p, i) => petal("pink", i, 1, p.r, p.s))}
+      <g className={animated ? "bloom-core" : undefined}>
+        {STAMENS.map((st, i) => (
+          <g key={i}>
+            <path d={`M0 0 L ${st.x} ${st.y}`} stroke="#c98b3a" strokeWidth="0.6" opacity="0.7" />
+            <circle cx={st.x} cy={st.y} r="1.3" fill="#b9772a" />
+          </g>
+        ))}
+        <circle r="6.5" fill={`url(#${id}-core)`} />
+      </g>
     </svg>
   );
 }

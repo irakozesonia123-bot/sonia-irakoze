@@ -1,27 +1,27 @@
 "use client";
 
 import { useEffect } from "react";
-import { Feather, Monogram } from "../decor";
+import { Bloom } from "../decor";
 
 /**
- * The one-second welcome. Visibility is decided by the inline head script (html[data-intro]),
- * so this markup is inert on every other visit. Click, Escape, or the Skip button ends it.
+ * The one-second welcome: a bloom opens, then the homepage appears. Visibility is decided by the
+ * inline head script (html[data-intro]), so this markup is inert on every other visit.
+ * Click, Escape, or Skip ends it.
  */
 export function Intro() {
   useEffect(() => {
     const root = document.documentElement;
     if (!root.hasAttribute("data-intro")) return;
-    const end = () => root.removeAttribute("data-intro");
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && end();
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && root.removeAttribute("data-intro");
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
   const skip = () => document.documentElement.removeAttribute("data-intro");
   return (
     <div className="intro" onClick={skip}>
-      <div className="relative">
-        <Monogram animated className="intro-mark h-40 w-40 sm:h-48 sm:w-48" />
-        <Feather className="intro-feather absolute -right-6 -top-4 h-16 w-8 text-lav-ink" />
+      <div className="intro-mark flex flex-col items-center">
+        <Bloom animated id="intro-bloom" className="h-44 w-44 sm:h-52 sm:w-52" />
+        <span className="intro-letters mt-2 font-display text-xl italic tracking-[0.3em] text-berry">SI</span>
       </div>
       <button type="button" onClick={skip} className="absolute bottom-8 right-6 rounded-full border border-line-strong bg-surface px-4 py-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
         Skip intro

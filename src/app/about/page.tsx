@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHeader, Section } from "@/components/section";
 import { Fig, showSlots, willRender } from "@/components/figure";
-import { events, features, milestones, places, recognition, story } from "@/content/about";
+import { events, features, places, recognition, story, values } from "@/content/about";
 import { PlacesMap } from "@/components/interactive/places-map";
 import { Feather, Flower } from "@/components/decor";
 import type { Visibility } from "@/content/types";
@@ -28,29 +28,31 @@ export default function AboutPage() {
 
       <section aria-labelledby="story-title" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <div className="grid gap-6">
+          <div className="order-2 mx-auto grid w-full max-w-sm gap-6 md:order-none md:max-w-none">
             <Fig fig={{ src: "/images/nsbe-albany.jpg", alt: "Sonia smiling in a blazer at an engineering conference", pos: "50% 25%" }} aspect="aspect-[4/5]" sizes="(min-width: 768px) 420px, 100vw" zoom={false} />
           </div>
           <div>
-            <h2 id="story-title" className="text-[2rem] font-semibold leading-[1.05] sm:text-[2.4rem]">How I got here</h2>
+            <h2 id="story-title" className="text-[2rem] font-semibold leading-[1.05] sm:text-[2.4rem]">Where I come from</h2>
             <div className="mt-6 space-y-5 text-[1.1rem] leading-relaxed text-ink-2">
               {story.map((p, i) => <p key={i} className={i === 0 ? "text-ink" : ""}>{p}</p>)}
             </div>
 
-            <h3 id="journey" className="mt-12 scroll-mt-24 font-display text-xl font-semibold">Along the way</h3>
-            <ol className="mt-4 border-l border-line-strong">
-              {milestones.map((m) => (
-                <li key={m.text} className="relative py-2 pl-6">
-                  <Flower className="absolute -left-[7px] top-[0.95rem] h-[13px] w-[13px] text-rose" />
-                  <span className="label mr-3">{m.year} · {m.place}</span>
-                  <span className="block sm:inline">{m.text}</span>
+            <ul className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2">
+              {values.map((v) => (
+                <li key={v.title}>
+                  <Link href={v.href} className={`group block h-full rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-0.5 ${{ rose: "bg-rose-soft/70", lav: "bg-lav", sky: "bg-sky" }[v.hue]}`}>
+                    <span className="font-display text-xl font-semibold">{v.title}</span>
+                    <span className="mt-1 block text-[0.98rem] text-ink-2">{v.text}</span>
+                    <span className="mt-2 inline-flex items-center gap-1 text-[0.9rem] font-semibold text-berry">{v.link} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden /></span>
+                  </Link>
                 </li>
               ))}
-            </ol>
+            </ul>
           </div>
         </div>
       </section>
 
+      <span id="journey" className="block scroll-mt-20" aria-hidden />
       <Section id="places" title="Places that shaped me" intro="Choose a place to see what happened there." tone="sky">
         <PlacesMap places={places} figs={placeFigs} />
       </Section>
@@ -78,7 +80,15 @@ export default function AboutPage() {
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {evts.map((e) => (
             <li key={e.id}>
-              <Fig fig={e.figure} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw" showCaption={false} />
+              {willRender(e.figure) ? (
+                <Fig fig={e.figure} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw" showCaption={false} />
+              ) : (
+                <div className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-xl bg-gradient-to-br from-lav to-rose-soft p-5" aria-hidden>
+                  <Flower className="h-9 w-9 text-rose" />
+                  <Feather className="absolute -right-3 -top-4 h-32 w-16 rotate-[24deg] text-lav-ink/50" />
+                  <span className="font-display text-3xl font-semibold leading-tight text-ink">{e.date}</span>
+                </div>
+              )}
               <p className="label mt-4">{e.date} · {e.place}</p>
               <h3 className="mt-1 text-lg font-bold leading-snug">{e.title}</h3>
               <p className="text-[0.95rem] font-semibold text-berry">{e.role}</p>

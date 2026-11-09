@@ -81,7 +81,7 @@ export default function ExperiencePage() {
               </div>
               <p className="text-ink-2">
                 {l.detail}
-                {l.id === "saquasolve" && <> <Link href="/work/saquasolve-rwanda" className="ulink font-semibold text-ink">Read the case study</Link></>}
+                {l.project && <> <Link href={`/work/${l.project}`} className="ulink font-semibold text-ink">Read the case study</Link></>}
               </p>
             </li>
           ))}
@@ -108,6 +108,12 @@ export default function ExperiencePage() {
             <div key={g.title}>
               <dt className="label !text-berry">{g.title}</dt>
               <dd className="mt-1.5">{g.items.join(" · ")}</dd>
+              {g.seenIn && (
+                <dd className="mt-1.5 text-[0.92rem] text-ink-3">
+                  See it in:{" "}
+                  {g.seenIn.map((x, k) => <span key={x.href}>{k > 0 && " · "}<Link href={x.href} className="ulink font-semibold text-ink-2">{x.label}</Link></span>)}
+                </dd>
+              )}
             </div>
           ))}
         </dl>

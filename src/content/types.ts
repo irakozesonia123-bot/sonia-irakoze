@@ -109,6 +109,8 @@ export type Leadership = {
   start: string;
   end: string;
   detail: string;
+  /** Case study this role produced; linked instead of repeating it */
+  project?: string;
   visibility: Visibility;
   needs?: string[];
 };
@@ -134,7 +136,9 @@ export type Education = {
   coursework?: string[];
 };
 
-export type SkillGroup = { title: string; items: string[] };
+export type SkillGroup = { title: string; items: string[]   /** Projects that show this group in use */
+  seenIn?: { label: string; href: string }[];
+};
 
 export type Recognition = {
   id: string;

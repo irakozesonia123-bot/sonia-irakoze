@@ -53,7 +53,7 @@ export const projects: Project[] = [
         type: "text",
         title: "Building the organization",
         body: [
-          "On 20 August 2026, SAquaSolve’s nine founding members held a general assembly in Kigali to establish the organization. They elected me President and Legal Representative, which makes me responsible for its strategy, governance, budget, and official relationships. Registration as a Rwandan NGO is in progress.",
+          "On 20 August 2026, SAquaSolve’s nine founding members held a general assembly in Kigali to establish the organization. They elected me President and Legal Representative, which makes me responsible for its strategy, governance, budget, and official relationships.",
           "I lead fundraising: proposals, budgets, and conversations with Rotary clubs, government representatives, and water-sector organizations. Our 2026–27 action plan carries a $145,000 planning budget, which is the amount we are now raising toward.",
         ],
         figure: { src: "/images/saquasolve/founding-assembly.jpg", alt: "SAquaSolve Rwanda founding members at the general assembly in Kigali", caption: "Founding general assembly, Kigali, 20 August 2026.", tag: "Event", want: "Group photo from the founding general assembly (20 Aug 2026). Avoid showing any personal ID documents." },
@@ -87,7 +87,7 @@ export const projects: Project[] = [
           { label: "Operation", detail: "Trained local operator with continuous water-quality monitoring" },
           { label: "Review questions", detail: "Abstraction rights, competing water uses, permitting, affordability, and realistic demand. Each one is now part of the field program." },
         ],
-        caption: "Preliminary concept drawings, not engineering drawings. Final treatment, sizing, and routing depend on testing, site assessment, and approvals.",
+        caption: "Preliminary concept drawings. Water-quality testing and site assessment will set the final design.",
       },
       {
         type: "figures",
@@ -118,13 +118,13 @@ export const projects: Project[] = [
       },
       {
         type: "status",
-        title: "Where it stands, and what comes next",
+        title: "Milestones and next steps",
         rows: [
-          { state: "done", text: "Grant secured; workshops held with 53 participants; four Youth Ambassadors selected" },
-          { state: "done", text: "Initial field assessment, preliminary system concept, and technical report (v1.1)" },
-          { state: "done", text: "Organization founded at its general assembly (20 August 2026)" },
-          { state: "underway", text: "NGO registration, and laboratory testing of Lake Mirayi with the Rwanda Institute for Conservation Agriculture (RICA). RICA quoted the testing scope in September 2026; the results will set the treatment design." },
-          { state: "next", text: "Engineering design, approvals with local authorities, and fundraising for construction" },
+          { state: "done", text: "Won the $10,000 grant, held workshops with 53 participants, and launched the Youth Ambassador program" },
+          { state: "done", text: "Completed the field assessment, preliminary system concept, and technical report" },
+          { state: "done", text: "Founded the organization at its general assembly (20 August 2026)" },
+          { state: "underway", text: "Water-quality testing of Lake Mirayi with the Rwanda Institute for Conservation Agriculture (RICA) to set the treatment design" },
+          { state: "next", text: "Engineering design, local approvals, and fundraising toward the planning budget" },
         ],
       },
       {
@@ -237,16 +237,16 @@ export const projects: Project[] = [
   {
     slug: "aero-design",
     title: "Yellowjackets Aero Design",
-    kind: "A student team designing and building a competition aircraft.",
-    blurb: "I lead design: wing, tail, and fuselage structures in Siemens NX, compared with FEA and tested as laser-cut prototypes.",
+    kind: "A University of Rochester student team that designs and builds a competition aircraft.",
+    blurb: "As Design Lead, I modeled wing, tail, and fuselage structures in Siemens NX, compared them with FEA, and tested laser-cut prototypes.",
     outcome: "Team cut airframe weight about 10% over 15+ design iterations",
-    dates: "2025 – present",
+    dates: "2025 – 2026",
     sort: 2025.08,
     prominence: "main",
     visibility: "public",
     role: "Design Lead",
     team: "University of Rochester Yellowjackets Aero Design",
-    status: "Ongoing team project",
+    status: "Team project",
     filters: ["Engineering"],
     area: "Aerospace structures",
     tools: ["Siemens NX", "FEA", "Laser cutting", "Prototyping"],
@@ -261,12 +261,12 @@ export const projects: Project[] = [
       },
       {
         type: "list",
-        title: "What I do",
+        title: "What I did",
         items: [
-          "Model wing, tail, and fuselage structures in Siemens NX.",
-          "Use FEA to compare wing and tail configurations for stress and stability.",
-          "Build and test laser-cut prototypes.",
-          "Run the team’s social media.",
+          "Modeled wing, tail, and fuselage structures in Siemens NX.",
+          "Used FEA to compare wing and tail configurations for stress and stability.",
+          "Built and tested laser-cut prototypes.",
+          "Ran the team’s social media.",
         ],
         figure: { src: "/images/aero/prototype.jpg", alt: "Laser-cut wing ribs and prototype parts on the workbench", caption: "Laser-cut prototype parts.", tag: "Built", want: "A photo of laser-cut parts or a prototype you built, ideally with your hands or you in frame." },
       },
@@ -336,7 +336,6 @@ export const projects: Project[] = [
         title: "Keeping the claims honest",
         body: [
           "It is easy to make a food-waste pitch sound bigger than it is. I separated what the prototype could show from what a real pilot would have to measure: unsold quantities and discarded food compared against a baseline, along with student savings and café revenue.",
-          "The prototype is a simulation. It is not connected to a point-of-sale system.",
         ],
         figure: { src: "/images/marketbite-sustainability.jpg", alt: "MarketBite sustainability view with simulated counts of surplus food sold and still unsold", caption: "Sustainability view, with simulated results (team build).", tag: "Team work", fit: "contain" },
       },
@@ -344,7 +343,7 @@ export const projects: Project[] = [
         type: "figures",
         title: "Pitch and award",
         items: [
-          { src: "/images/marketbite/pitch.jpg", alt: "Sonia presenting MarketBite at the Heist Hackathon", caption: "Presenting at the Heist.", tag: "Event", want: "A photo of you presenting, or the team on stage." },
+          { src: "/images/marketbite/pitch.jpg", alt: "Team MarketBite at the Heist Hackathon", caption: "At the Heist Hackathon.", tag: "Event", want: "Any photo from the Heist: the team, the stage, a demo, or the venue. You do not need to be in it." },
           { src: "/images/marketbite/my-slides.jpg", alt: "Sonia’s problem and market opportunity slides from the MarketBite pitch", caption: "My slides from the final pitch.", tag: "My work", fit: "contain", want: "An image of your slide 2 (problem) and slide 6 (market opportunity), side by side." },
           { src: "/images/marketbite/award.jpg", alt: "Team MarketBite receiving the Best Entrepreneurial Vision award", caption: "Best Entrepreneurial Vision, Ain Center Special Award.", tag: "Award", want: "Award photo, certificate, or a screenshot of the Ain Center winners page." },
         ],
@@ -491,7 +490,7 @@ export const projects: Project[] = [
     title: "Optimized timber truss bridge",
     kind: "A course design project: the lightest 52-meter timber truss that still meets its limits.",
     blurb: "Three truss designs in Dr.Frame, checked against buckling, stress, and a deflection limit.",
-    outcome: "34% modeled weight reduction, within every design limit",
+    outcome: "Reduced modeled weight by 34% while meeting buckling and deflection limits",
     dates: "Fall 2024",
     sort: 2024.11,
     prominence: "main",
@@ -566,7 +565,7 @@ export const projects: Project[] = [
     needs: ["Pitch photo", "Booth mockup"],
   },
 
-  /* ───────────── Earlier and smaller work ───────────── */
+  /* ───────────── More projects ───────────── */
   {
     slug: "saquasolve-website",
     title: "saquasolverwanda.org",

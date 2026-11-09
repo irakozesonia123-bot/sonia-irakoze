@@ -6,7 +6,7 @@ import { Check, Copy } from "lucide-react";
 const PETAL_COLORS = ["var(--rose)", "var(--lav-ink)", "var(--sky-ink)"];
 
 /** Copy button with a small petal burst and clear "Copied" feedback. */
-export function CopyEmail({ email }: { email: string }) {
+export function CopyEmail({ email, compact }: { email: string; compact?: boolean }) {
   const [state, setState] = useState<"idle" | "copied" | "failed">("idle");
   const [burst, setBurst] = useState(0);
   const copy = async () => {
@@ -20,9 +20,9 @@ export function CopyEmail({ email }: { email: string }) {
     setTimeout(() => setState("idle"), 2200);
   };
   return (
-    <button type="button" onClick={copy} className="relative inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-surface px-3.5 py-1.5 text-sm font-semibold transition-colors hover:border-ink">
+    <button type="button" onClick={copy} className={`relative inline-flex items-center gap-1.5 rounded-full border border-line-strong bg-surface font-semibold transition-colors hover:border-ink ${compact ? "px-3 py-1 text-[0.82rem]" : "px-3.5 py-1.5 text-sm"}`} aria-label={state === "idle" ? `Copy ${email}` : undefined}>
       {state === "copied" ? <Check className="h-4 w-4 text-berry" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
-      <span aria-live="polite">{state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : "Copy email"}</span>
+      <span aria-live="polite">{state === "copied" ? "Copied" : state === "failed" ? "Select & copy" : compact ? "Copy" : "Copy email"}</span>
       {burst > 0 && state === "copied" && (
         <span key={burst} aria-hidden>
           {Array.from({ length: 8 }, (_, k) => (

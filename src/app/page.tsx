@@ -6,7 +6,7 @@ import { Intro } from "@/components/interactive/intro";
 import { NameMark } from "@/components/interactive/name-mark";
 import { PortraitHello } from "@/components/interactive/portrait-hello";
 import { Section, ArrowLink } from "@/components/section";
-import { CopyEmail } from "@/components/copy-email";
+import { EnvelopeLink } from "@/components/interactive/envelope-link";
 import { LinkedInIcon } from "@/components/brand-icons";
 import { ProjectCard } from "@/components/work/project-card";
 import { profile } from "@/content/profile";
@@ -22,13 +22,13 @@ export default function Home() {
       <Intro />
       {/* 1. Introduction */}
       <section aria-labelledby="hero-title" className="relative overflow-hidden bg-gradient-to-br from-rose-soft/70 via-bg to-lav/80">
-        <Bouquet className="pointer-events-none absolute -left-10 bottom-0 hidden h-64 w-64 opacity-50 md:block" />
+        <Bouquet className="pointer-events-none absolute -bottom-8 -left-24 hidden h-56 w-56 opacity-40 xl:block" />
         <div className="relative mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 pb-16 pt-12 sm:px-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:gap-14 md:pb-24 md:pt-16">
           <div className="rise">
             <Sprig />
-            <NameMark name={profile.name} note={`Born and raised in ${profile.origin}. Studying in ${profile.location}.`} />
-            <p className="mt-5 text-lg font-semibold text-berry sm:text-xl">
-              {profile.program} · {profile.school} · {profile.classOf}
+            <NameMark first="Sonia" last="Irakoze" />
+            <p className="mt-5 inline-flex flex-wrap gap-x-2 rounded-full bg-surface/70 px-4 py-1.5 text-[0.98rem] font-semibold text-berry ring-1 ring-line">
+              <span>B.S. {profile.program}</span><span aria-hidden>·</span><span>{profile.classOf}</span>
             </p>
             <p className="mt-4 max-w-[54ch] text-[1.12rem] leading-relaxed text-ink-2">{profile.intro}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -71,7 +71,7 @@ export default function Home() {
       {/* 4. Beyond the blueprint teaser */}
       <section aria-labelledby="me-title" className="relative overflow-hidden bg-lav/70">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <Link href="/about/beyond" className="group relative mx-auto block w-full max-w-sm" aria-label="Beyond the blueprint: painting, music, faith, and home">
+          <Link href="/about/beyond" className="group relative mx-auto block w-full max-w-sm" aria-label="Beyond the blueprint">
             <div className="absolute inset-0 translate-x-3 translate-y-3 rotate-3 rounded-[2rem] bg-sky transition-transform duration-500 group-hover:rotate-6" aria-hidden />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-4 ring-surface">
               <Image src="/images/sonia-saa-portrait.jpg" alt="" fill sizes="(min-width: 768px) 384px, 90vw" className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-[1.03]" />
@@ -83,10 +83,10 @@ export default function Home() {
             <Sprig />
             <h2 id="me-title" className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">Beyond the <span className="script text-berry">blueprint</span></h2>
             <p className="mt-5 max-w-[52ch] text-[1.1rem] leading-relaxed text-ink-2">
-              Painting, choir, karate, rowing, writing, faith, and the students I mentor back home. The parts of my life that don’t fit on a resume have their own page.
+              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service. That side of my life has its own page.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2" aria-label="Interests">
-              {["Painting", "Rowing", "Shotokan karate", "Choir", "Reading", "Writing", "Faith", "Mentoring"].map((t, k) => (
+              {["Art", "Rowing", "Karate", "Choir", "Dance", "Words", "Faith", "Service"].map((t, k) => (
                 <li key={t} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold ${["bg-rose-soft text-rose-ink", "bg-sky text-sky-ink", "bg-surface text-lav-ink"][k % 3]}`}>{t}</li>
               ))}
             </ul>
@@ -103,14 +103,9 @@ export default function Home() {
             <h2 id="contact-title" className="mt-3 text-[2rem] font-semibold leading-[1.05] sm:text-[2.6rem]">Get in touch</h2>
             <p className="mt-5 max-w-[46ch] text-[1.1rem] leading-relaxed text-ink-2">{profile.lookingFor} Email reaches me fastest.</p>
           </div>
-          <ul className="divide-y divide-line border-y border-line">
-            <li className="flex flex-wrap items-center justify-between gap-3 py-5">
-              <div className="min-w-0">
-                <p className="label">Email</p>
-                <a href={`mailto:${profile.email}`} className="ulink mt-1 block break-all font-display text-xl font-bold">{profile.email}</a>
-              </div>
-              <CopyEmail email={profile.email} />
-            </li>
+          <div>
+            <EnvelopeLink email={profile.email} />
+            <ul className="mt-8 divide-y divide-line border-y border-line">
             <li>
               <a href={profile.links.linkedin} target="_blank" rel="noopener" className="group flex items-center justify-between gap-3 py-5">
                 <span>
@@ -129,7 +124,8 @@ export default function Home() {
                 <ArrowUpRight className="h-5 w-5 text-ink-3 group-hover:text-berry" aria-hidden />
               </a>
             </li>
-          </ul>
+            </ul>
+          </div>
         </div>
       </section>
     </>
