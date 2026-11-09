@@ -9,7 +9,7 @@ import { Feather, Flower } from "@/components/decor";
 import type { Visibility } from "@/content/types";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About me",
   description: "Sonia Irakoze’s story from Kigali and Gashora to mechanical engineering at Rochester, with recognition, conferences, media, and life outside engineering.",
   alternates: { canonical: "/about" },
 };
@@ -24,7 +24,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHeader title="About" intro="Where I come from, the places that shaped me, and the recognition and events along the way." />
+      <PageHeader title="About me" intro="Where I come from, places I’ve lived and worked, and recognition along the way." />
 
       <section aria-labelledby="story-title" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
@@ -53,7 +53,7 @@ export default function AboutPage() {
       </section>
 
       <span id="journey" className="block scroll-mt-20" aria-hidden />
-      <Section id="places" title="Places that shaped me" intro="Choose a place to see what happened there." tone="sky">
+      <Section id="places" title="Places" intro="Select a place to read more." tone="sky">
         <PlacesMap places={places} figs={placeFigs} />
       </Section>
 
@@ -123,9 +123,9 @@ export default function AboutPage() {
           <Link href="/about/beyond" className="group relative block overflow-hidden rounded-[2rem] bg-gradient-to-br from-rose-soft via-lav to-sky p-8 sm:p-12">
             <Feather className="absolute -right-2 -top-6 h-40 w-20 rotate-[28deg] text-lav-ink/50 transition-transform duration-700 group-hover:rotate-[16deg]" />
             <Flower className="h-10 w-10 text-rose transition-transform duration-700 group-hover:rotate-[72deg]" />
-            <h2 id="beyond-cta" className="mt-4 text-[2.1rem] font-semibold leading-tight sm:text-[2.8rem]">Beyond the <span className="script text-berry">blueprint</span></h2>
-            <p className="mt-3 max-w-[50ch] text-[1.08rem] text-ink-2">Art, music, faith, an example day, and the eagle I keep in mind.</p>
-            <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-ink">Step inside <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden /></span>
+            <h2 id="beyond-cta" className="mt-4 text-[2.1rem] font-semibold leading-tight sm:text-[2.8rem]">Outside <span className="script text-berry">work</span></h2>
+            <p className="mt-3 max-w-[50ch] text-[1.08rem] text-ink-2">Art, rowing, karate, music, faith, writing, and service.</p>
+            <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-ink">See more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden /></span>
           </Link>
         </div>
       </section>

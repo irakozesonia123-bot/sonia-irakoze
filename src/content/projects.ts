@@ -187,7 +187,7 @@ export const projects: Project[] = [
       },
       {
         type: "tour",
-        title: "A walk through the prototype",
+        title: "Prototype walkthrough",
         intro: [
           "I tested ideas with colleagues and changed the prototype as I learned what new staff needed. I also wrote an A3 proposal for the tool. These are screenshots of the public prototype.",
         ],

@@ -1,7 +1,7 @@
 import type { Figure } from "./types";
 
 /**
- * Everything on "Beyond the blueprint" (/about/beyond). All of it is editable here.
+ * Everything on "Outside work" (/about/beyond). All of it is editable here.
  * Items with a `src` that doesn't exist yet show as photo slots on local/preview builds and
  * as a small illustration (never an empty box) on the live site.
  */

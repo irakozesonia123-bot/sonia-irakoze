@@ -16,11 +16,11 @@ const dates = (start: string, end: string) => (start && end ? `${start} – ${en
 export default function ExperiencePage() {
   return (
     <>
-      <PageHeader title="Experience" intro="Internships in infrastructure, data, water, and publishing; campus jobs where I grew into training others; and the roles I lead.">
+      <PageHeader title="Experience" intro="Internships, campus jobs, and leadership roles.">
         <a href={profile.links.resume} target="_blank" rel="noopener" className="ulink mt-6 inline-block font-semibold">Download my resume (PDF)</a>
       </PageHeader>
 
-      <Section id="work-history" title="Work">
+      <Section id="work-history" title="Internships and jobs">
         <ol className="space-y-14">
           {publicExperience.map((e) => {
             const recs = recsFor(e.id);

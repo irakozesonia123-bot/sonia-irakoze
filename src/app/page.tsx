@@ -68,10 +68,10 @@ export default function Home() {
         </ul>
       </Section>
 
-      {/* 4. Beyond the blueprint teaser */}
+      {/* 4. Outside work teaser */}
       <section aria-labelledby="me-title" className="relative overflow-hidden bg-lav/70">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 py-20 sm:px-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <Link href="/about/beyond" className="group relative mx-auto block w-full max-w-sm" aria-label="Beyond the blueprint">
+          <Link href="/about/beyond" className="group relative mx-auto block w-full max-w-sm" aria-label="Outside work">
             <div className="absolute inset-0 translate-x-3 translate-y-3 rotate-3 rounded-[2rem] bg-sky transition-transform duration-500 group-hover:rotate-6" aria-hidden />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-4 ring-surface">
               <Image src="/images/sonia-saa-portrait.jpg" alt="" fill sizes="(min-width: 768px) 384px, 90vw" className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-[1.03]" />
@@ -81,16 +81,16 @@ export default function Home() {
           </Link>
           <div>
             <Sprig />
-            <h2 id="me-title" className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">Beyond the <span className="script text-berry">blueprint</span></h2>
+            <h2 id="me-title" className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">Outside <span className="script text-berry">work</span></h2>
             <p className="mt-5 max-w-[52ch] text-[1.1rem] leading-relaxed text-ink-2">
-              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service. That side of my life has its own page.
+              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service. There’s more on its own page.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2" aria-label="Interests">
               {["Art", "Rowing", "Karate", "Choir", "Dance", "Words", "Faith", "Service"].map((t, k) => (
                 <li key={t} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold ${["bg-rose-soft text-rose-ink", "bg-sky text-sky-ink", "bg-surface text-lav-ink"][k % 3]}`}>{t}</li>
               ))}
             </ul>
-            <ArrowLink href="/about/beyond" className="mt-7">Step inside</ArrowLink>
+            <ArrowLink href="/about/beyond" className="mt-7">See more</ArrowLink>
           </div>
         </div>
       </section>

@@ -9,7 +9,7 @@ import { EagleReveal } from "@/components/interactive/eagle-reveal";
 import { artworks, day, eagle, movement, music, service, words } from "@/content/beyond";
 
 export const metadata: Metadata = {
-  title: "Beyond the blueprint",
+  title: "Outside work",
   description: "The personal side of Sonia Irakoze: painting and sketching, rowing, karate, dance, choir, writing and speaking, faith, service, and an example day.",
   alternates: { canonical: "/about/beyond" },
 };
@@ -31,14 +31,14 @@ export default function BeyondPage() {
             <ArrowLeft className="h-4 w-4" aria-hidden /> About
           </Link>
           <h1 className="mt-10 text-[clamp(2.8rem,8vw,5.2rem)] font-semibold leading-[0.95] tracking-[-0.02em]">
-            Beyond the <span className="script text-berry">blueprint</span>
+            Outside <span className="script text-berry">work</span>
           </h1>
           <p className="mt-5 max-w-[54ch] text-[1.12rem] text-ink-2">
-            The things I do when I’m not designing, debugging, or writing proposals. Have a look around.
+            What I do outside class and work.
           </p>
           <nav aria-label="On this page" className="mt-8">
             <ul className="flex flex-wrap gap-2 text-sm font-semibold">
-              {[["#art", "Art"], ["#movement", "Movement"], ["#faith", "Singing and faith"], ["#words", "Words"], ["#service", "Service"], ["#day", "An example day"]].map(([h, l]) => (
+              {[["#art", "Art"], ["#movement", "Rowing, karate, and dance"], ["#faith", "Music and faith"], ["#words", "Writing"], ["#service", "Service"], ["#day", "A day with me"]].map(([h, l]) => (
                 <li key={h}><a href={h} className="block rounded-full bg-surface/80 px-3.5 py-1.5 ring-1 ring-line transition-colors hover:ring-berry">{l}</a></li>
               ))}
             </ul>
@@ -47,7 +47,7 @@ export default function BeyondPage() {
       </header>
 
       {/* Art: a browsable stack */}
-      <Section id="art" title="Painting, sketching, and design" tone="warm">
+      <Section id="art" title="Art" tone="warm">
         <div className="grid grid-cols-[minmax(0,1fr)] items-center gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div className="max-w-[46ch] text-[1.08rem] leading-relaxed text-ink-2">
             <p>I paint and sketch when there’s time, and I enjoy design work like this journal cover.</p>
@@ -57,8 +57,8 @@ export default function BeyondPage() {
         </div>
       </Section>
 
-      {/* Movement: annotated photographs, alternating sides */}
-      <Section id="movement" title="Movement" tone="sky">
+      {/* Rowing, karate, and dance: annotated photographs, alternating sides */}
+      <Section id="movement" title="Rowing, karate, and dance" tone="sky">
         <ul className="space-y-12 sm:space-y-16">
           {movement.map((m, k) => {
             const photo = hasFile(m.figure.src) || showSlots;
@@ -85,7 +85,7 @@ export default function BeyondPage() {
       </Section>
 
       {/* Singing and faith: the eagle */}
-      <Section id="faith" title="Singing and faith" tone="lav">
+      <Section id="faith" title="Music and faith" tone="lav">
         <p className="-mt-4 mb-10 max-w-[56ch] text-[1.08rem] text-ink-2">{music.line}</p>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:items-start">
           <EagleReveal line={eagle.line} body={eagle.body} />
@@ -132,7 +132,7 @@ export default function BeyondPage() {
       </Section>
 
       {/* Service: then and now */}
-      <Section id="service" title="Service, then and now" tone="warm">
+      <Section id="service" title="Service" tone="warm">
         <ol className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.map((v, k) => (
             <li key={v.text} className="relative rounded-2xl bg-surface p-5 ring-1 ring-line">
@@ -145,7 +145,7 @@ export default function BeyondPage() {
       </Section>
 
       {/* An example day */}
-      <Section id="day" title="A day in my world" intro="An example day, not a fixed routine. Most days hold some of each." tone="sky">
+      <Section id="day" title="A day with me" intro="An example day, not a fixed routine. Most days hold some of each." tone="sky">
         <ol className="relative grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {day.map((d, k) => {
             const Icon = dayIcon[d.icon];

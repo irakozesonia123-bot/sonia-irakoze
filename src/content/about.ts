@@ -9,14 +9,14 @@ import type { EventNote, Feature, Figure, Recognition } from "./types";
 export const story = [
   "I was born and raised in Kigali, Rwanda, and spent my secondary-school years at Gashora Girls Academy, a boarding school beside Lake Mirayi. Many of our neighbors collected drinking water from that lake even though it wasn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
   "Writing and speaking opened doors early: an essay prize took me to Arusha to represent Rwanda, and the TechGirls exchange brought me to the United States in 2023. Since 2024 I have studied mechanical engineering at the University of Rochester as a Handler Scholar.",
-  "Outside class, I serve in several communities, from NSBE to the students I mentor in Rwanda, and I make room for art, music, and faith. My roles are on Experience, my work is on Projects, and the rest is in Beyond the blueprint.",
+  "Outside class, I serve in several communities, from NSBE to the students I mentor in Rwanda, and I make room for art, music, and faith. My roles are on Experience, my work is on Projects, and the rest is under Outside work.",
 ];
 
 /** What shapes how I work: four short pointers, each to where the detail lives. */
 export const values: { title: string; text: string; href: string; link: string; hue: "rose" | "lav" | "sky" }[] = [
   { title: "Engineering", text: "Aircraft and satellite structures at Rochester, and bridge plans, data, and a recognized tool at CDOT.", href: "/work", link: "Projects", hue: "sky" },
   { title: "Creativity", text: "Painting, sketching, and design, including a published journal cover.", href: "/about/beyond#art", link: "Art", hue: "rose" },
-  { title: "Faith", text: "Choir, my role as a deaconess, and the eagle I keep in mind.", href: "/about/beyond#faith", link: "Singing and faith", hue: "lav" },
+  { title: "Faith", text: "Choir, my role as a deaconess, and the eagle I keep in mind.", href: "/about/beyond#faith", link: "Music and faith", hue: "lav" },
   { title: "Service", text: "From community workshops in Gashora to mentoring students in Rwanda and Rochester.", href: "/about/beyond#service", link: "Service", hue: "sky" },
 ];
 

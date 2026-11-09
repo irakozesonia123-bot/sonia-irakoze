@@ -5,7 +5,7 @@ import { WorkFilters } from "@/components/work/work-filters";
 import { featuredSlugs, publicProjects } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Projects",
   description: "Sonia Irakoze’s projects: SAquaSolve Rwanda, CDOT Compass, Aero Design, MarketBite, bridge work at CDOT, CropSight, CubeSat, a timber truss bridge, UniBooth, and more.",
   alternates: { canonical: "/work" },
 };
@@ -18,8 +18,8 @@ export default function WorkPage() {
   return (
     <>
       <PageHeader
-        title="Work"
-        intro="Engineering, software, and ventures, from a water nonprofit in Rwanda to aircraft structures in Rochester. Each project page explains what I did, what the team did, and where things stand."
+        title="Projects"
+        intro="Engineering, software, and venture projects. Each page shows my part, the team’s part, and the outcome."
       />
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-10 sm:px-8">
         <WorkFilters
