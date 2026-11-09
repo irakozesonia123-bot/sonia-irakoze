@@ -50,7 +50,7 @@ export function WorkFilters({ main, more }: { main: Item[]; more: Item[] }) {
 
       {shownMore.length > 0 && (
         <section aria-labelledby="more-title" className="mt-20">
-          <h2 id="more-title" className="text-2xl font-extrabold">Earlier and smaller work</h2>
+          <h2 id="more-title" className="text-2xl font-semibold">Earlier and smaller work</h2>
           <ul className="mt-4 divide-y divide-line border-y border-line">
             {shownMore.map((i) => <li key={i.id}>{i.node}</li>)}
           </ul>

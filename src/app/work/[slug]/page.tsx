@@ -37,16 +37,16 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
     <article>
       <header className="mx-auto max-w-6xl px-5 pt-10 sm:px-8">
         <Link href="/work" className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-2 hover:text-ink">
-          <ArrowLeft className="h-4 w-4" aria-hidden /> All work
+          <ArrowLeft className="h-4 w-4" aria-hidden /> All projects
         </Link>
         <div className="mt-8 grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-start">
           <div>
             <p className="label">{p.area}</p>
-            <h1 className="mt-3 text-[clamp(2.4rem,6vw,4rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">{p.title}</h1>
+            <h1 className="mt-3 text-[clamp(2.4rem,6vw,4rem)] font-semibold leading-[0.98] tracking-[-0.03em]">{p.title}</h1>
             <p className="mt-4 max-w-[46ch] font-display text-xl font-medium leading-snug text-ink-2 sm:text-[1.4rem]">{p.kind}</p>
 
-            <div className="mt-7 rounded-xl bg-coral-soft/70 px-5 py-4">
-              <p className="label !text-coral-ink">Key outcome</p>
+            <div className="mt-7 rounded-xl bg-rose-soft/70 px-5 py-4">
+              <p className="label !text-rose-ink">Key outcome</p>
               <p className="mt-1 text-[1.08rem] font-semibold leading-snug">{p.outcome}</p>
             </div>
 
@@ -61,7 +61,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
               <ul className="mt-7 flex flex-wrap gap-2.5">
                 {p.links.map((l, i) => (
                   <li key={l.href}>
-                    <a href={l.href} target="_blank" rel="noopener" className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.95rem] font-semibold transition-colors ${i === 0 ? "bg-ink text-bg hover:bg-teal-strong" : "border border-line-strong hover:border-ink"}`}>
+                    <a href={l.href} target="_blank" rel="noopener" className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.95rem] font-semibold transition-colors ${i === 0 ? "bg-ink text-bg hover:bg-berry-strong" : "border border-line-strong hover:border-ink"}`}>
                       {l.label} <ArrowUpRight className="h-4 w-4" aria-hidden />
                     </a>
                   </li>
@@ -79,7 +79,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
             {p.facts.map((f) => (
               <div key={f.label}>
                 <dt className="sr-only">{f.label}</dt>
-                <dd className="font-display text-[2.2rem] font-extrabold leading-none tracking-tight text-teal">{f.value}</dd>
+                <dd className="font-display text-[2.2rem] font-semibold leading-none tracking-tight text-berry">{f.value}</dd>
                 <dd className="mt-2 text-[0.95rem] leading-snug text-ink-2">{f.label}</dd>
               </div>
             ))}
@@ -123,7 +123,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
           <Link href={`/work/${next.slug}`} className="group mt-16 flex items-center justify-between gap-4 border-y border-line py-6">
             <span>
               <span className="label">Next project</span>
-              <span className="mt-1 block font-display text-2xl font-extrabold group-hover:text-teal">{next.title}</span>
+              <span className="mt-1 block font-display text-2xl font-semibold group-hover:text-berry">{next.title}</span>
             </span>
             <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1" aria-hidden />
           </Link>

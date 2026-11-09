@@ -48,7 +48,7 @@ export function SiteHeader() {
                       className={`relative block rounded-md px-3 py-2 transition-colors ${active ? "font-semibold text-ink" : "text-ink-2 hover:text-ink"}`}
                     >
                       {n.label}
-                      {active && <span className="absolute inset-x-3 -bottom-[13px] h-[2px] bg-coral" aria-hidden />}
+                      {active && <span className="absolute inset-x-3 -bottom-[13px] h-[2px] bg-rose" aria-hidden />}
                     </Link>
                   </li>
                 );
@@ -66,7 +66,7 @@ export function SiteHeader() {
               <Search className="h-4 w-4" aria-hidden /><kbd className="font-mono text-[0.7rem]">⌘K</kbd>
             </button>
             <ThemeToggle />
-            <a href={profile.links.resume} target="_blank" rel="noopener" className="hidden rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-bg transition-colors hover:bg-teal-strong sm:block">
+            <a href={profile.links.resume} target="_blank" rel="noopener" className="hidden rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-bg transition-colors hover:bg-berry-strong sm:block">
               Resume
             </a>
             <button
@@ -91,7 +91,7 @@ export function SiteHeader() {
                     href={n.href}
                     onClick={() => setOpen(false)}
                     aria-current={isActive(n.href) || (n.href === "/" && pathname === "/") ? "page" : undefined}
-                    className="block py-3.5 font-display text-2xl font-bold aria-[current=page]:text-teal"
+                    className="block py-3.5 font-display text-2xl font-bold aria-[current=page]:text-berry"
                   >
                     {n.label}
                   </Link>

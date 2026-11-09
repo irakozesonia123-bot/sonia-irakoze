@@ -26,9 +26,9 @@ export const willRender = (fig?: Figure) => Boolean(fig && (hasFile(fig.src) || 
 
 export function Slot({ fig, aspect = "aspect-[4/3]", compact = false }: { fig: Figure; aspect?: string; compact?: boolean }) {
   return (
-    <div className={`${aspect} flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-coral/60 bg-coral-soft/50 p-4 text-center`}>
-      <Camera className="h-5 w-5 text-coral-ink" aria-hidden />
-      <p className="label !text-coral-ink">Photo slot{fig.tag ? ` · ${fig.tag}` : ""}</p>
+    <div className={`${aspect} flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-rose/60 bg-rose-soft/50 p-4 text-center`}>
+      <Camera className="h-5 w-5 text-rose-ink" aria-hidden />
+      <p className="label !text-rose-ink">Photo slot{fig.tag ? ` · ${fig.tag}` : ""}</p>
       {!compact && fig.want && <p className="max-w-[34ch] text-sm leading-snug text-ink">{fig.want}</p>}
       <p className="max-w-full break-all font-mono text-[0.68rem] text-ink-2">public{fig.src}</p>
     </div>
@@ -58,7 +58,7 @@ export function Fig({
   const fit = fig.fit === "contain" ? "object-contain" : "object-cover";
   const caption = showCaption && (fig.caption || fig.tag) ? (
     <figcaption className="mt-2.5 flex flex-wrap items-baseline gap-x-2 text-sm leading-snug text-ink-2">
-      {fig.tag && <span className="label !text-teal">{fig.tag}</span>}
+      {fig.tag && <span className="label !text-berry">{fig.tag}</span>}
       {fig.caption && <span>{fig.caption}</span>}
     </figcaption>
   ) : null;

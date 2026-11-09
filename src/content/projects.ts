@@ -15,7 +15,7 @@ export const projects: Project[] = [
   {
     slug: "saquasolve-rwanda",
     title: "SAquaSolve Rwanda",
-    kind: "A Rwandan nonprofit I founded to bring safe drinking water to communities around Lake Mirayi in Gashora.",
+    kind: "A Rwandan nonprofit I founded that is developing a solar-powered community water system for the communities around Lake Mirayi in Gashora.",
     blurb: "I grew my 2023 community project into an organization with a board, a grant, an engineering concept, and a youth program.",
     outcome: "Won a competitive $10,000 Davis Projects for Peace grant and ran workshops with 53 community members",
     dates: "2023 – present",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
       { value: "$10,000", label: "Projects for Peace grant, won competitively" },
       { value: "53", label: "community members in two days of workshops" },
       { value: "4", label: "student Youth Ambassadors" },
-      { value: "$145,000", label: "2026–27 plan budget (a plan, not funds raised)" },
+      { value: "$145,000", label: "2026–27 planning budget" },
     ],
     cover: { src: "/images/sq-ws-hall-wide.jpg", alt: "A full community hall at Gashora Girls Academy during the SAquaSolve water, sanitation, and hygiene workshops", tag: "Fieldwork", pos: "50% 55%" },
     links: [
@@ -54,7 +54,7 @@ export const projects: Project[] = [
         title: "Building the organization",
         body: [
           "On 20 August 2026, SAquaSolve’s nine founding members held a general assembly in Kigali to establish the organization. They elected me President and Legal Representative, which makes me responsible for its strategy, governance, budget, and official relationships. Registration as a Rwandan NGO is in progress.",
-          "I lead fundraising: proposals, budgets, and conversations with Rotary clubs, government representatives, and water-sector organizations. These are early relationships, not formal partnerships yet. Our 2026–27 action plan carries a $145,000 budget. That is the plan we are raising toward, not money already raised.",
+          "I lead fundraising: proposals, budgets, and conversations with Rotary clubs, government representatives, and water-sector organizations. Our 2026–27 action plan carries a $145,000 planning budget, which is the amount we are now raising toward.",
         ],
         figure: { src: "/images/saquasolve/founding-assembly.jpg", alt: "SAquaSolve Rwanda founding members at the general assembly in Kigali", caption: "Founding general assembly, Kigali, 20 August 2026.", tag: "Event", want: "Group photo from the founding general assembly (20 Aug 2026). Avoid showing any personal ID documents." },
       },
@@ -107,11 +107,12 @@ export const projects: Project[] = [
           "Practicing engineers reviewed the concept informally and shaped the design questions.",
         ],
         me: [
-          "Founded the initiative and lead the organization as President and Legal Representative.",
+          "Founded the initiative and lead the organization as President and Legal Representative: strategy, governance, and its official relationships.",
           "Wrote the winning grant proposal and manage the budget.",
           "Led the 32-page technical concept and pre-feasibility report.",
-          "Built the 2026–27 action plan and lead fundraising and stakeholder conversations.",
-          "Set up the Youth Ambassador program.",
+          "Built the 2026–27 action plan and its $145,000 planning budget.",
+          "Lead fundraising and coordinate with Rotary clubs, government representatives, and water-sector organizations.",
+          "Set up the community workshops and the Youth Ambassador program.",
           "Designed and built saquasolverwanda.org.",
         ],
       },
@@ -185,20 +186,17 @@ export const projects: Project[] = [
         figure: { src: "/images/compass/survey-summary.png", alt: "Summary chart of the CDOT intern and fellow survey responses", caption: "Survey of interns and fellows (aggregate results, no names).", tag: "My work", fit: "contain", want: "A chart or screenshot of the aggregate survey results (no names or emails)." },
       },
       {
-        type: "text",
-        title: "Dashboard for first-week questions",
-        body: ["Explore divisions, browse projects, find a mentor, and see upcoming events from one screen. Divisions can be filtered by type so a new engineer can find, for example, every bridge-related team quickly."],
-        figure: { src: "/images/compass-explore.jpg", alt: "Explore Divisions grid with filters", caption: "Explore Divisions.", tag: "Screenshot", fit: "contain" },
-      },
-      {
-        type: "text",
-        title: "Compass Guide and search",
-        body: [
-          "Compass Guide asks a few questions about your interests and suggests divisions, projects, and people to look at. One search box covers divisions, projects, and people.",
-          "I tested ideas with colleagues and changed the prototype as I learned what new staff needed. I also wrote an A3 proposal for the tool.",
+        type: "tour",
+        title: "A walk through the prototype",
+        intro: [
+          "I tested ideas with colleagues and changed the prototype as I learned what new staff needed. I also wrote an A3 proposal for the tool. These are screenshots of the public prototype.",
         ],
-        figure: { src: "/images/compass-guide.jpg", alt: "Compass Guide onboarding screen", caption: "Compass Guide.", tag: "Screenshot", fit: "contain" },
-        figureSide: "left",
+        steps: [
+          { label: "Dashboard", body: "Explore divisions, browse projects, find a mentor, and see upcoming events from one screen.", src: "/images/compass-dashboard.jpg", alt: "CDOT Compass dashboard with quick actions for exploring divisions, projects, and mentors", tag: "Screenshot", fit: "contain" },
+          { label: "Explore divisions", body: "Divisions can be filtered by type, so a new engineer can find every bridge-related team quickly.", src: "/images/compass-explore.jpg", alt: "Explore Divisions grid with filters", tag: "Screenshot", fit: "contain" },
+          { label: "Compass Guide", body: "A few questions about your interests, then suggested divisions, projects, and people to look at.", src: "/images/compass-guide.jpg", alt: "Compass Guide onboarding screen", tag: "Screenshot", fit: "contain" },
+          { label: "Search", body: "One search box covers divisions, projects, and people.", src: "/images/compass-search.jpg", alt: "Compass global search results across divisions, projects, and people", tag: "Screenshot", fit: "contain" },
+        ],
       },
       {
         type: "figures",
@@ -239,7 +237,7 @@ export const projects: Project[] = [
   {
     slug: "aero-design",
     title: "Yellowjackets Aero Design",
-    kind: "A student team designing and building a competition aircraft for SAE Aero Design.",
+    kind: "A student team designing and building a competition aircraft.",
     blurb: "I lead design: wing, tail, and fuselage structures in Siemens NX, compared with FEA and tested as laser-cut prototypes.",
     outcome: "Team cut airframe weight about 10% over 15+ design iterations",
     dates: "2025 – present",
@@ -285,7 +283,7 @@ export const projects: Project[] = [
         ],
       },
     ],
-    needs: ["Aircraft name and competition year", "Wing CAD screenshot", "FEA plot", "Prototype photo", "Team build photo"],
+    needs: [ "Wing CAD screenshot", "FEA plot", "Prototype photo", "Team build photo"],
   },
 
   /* ───────────── MarketBite ───────────── */
@@ -493,7 +491,7 @@ export const projects: Project[] = [
     title: "Optimized timber truss bridge",
     kind: "A course design project: the lightest 52-meter timber truss that still meets its limits.",
     blurb: "Three truss designs in Dr.Frame, checked against buckling, stress, and a deflection limit.",
-    outcome: "Cut modeled weight 34% from my first design while staying within every limit",
+    outcome: "34% modeled weight reduction, within every design limit",
     dates: "Fall 2024",
     sort: 2024.11,
     prominence: "main",
@@ -520,7 +518,7 @@ export const projects: Project[] = [
       },
       { type: "lesson", title: "What I learned", body: "Every member you lighten changes the load path somewhere else." },
     ],
-    needs: ["Dr.Frame screenshots", "Comparison table", "Confirm individual project"],
+    needs: ["Dr.Frame screenshots", "Comparison table"],
   },
 
   /* ───────────── UniBooth ───────────── */
@@ -529,7 +527,7 @@ export const projects: Project[] = [
     title: "UniBooth",
     kind: "A student startup for university-branded, self-service photo booths.",
     blurb: "Survey, business model, pitch, and a library pilot proposal for a campus photo booth.",
-    outcome: "Won an iZone Make It Happen award, one of 13 winners from 28 applicants",
+    outcome: "Won an iZone Make It Happen grant, one of 13 winners from 28 applicants",
     dates: "2025 – present",
     sort: 2026.02,
     prominence: "main",
@@ -558,7 +556,7 @@ export const projects: Project[] = [
         steps: [
           { label: "Discovery", title: "Student survey", body: "45+ responses about how students want to document campus life." },
           { label: "Model", title: "Business model", body: "Pay-per-use sessions plus rentals for organizations. I led operations and financial planning." },
-          { label: "Funding", title: "iZone Make It Happen", body: "Pitched at iZone Pitch Night and won seed funding, one of 13 winners from 28 applicants. We also pitched at the Forbes Pitch Competition." },
+          { label: "Funding", title: "iZone Make It Happen", body: "Pitched at iZone Pitch Night and won a Make It Happen grant, one of 13 winners from 28 applicants. We also pitched at the Forbes Pitch Competition." },
           { label: "Pilot", title: "Library pilot proposal", body: "Drafted a one-semester pilot proposal for Rush Rhees Library covering privacy, maintenance, placement, accessibility, and continuity after the founders graduate." },
         ],
       },

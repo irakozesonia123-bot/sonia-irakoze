@@ -27,7 +27,7 @@ export default function ExperiencePage() {
             return (
               <li key={e.id} id={e.id} className="scroll-mt-24 grid grid-cols-[minmax(0,1fr)] gap-x-10 gap-y-3 border-t border-line pt-6 md:grid-cols-[15rem_minmax(0,1fr)]">
                 <div>
-                  <h3 className="text-xl font-extrabold leading-snug">{e.org}</h3>
+                  <h3 className="text-xl font-semibold leading-snug">{e.org}</h3>
                   {e.team && <p className="text-ink-2">{e.team}</p>}
                   <p className="label mt-1.5">{e.location}</p>
                 </div>
@@ -37,14 +37,14 @@ export default function ExperiencePage() {
                       <li key={r.title} className="flex flex-wrap items-baseline gap-x-3">
                         <span className="text-lg font-bold">{r.title}</span>
                         <span className="label">{dates(r.start, r.end)}</span>
-                        {r.note && <span className="label !text-coral-ink">{r.note}</span>}
+                        {r.note && <span className="label !text-rose-ink">{r.note}</span>}
                       </li>
                     ))}
                   </ol>
                   <p className="mt-2 text-ink-2">{e.summary}</p>
                   {e.highlights.length > 0 && (
                     <ul className="mt-3 space-y-1.5">
-                      {e.highlights.map((h) => <li key={h} className="flex gap-3"><span className="mt-[0.7rem] h-[2px] w-3 flex-none bg-coral" aria-hidden />{h}</li>)}
+                      {e.highlights.map((h) => <li key={h} className="flex gap-3"><span className="mt-[0.7rem] h-[2px] w-3 flex-none bg-rose" aria-hidden />{h}</li>)}
                     </ul>
                   )}
                   {e.tools.length > 0 && <div className="mt-4 flex flex-wrap gap-1.5">{e.tools.map((t) => <Tag key={t}>{t}</Tag>)}</div>}
@@ -55,7 +55,7 @@ export default function ExperiencePage() {
                     </p>
                   )}
                   {recs.map((r) => (
-                    <figure key={r.name} className="mt-5 border-l-2 border-teal pl-4">
+                    <figure key={r.name} className="mt-5 border-l-2 border-berry pl-4">
                       <blockquote className="text-[0.98rem] leading-relaxed">“{r.quote}”</blockquote>
                       <figcaption className="mt-2 text-sm text-ink-2">
                         <span className="font-semibold text-ink">{r.name}</span>, {r.role}. {r.relationship}, {r.date}
@@ -92,10 +92,10 @@ export default function ExperiencePage() {
         <div className="grid grid-cols-[minmax(0,1fr)] gap-12 md:grid-cols-2">
           {education.map((e) => (
             <div key={e.school}>
-              <h3 className="text-xl font-extrabold">{e.school}</h3>
+              <h3 className="text-xl font-semibold">{e.school}</h3>
               <p className="text-ink-2">{e.credential}</p>
               <p className="label mt-1">{e.start} – {e.end} · {e.location}</p>
-              <ul className="mt-4 space-y-1.5">{e.notes.map((n) => <li key={n} className="flex gap-3"><span className="mt-[0.7rem] h-[2px] w-3 flex-none bg-coral" aria-hidden />{n}</li>)}</ul>
+              <ul className="mt-4 space-y-1.5">{e.notes.map((n) => <li key={n} className="flex gap-3"><span className="mt-[0.7rem] h-[2px] w-3 flex-none bg-rose" aria-hidden />{n}</li>)}</ul>
               {e.coursework && <div className="mt-4 flex flex-wrap gap-1.5">{e.coursework.map((c) => <Tag key={c}>{c}</Tag>)}</div>}
             </div>
           ))}
@@ -106,7 +106,7 @@ export default function ExperiencePage() {
         <dl className="grid grid-cols-[minmax(0,1fr)] gap-x-10 gap-y-6 sm:grid-cols-2">
           {skills.map((g) => (
             <div key={g.title}>
-              <dt className="label !text-teal">{g.title}</dt>
+              <dt className="label !text-berry">{g.title}</dt>
               <dd className="mt-1.5">{g.items.join(" · ")}</dd>
             </div>
           ))}

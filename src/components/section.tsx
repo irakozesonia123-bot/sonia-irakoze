@@ -1,19 +1,28 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
+import { Bouquet, Sprig } from "./decor";
 
-/** A page section with a plain title. The dimension line is the only drafting detail. */
+export type Tone = "plain" | "warm" | "sky" | "lav";
+export const toneClass: Record<Tone, string> = {
+  plain: "",
+  warm: "bg-surface-2/70",
+  sky: "bg-sky/70",
+  lav: "bg-lav/70",
+};
+
+/** A page section with a plain title and a small sprig above it. */
 export function Section({ id, title, intro, children, action, className = "", tone = "plain" }: {
-  id?: string; title: string; intro?: string; children: ReactNode; action?: { href: string; label: string }; className?: string; tone?: "plain" | "warm";
+  id?: string; title: string; intro?: string; children: ReactNode; action?: { href: string; label: string }; className?: string; tone?: Tone;
 }) {
   const hid = id ? `${id}-title` : undefined;
   return (
-    <section id={id} aria-labelledby={hid} className={`scroll-mt-20 ${tone === "warm" ? "bg-surface-2/70" : ""} ${className}`}>
+    <section id={id} aria-labelledby={hid} className={`scroll-mt-20 ${toneClass[tone]} ${className}`}>
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <header className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
           <div className="max-w-2xl">
-            <span className="dim" aria-hidden />
-            <h2 id={hid} className="mt-3 text-[2rem] font-extrabold leading-[1.05] sm:text-[2.6rem]">{title}</h2>
+            <Sprig />
+            <h2 id={hid} className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">{title}</h2>
             {intro && <p className="mt-3 text-[1.06rem] text-ink-2">{intro}</p>}
           </div>
           {action && <ArrowLink href={action.href}>{action.label}</ArrowLink>}
@@ -24,12 +33,13 @@ export function Section({ id, title, intro, children, action, className = "", to
   );
 }
 
-export function PageHeader({ title, intro, children }: { title: string; intro: string; children?: ReactNode }) {
+export function PageHeader({ title, intro, children, eyebrow }: { title: ReactNode; intro: string; children?: ReactNode; eyebrow?: string }) {
   return (
-    <header className="border-b border-line">
-      <div className="mx-auto max-w-6xl px-5 pb-12 pt-14 sm:px-8 sm:pt-20">
-        <span className="dim" aria-hidden />
-        <h1 className="mt-4 text-[clamp(2.6rem,7vw,4.4rem)] font-extrabold leading-[0.98] tracking-[-0.03em]">{title}</h1>
+    <header className="relative overflow-hidden border-b border-line bg-gradient-to-br from-rose-soft/60 via-bg to-lav/70">
+      <Bouquet className="pointer-events-none absolute -right-6 -top-4 h-44 w-44 opacity-70 sm:right-6 sm:h-56 sm:w-56" />
+      <div className="relative mx-auto max-w-6xl px-5 pb-12 pt-14 sm:px-8 sm:pt-20">
+        {eyebrow ? <p className="label">{eyebrow}</p> : <Sprig />}
+        <h1 className="mt-3 max-w-[18ch] text-[clamp(2.6rem,7vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.02em]">{title}</h1>
         <p className="mt-5 max-w-[60ch] text-[1.1rem] text-ink-2">{intro}</p>
         {children}
       </div>
@@ -38,7 +48,7 @@ export function PageHeader({ title, intro, children }: { title: string; intro: s
 }
 
 export function Tag({ children }: { children: ReactNode }) {
-  return <span className="rounded-md bg-surface-2 px-2 py-0.5 font-mono text-[0.72rem] text-ink-2">{children}</span>;
+  return <span className="rounded-md bg-lav px-2 py-0.5 font-mono text-[0.72rem] text-ink-2">{children}</span>;
 }
 
 export function ArrowLink({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {

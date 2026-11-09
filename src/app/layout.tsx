@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Atkinson_Hyperlegible_Next, Bricolage_Grotesque, IBM_Plex_Mono } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { profile } from "@/content/profile";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bricolage", weight: ["500", "700", "800"] });
+const display = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", style: ["normal", "italic"], axes: ["SOFT", "WONK", "opsz"] });
 const sans = Atkinson_Hyperlegible_Next({ subsets: ["latin"], variable: "--font-atkinson", weight: ["400", "700"], adjustFontFallback: false, fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-plex-mono", weight: ["400"] });
 
@@ -35,14 +35,16 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbf7f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#fbf7f1" },
+    { media: "(prefers-color-scheme: light)", color: "#fcecef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0f2b" },
   ],
   viewportFit: "cover",
 };
 
-// Runs before first paint: a saved choice wins; otherwise every first visit is light.
-const themeScript = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){}})()`;
+// Runs before first paint: a saved theme wins; otherwise every first visit is light.
+// Then decides on the welcome animation: home page only, once per browser session, never
+// with reduced motion. Direct links to other pages never see it.
+const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem("theme");d.setAttribute("data-theme",t==="dark"?"dark":"light")}catch(e){}try{if(location.pathname==="/"&&!sessionStorage.getItem("intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){sessionStorage.setItem("intro","1");d.setAttribute("data-intro","");setTimeout(function(){d.removeAttribute("data-intro")},1600)}}catch(e){}})()`;
 
 const jsonLd = {
   "@context": "https://schema.org",

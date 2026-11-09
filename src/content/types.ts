@@ -42,6 +42,8 @@ export type StoryBlock =
   | { type: "compare"; title: string; intro?: string; before: Figure & { label: string }; after: Figure & { label: string } }
   | { type: "status"; title: string; intro?: string; rows: { state: "done" | "underway" | "next"; text: string }[] }
   | { type: "quote"; quote: string; cite: string }
+  /** Step-through of real screenshots of a prototype */
+  | { type: "tour"; title: string; intro?: string[]; steps: (Figure & { label: string; body: string })[] }
   | { type: "lesson"; title: string; body: string }
   /** Deeper technical detail, collapsed by default */
   | { type: "details"; title: string; intro?: string; items: { label: string; detail: string }[]; caption?: string };

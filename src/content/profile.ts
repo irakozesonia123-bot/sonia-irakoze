@@ -26,7 +26,7 @@ export const profile = {
 };
 
 export const nav: NavItem[] = [
-  { href: "/work", label: "Work" },
+  { href: "/work", label: "Projects" },
   { href: "/experience", label: "Experience" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },

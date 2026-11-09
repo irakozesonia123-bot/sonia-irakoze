@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PageHeader, Section } from "@/components/section";
 import { Fig, showSlots, willRender } from "@/components/figure";
-import { events, features, interests, milestones, recognition, story } from "@/content/about";
+import { events, features, milestones, places, recognition, story } from "@/content/about";
+import { PlacesMap } from "@/components/interactive/places-map";
+import { Feather, Flower } from "@/components/decor";
 import type { Visibility } from "@/content/types";
 
 export const metadata: Metadata = {
@@ -18,29 +20,28 @@ export default function AboutPage() {
   const recog = recognition.filter((r) => visible(r.visibility)).sort((a, b) => b.sort - a.sort);
   const evts = events.filter((e) => visible(e.visibility)).sort((a, b) => b.sort - a.sort);
   const media = features.filter((f) => f.visibility === "public").sort((a, b) => b.sort - a.sort);
-  const hobbies = interests.filter((i) => i.visibility === "public");
+  const placeFigs = Object.fromEntries(places.map((p) => [p.id, willRender(p.figure) ? <Fig fig={{ ...p.figure!, caption: p.figure!.caption }} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 440px, 100vw" /> : null]));
 
   return (
     <>
-      <PageHeader title="About" intro="An engineering student from Rwanda who likes building things people depend on, and who keeps ending up in charge of them." />
+      <PageHeader title="About" intro="Where I come from, the places that shaped me, and the recognition and events along the way." />
 
       <section aria-labelledby="story-title" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="grid gap-6">
             <Fig fig={{ src: "/images/nsbe-albany.jpg", alt: "Sonia smiling in a blazer at an engineering conference", pos: "50% 25%" }} aspect="aspect-[4/5]" sizes="(min-width: 768px) 420px, 100vw" zoom={false} />
-            <Fig fig={{ src: "/images/about/rwanda.jpg", alt: "Sonia at home in Rwanda", caption: "Home, in Rwanda.", tag: "Fieldwork", want: "A photo of you in Rwanda: Gashora, Lake Mirayi, or Kigali." }} aspect="aspect-[4/3]" sizes="(min-width: 768px) 420px, 100vw" />
           </div>
           <div>
-            <h2 id="story-title" className="text-[2rem] font-extrabold leading-[1.05] sm:text-[2.4rem]">How I got here</h2>
+            <h2 id="story-title" className="text-[2rem] font-semibold leading-[1.05] sm:text-[2.4rem]">How I got here</h2>
             <div className="mt-6 space-y-5 text-[1.1rem] leading-relaxed text-ink-2">
               {story.map((p, i) => <p key={i} className={i === 0 ? "text-ink" : ""}>{p}</p>)}
             </div>
 
-            <h3 id="journey" className="mt-12 scroll-mt-24 font-display text-xl font-extrabold">Along the way</h3>
+            <h3 id="journey" className="mt-12 scroll-mt-24 font-display text-xl font-semibold">Along the way</h3>
             <ol className="mt-4 border-l border-line-strong">
               {milestones.map((m) => (
                 <li key={m.text} className="relative py-2 pl-6">
-                  <span className="absolute -left-[4px] top-[1.05rem] h-[7px] w-[7px] rounded-full bg-coral" aria-hidden />
+                  <Flower className="absolute -left-[7px] top-[0.95rem] h-[13px] w-[13px] text-rose" />
                   <span className="label mr-3">{m.year} · {m.place}</span>
                   <span className="block sm:inline">{m.text}</span>
                 </li>
@@ -49,6 +50,10 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Section id="places" title="Places that shaped me" intro="Choose a place to see what happened there." tone="sky">
+        <PlacesMap places={places} figs={placeFigs} />
+      </Section>
 
       <Section id="recognition" title="Recognition" tone="warm">
         <ul className="grid grid-cols-[minmax(0,1fr)] gap-x-10 gap-y-8 md:grid-cols-2">
@@ -76,7 +81,7 @@ export default function AboutPage() {
               <Fig fig={e.figure} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw" showCaption={false} />
               <p className="label mt-4">{e.date} · {e.place}</p>
               <h3 className="mt-1 text-lg font-bold leading-snug">{e.title}</h3>
-              <p className="text-[0.95rem] font-semibold text-teal">{e.role}</p>
+              <p className="text-[0.95rem] font-semibold text-berry">{e.role}</p>
               <p className="mt-1.5 text-ink-2">{e.note}</p>
               {e.links && (
                 <p className="mt-2 flex flex-wrap gap-x-4 text-[0.95rem]">
@@ -88,32 +93,32 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section id="media" title="In the news" tone="warm">
+      <Section id="media" title="In the news" tone="lav">
         <ul className="divide-y divide-line border-y border-line">
           {media.map((f) => (
             <li key={f.id}>
               <a href={f.href} target="_blank" rel="noopener" className="group grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 py-4 sm:grid-cols-[6rem_minmax(0,1fr)_minmax(0,14rem)_auto]">
                 <span className="label hidden sm:block">{f.date}</span>
-                <span className="font-bold group-hover:text-teal">{f.headline}</span>
+                <span className="font-bold group-hover:text-berry">{f.headline}</span>
                 <span className="col-span-2 row-start-2 text-ink-2 sm:col-span-1 sm:row-start-auto">{f.outlet}</span>
-                <ArrowUpRight className="col-start-2 row-start-1 h-4 w-4 text-ink-3 group-hover:text-teal sm:col-start-4" aria-hidden />
+                <ArrowUpRight className="col-start-2 row-start-1 h-4 w-4 text-ink-3 group-hover:text-berry sm:col-start-4" aria-hidden />
               </a>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section id="interests" title="Outside engineering">
-        <ul className="grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-          {hobbies.map((h) => (
-            <li key={h.id}>
-              {willRender(h.figure) && <Fig fig={h.figure} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 360px, 50vw" showCaption={false} className="mb-4" />}
-              <h3 className="text-lg font-bold">{h.label}</h3>
-              <p className="mt-1 text-ink-2">{h.line}</p>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <section id="interests" aria-labelledby="beyond-cta" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <Link href="/about/beyond" className="group relative block overflow-hidden rounded-[2rem] bg-gradient-to-br from-rose-soft via-lav to-sky p-8 sm:p-12">
+            <Feather className="absolute -right-2 -top-6 h-40 w-20 rotate-[28deg] text-lav-ink/50 transition-transform duration-700 group-hover:rotate-[16deg]" />
+            <Flower className="h-10 w-10 text-rose transition-transform duration-700 group-hover:rotate-[72deg]" />
+            <h2 id="beyond-cta" className="mt-4 text-[2.1rem] font-semibold leading-tight sm:text-[2.8rem]">Beyond the <span className="script text-berry">blueprint</span></h2>
+            <p className="mt-3 max-w-[50ch] text-[1.08rem] text-ink-2">Art, music, faith, an example day, and the eagle I keep in mind.</p>
+            <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-ink">Step inside <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden /></span>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

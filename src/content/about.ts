@@ -1,15 +1,15 @@
-import type { EventNote, Feature, Interest, Milestone, Recognition } from "./types";
+import type { EventNote, Feature, Figure, Milestone, Recognition } from "./types";
 
 /**
- * Everything on the About page: story, milestones, recognition, events, media, and interests.
+ * Everything on the About page: story, milestones, recognition, events, and media. Personal interests live in beyond.ts.
  * Items with visibility "slot" are empty spaces for new photos; they show on local and
  * preview builds only. Fill one by saving the photo at its `src` and switching it to "public".
  */
 
 export const story = [
-  "I grew up in Kigali and spent three years as a boarding student at Gashora Girls Academy, beside Lake Mirayi. Many people near the school collect water from that lake even though it isn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
-  "In 2023, the TechGirls exchange took me to Virginia Tech for flume experiments and my first Python, and then to a two-day job shadow at the Colorado Department of Transportation. Back home, I ran water-education workshops for my community. Three years later I returned to CDOT as an engineering intern, and that community project had become SAquaSolve Rwanda.",
-  "At Rochester I study mechanical engineering and work on aircraft and satellite structures. I also tend to be the person who builds the software: a tool CDOT recognized, a nonprofit’s website, data checks for an AI model. I like work where the physical system and the information about it both have to be right.",
+  "I was born and raised in Kigali, Rwanda. For secondary school I moved to Gashora Girls Academy, a boarding school beside Lake Mirayi, where many of our neighbors collect drinking water from a lake that isn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
+  "Writing took me abroad first: an essay prize sent me to Arusha to represent Rwanda. In 2023 the TechGirls exchange brought me to Virginia Tech for flume experiments and my first Python, and then to a job shadow at the Colorado Department of Transportation. Back home I ran water-education workshops. Three years later that project had become SAquaSolve Rwanda, and I was back at CDOT as an engineering intern.",
+  "At Rochester I study mechanical engineering and work on aircraft and satellite structures. I am also often the one who builds the software: a tool CDOT recognized, a nonprofit’s website. I like work where the physical system and the information about it both have to be right.",
 ];
 
 export const milestones: Milestone[] = [
@@ -97,23 +97,13 @@ export const recognition: Recognition[] = [
   },
   {
     id: "izone",
-    title: "iZone Make It Happen award",
+    title: "iZone Make It Happen grant",
     issuer: "Barbara J. Burger iZone, University of Rochester",
     year: "2026",
     sort: 2026.02,
-    why: "Seed funding for UniBooth; one of 13 winners from 28 applicants.",
+    why: "For UniBooth; one of 13 winners from 28 applicants.",
     href: "/work/unibooth",
     visibility: "public",
-  },
-  {
-    id: "slot-award",
-    title: "Space for another award or certificate",
-    issuer: "Add the issuer",
-    year: "",
-    sort: 2000,
-    why: "Save a scan or photo here and add its details in src/content/about.ts.",
-    figure: { src: "/images/awards/next-award.jpg", alt: "", tag: "Award", fit: "contain", want: "Another certificate or award photo." },
-    visibility: "slot",
   },
 ];
 
@@ -200,28 +190,6 @@ export const events: EventNote[] = [
     figure: { src: "/images/techgirls-info-session.jpg", alt: "Sonia speaking to a room of students", tag: "Event", pos: "60% 40%" },
     visibility: "public",
   },
-  {
-    id: "slot-event-1",
-    title: "Space for a conference or talk",
-    place: "Place",
-    date: "Date",
-    sort: 2000,
-    role: "Your role",
-    note: "Add one sentence on why it mattered.",
-    figure: { src: "/images/events/next-event-1.jpg", alt: "", tag: "Event", want: "A conference, panel, or speaking photo." },
-    visibility: "slot",
-  },
-  {
-    id: "slot-event-2",
-    title: "Space for a conference or talk",
-    place: "Place",
-    date: "Date",
-    sort: 1999,
-    role: "Your role",
-    note: "Add one sentence on why it mattered.",
-    figure: { src: "/images/events/next-event-2.jpg", alt: "", tag: "Event", want: "Another event photo, such as a badge, stage, or group shot." },
-    visibility: "slot",
-  },
 ];
 
 export const features: Feature[] = [
@@ -231,10 +199,27 @@ export const features: Feature[] = [
   { id: "worlddenver", outlet: "WorldDenver", headline: "2023 TechGirls participant returns to Denver", date: "Jun 2026", sort: 2026.06, href: "https://www.instagram.com/p/DZdOJtYE6Up/", visibility: "public" },
 ];
 
-export const interests: Interest[] = [
-  { id: "rowing", label: "Rowing", line: "Early mornings and synchronized effort; something hard I chose to take on at Rochester.", figure: { src: "/images/about/rowing.jpg", alt: "Sonia rowing", tag: "Event", want: "A rowing photo (optional)." }, visibility: "public" },
-  { id: "karate", label: "Shotokan karate", line: "Training since high school at Gashora, and continuing at Rochester.", figure: { src: "/images/about/karate.jpg", alt: "Sonia training in Shotokan karate", tag: "Event", want: "A karate photo (optional)." }, visibility: "public" },
-  { id: "singing", label: "Singing", line: "I sing in my church choir, where I also serve as a deaconess.", visibility: "public" },
-  { id: "writing", label: "Writing", line: "Essays took me to Arusha; now I write grant proposals and technical reports.", visibility: "public" },
-  { id: "painting", label: "Painting", line: "When there’s time.", figure: { src: "/images/about/painting.jpg", alt: "One of Sonia’s paintings", tag: "My work", fit: "contain", want: "A painting you’d like to show (optional)." }, visibility: "public" },
+
+export type Place = {
+  id: string;
+  name: string;
+  region: "east-africa" | "us";
+  lon: number;
+  lat: number;
+  when: string;
+  text: string;
+  figure?: Figure;
+  link?: { label: string; href: string };
+  /** Display-only offset in % so neighboring pins (Kigali and Gashora) don’t overlap */
+  nudge?: [number, number];
+};
+
+/** Places that shaped me. Only places with evidence; Uganda is deliberately absent (UWP was in New York). */
+export const places: Place[] = [
+  { id: "kigali", name: "Kigali, Rwanda", region: "east-africa", lon: 30.06, lat: -1.95, nudge: [-3, -8], when: "Born and raised", text: "Home. It is also where SAquaSolve’s nine founding members held the general assembly that established the organization in August 2026.", figure: { src: "/images/places/kigali.jpg", alt: "Sonia in Kigali", want: "A photo of you in Kigali." }, link: { label: "SAquaSolve Rwanda", href: "/work/saquasolve-rwanda" } },
+  { id: "gashora", name: "Gashora, Rwanda", region: "east-africa", lon: 30.25, lat: -2.25, nudge: [6, 10], when: "2021 – 2024", text: "Three years at Gashora Girls Academy, beside Lake Mirayi. The lake is the reason SAquaSolve exists.", figure: { src: "/images/sq-lake-mirayi.jpg", alt: "Lake Mirayi with reeds in the foreground", caption: "Lake Mirayi. Photo by Nadine Uwizeyimana." }, link: { label: "SAquaSolve Rwanda", href: "/work/saquasolve-rwanda" } },
+  { id: "arusha", name: "Arusha, Tanzania", region: "east-africa", lon: 36.68, lat: -3.37, when: "2023", text: "Where I received my East African Community essay prize, representing Rwanda.", figure: { src: "/images/eac-award-2.jpg", alt: "Sonia receiving her East African Community essay prize in Arusha", pos: "80% 35%" }, link: { label: "Recognition", href: "/about#recognition" } },
+  { id: "virginia", name: "Blacksburg, Virginia", region: "us", lon: -80.41, lat: 37.23, when: "2023", text: "TechGirls at Virginia Tech: flume experiments on open-channel flow, and my first Python.", figure: { src: "/images/techgirls-virginia-tech.jpg", alt: "Sonia on the Virginia Tech campus at sunset", pos: "50% 40%" }, link: { label: "Flume experiments", href: "/work/virginia-tech-flume" } },
+  { id: "colorado", name: "Denver, Colorado", region: "us", lon: -104.99, lat: 39.74, when: "2023 and 2026", text: "A two-day job shadow at the Colorado Department of Transportation in 2023, then a return in 2026 as an engineering intern, when I built CDOT Compass.", figure: { src: "/images/cdot-welcome-colorado.jpg", alt: "Sonia beside a Welcome to Colorful Colorado sign at CDOT headquarters", pos: "60% 40%" }, link: { label: "CDOT Compass", href: "/work/cdot-compass" } },
+  { id: "rochester", name: "Rochester, New York", region: "us", lon: -77.61, lat: 43.16, when: "2024 – present", text: "Mechanical engineering at the University of Rochester as a Handler Scholar, with Aero Design, the IT Center, and a summer editorial internship.", figure: { src: "/images/rcl-presentation.jpg", alt: "Sonia with colleagues in front of her summer internship presentation slide", pos: "50% 70%" }, link: { label: "Experience", href: "/experience" } },
 ];
