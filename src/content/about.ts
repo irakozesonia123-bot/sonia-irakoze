@@ -7,7 +7,7 @@ import type { EventNote, Feature, Figure, Recognition } from "./types";
  */
 
 export const story = [
-  "I was born and raised in Kigali, Rwanda. After attending FAWE, I studied at Gashora Girls Academy, a boarding school beside Lake Mirayi, from 2021 to 2024. Many of our neighbors collected drinking water from that lake even though it wasn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
+  "I was born and raised in Kigali, Rwanda. After attending FAWE Girls’ School Gisozi, I studied at Gashora Girls Academy, a boarding school beside Lake Mirayi, from 2021 to 2024. Many of our neighbors collected drinking water from that lake even though it wasn’t safe to drink. That gap between having water nearby and having safe water is the problem I keep coming back to.",
   "Writing and speaking opened doors early: an essay prize took me to Arusha to represent Rwanda, and the TechGirls exchange brought me to the United States in 2023. Since 2024 I have studied mechanical engineering at the University of Rochester as a Handler Scholar.",
   "Outside class, I serve in several communities, from NSBE to the students I mentor in Rwanda, and I make room for art, music, and faith. My roles are on Experience, my work is on Projects, and the rest is under Outside work.",
 ];

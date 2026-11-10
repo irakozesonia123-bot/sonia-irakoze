@@ -34,7 +34,6 @@ One focused question per engineering project (the rest of each page is complete)
 - **Timber truss:** Which limit governed the final design (buckling, compressive stress, or the 5 cm deflection), and what was the starting weight the 34% is measured against?
 
 Other details:
-- **FAWE:** the school's full name, if you'd like it spelled out (the About story currently says "FAWE").
 - **Shoes For Love** and **SOS tutoring:** what they were, your role, and the years. They will be listed as past service.
 - **Choir leadership:** your exact role, if any (for example, section leader).
 - **Admissions role:** exact title, office, and dates. It stays hidden until then.
@@ -44,4 +43,4 @@ Other details:
 - **Eagle reflection:** drafted from your keywords; replace it with your own words whenever you like.
 - **"Netflix lead":** left unresolved until you clarify the role.
 
-Supplied 9 Nov 2026 and now on the site: your words on dance and Rwandan culture, Shotokan karate, rowing, and art.
+Supplied 9 Nov 2026 and now on the site: your words on dance and Rwandan culture, Shotokan karate, rowing, and art; the full name FAWE Girls’ School Gisozi.
