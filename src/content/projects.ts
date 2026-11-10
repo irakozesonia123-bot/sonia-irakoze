@@ -237,7 +237,7 @@ export const projects: Project[] = [
   {
     slug: "aero-design",
     title: "Yellowjackets Aero Design",
-    kind: "A University of Rochester student team that designs and builds a competition aircraft.",
+    kind: "A University of Rochester student team that designs, builds, and tests a glider.",
     blurb: "As Design Lead, I modeled wing and tail structures in Siemens NX, compared design options in simulation, and built laser-cut prototypes.",
     outcome: "Team cut airframe weight about 10% over 15+ design iterations",
     dates: "2025 – 2026",
