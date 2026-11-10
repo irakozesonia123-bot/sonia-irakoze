@@ -52,31 +52,7 @@ export function Sprig({ className = "h-5 w-14" }: P) {
   );
 }
 
-/** A loose floral cluster for corners of sections. */
-export function Bouquet({ className }: P) {
-  return (
-    <svg viewBox="0 0 160 160" className={className} aria-hidden focusable="false" fill="none">
-      <path d="M20 150 C 50 120, 70 90, 80 40" stroke="var(--line-strong)" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M44 128 C 70 120, 100 112, 130 70" stroke="var(--line-strong)" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M60 104 C 50 92, 54 80, 66 76 C 70 88, 68 98, 60 104Z" fill="var(--lav-ink)" opacity="0.3" />
-      <path d="M96 112 C 104 100, 116 98, 124 104 C 114 114, 104 116, 96 112Z" fill="var(--sky-ink)" opacity="0.3" />
-      <g transform="translate(80 38) scale(1.6)" color="var(--rose)"><Petals /></g>
-      <g transform="translate(130 68) scale(1.2)" color="var(--lav-ink)" opacity="0.8"><Petals /></g>
-      <g transform="translate(40 96) scale(0.9)" color="var(--sky-ink)" opacity="0.7"><Petals /></g>
-    </svg>
-  );
-}
-
-function Petals() {
-  return (
-    <>
-      {PETALS.map((r) => (
-        <path key={r} d="M0 0 C -4 -3, -4 -9, 0 -11 C 4 -9, 4 -3, 0 0Z" fill="currentColor" transform={`rotate(${r})`} />
-      ))}
-      <circle r="2.4" fill="var(--bg)" />
-    </>
-  );
-}
+export { Bouquet } from "./bouquet";
 
 /* ───────── Botanical bloom ─────────
    An original five-petal flower drawn as overlapping, slightly irregular petals in two layers,

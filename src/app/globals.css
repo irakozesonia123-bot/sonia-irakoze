@@ -233,6 +233,20 @@ html[data-intro] .intro {
 .stack-card { transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease; }
 .tilt { transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); transform-style: preserve-3d; will-change: transform; }
 
+/* ───────── Breeze in the bouquets ─────────
+   Each stem, leaf and head rotates a few degrees around its own anchor (set inline in viewBox
+   units). Paused until the cluster is on screen (data-breeze, set by an IntersectionObserver). */
+.sway {
+  transform-box: view-box;
+  animation: sway var(--d, 9s) ease-in-out var(--o, 0s) infinite;
+  animation-play-state: paused;
+}
+[data-breeze] .sway { animation-play-state: running; }
+@keyframes sway {
+  0%, 100% { transform: rotate(calc(var(--a, 2deg) * -1)); }
+  50% { transform: rotate(var(--a, 2deg)); }
+}
+
 /* Lined notebook paper */
 .paper {
   background-color: var(--surface);
@@ -243,5 +257,6 @@ html[data-intro] .intro {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html[data-intro] .intro { display: none; }
+  .sway { animation: none; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
