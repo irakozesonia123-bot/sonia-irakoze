@@ -54,25 +54,26 @@ export const artworks: Artwork[] = [
   },
 ];
 
-/** Movement: annotated photographs. Leave `line` empty until you supply your own words. */
+/** Rowing, karate, and dance: annotated photographs, each with Sonia’s own words. */
 export const movement: { id: string; label: string; line?: string; hue: "rose" | "lav" | "sky"; figure: Figure }[] = [
   {
     id: "rowing",
     label: "Rowing",
-    line: "Early mornings and moving in time with a crew. Something hard I chose to take on at Rochester.",
+    line: "I joined Rochester’s women’s rowing team as a novice. Early practices have become a different way to start my day, learning something new alongside a crew. I’m still building strength and technique, and I enjoy having a challenge that takes me outside the classroom.",
     hue: "sky",
     figure: { src: "/images/beyond/rowing.jpg", alt: "Sonia rowing", want: "A rowing photo: on the water, the boathouse, or with your crew." },
   },
   {
     id: "karate",
     label: "Shotokan karate",
-    line: "Something I started in high school at Gashora.",
+    line: "I started Shotokan karate at Gashora Girls Academy and continued at Rochester. I enjoy having something to work on that asks for a different kind of focus: paying attention to my stance, repeating a movement, and improving it through practice.",
     hue: "rose",
-    figure: { src: "/images/beyond/karate.jpg", alt: "Sonia in a karate gi", want: "A karate photo: training, teaching, a kata, or your belt." },
+    figure: { src: "/images/beyond/karate.jpg", alt: "Sonia in a karate gi", want: "A karate photo: training, a kata, or your gi." },
   },
   {
     id: "dance",
     label: "Dance and Rwandan culture",
+    line: "Being Rwandan is part of how I express myself, including through dance. I love the grace of Rwandan dance and the energy of Afrobeat. They give a different side of me room to show up, beyond classes, projects, and the responsibilities I take on.",
     hue: "lav",
     figure: { src: "/images/beyond/dance.jpg", alt: "Sonia dancing", want: "A dance photo, ideally Rwandan dance or a cultural event." },
   },
@@ -86,9 +87,9 @@ export const music = {
 
 /** Words: writing and speaking. Leave `reading` empty until you choose what to share. */
 export const words = {
-  writing: "Essays took me further than I expected: to Arusha for the East African Community prize, and to a Silver Award in the Queen’s Commonwealth Essay Competition. Now most of my writing is grant proposals and technical reports.",
+  writing: "Essays took me further than I expected. One brought me to Arusha for the East African Community essay prize; another earned a Silver Award in the Queen’s Commonwealth Essay Competition. These days, most of my writing is grant proposals and technical reports.",
   speaking: [
-    { when: "2022", text: "Named “Miss Creativity” for the most outstanding speech creativity at an inter-club competition, Gashora Girls Academy Gavel Club." },
+    { when: "2022", text: "Named “Miss Creativity” for the most creative speech at an inter-club competition, with the Gashora Girls Academy Gavel Club." },
     { when: "2023", text: "Gave the TechGirls information session at Gashora Girls Academy, two months after the exchange." },
     { when: "2026", text: "Presented the problem and market slides in MarketBite’s Heist Hackathon pitch." },
   ],
@@ -96,7 +97,7 @@ export const words = {
   reading: [] as { title: string; author: string; note?: string }[],
 };
 
-/** Service, then and now. Historical items stay historical; add Shoes For Love and SOS tutoring once described. */
+/** Service. Historical items stay historical; add Shoes For Love and SOS tutoring once described. */
 export const service: { when: string; text: string; href?: string }[] = [
   { when: "2023", text: "Water-education workshops in Gashora through my TechGirls Community Action Project, reaching 300+ residents.", href: "/work/techgirls-community-action-project" },
   { when: "2024 –", text: "College-access mentoring for high school students in Rwanda with NextGen4All." },
@@ -105,9 +106,9 @@ export const service: { when: string; text: string; href?: string }[] = [
 ];
 /** An example day: not a fixed routine. Edit freely. */
 export const day: { when: string; title: string; body: string; icon: "sunrise" | "book" | "laptop" | "wrench" | "moon" }[] = [
-  { when: "Early", title: "Practice", body: "An early start, before the day fills up.", icon: "sunrise" },
+  { when: "Early", title: "Rowing practice", body: "On the water with my crew before the day fills up.", icon: "sunrise" },
   { when: "Morning", title: "Engineering classes", body: "Mechanics, design, and the problem sets that come with them.", icon: "book" },
   { when: "Afternoon", title: "IT Center shift", body: "Helping students and staff fix what’s broken, and logging it in Jira.", icon: "laptop" },
-  { when: "Evening", title: "Building", body: "SAquaSolve planning, Aero Design CAD, or a website to finish.", icon: "wrench" },
+  { when: "Evening", title: "Building", body: "SAquaSolve planning, CubeSat frame models, or an engineering assignment due that week.", icon: "wrench" },
   { when: "Night", title: "Recharge", body: "Choir practice, a painting, or a call home.", icon: "moon" },
 ];

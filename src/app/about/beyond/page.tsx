@@ -50,7 +50,7 @@ export default function BeyondPage() {
       <Section id="art" title="Art" tone="warm">
         <div className="grid grid-cols-[minmax(0,1fr)] items-center gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div className="max-w-[46ch] text-[1.08rem] leading-relaxed text-ink-2">
-            <p>I paint and sketch when there’s time, and I enjoy design work like this journal cover.</p>
+            <p>Painting, sketching, and design are another part of how I think. Sometimes I’m working within the structure of a journal cover; other times, I want the freedom of making something of my own. I want this space to hold both.</p>
             {art.length > 1 && <p className="mt-4 text-[0.98rem] text-ink-3">Use the arrows to flip through the pile.</p>}
           </div>
           <ArtStack cards={art} />
@@ -76,7 +76,7 @@ export default function BeyondPage() {
                 <div>
                   <span className="label">{String(k + 1).padStart(2, "0")}</span>
                   <h3 className="mt-1 text-[1.7rem] font-semibold leading-tight">{m.label}</h3>
-                  {m.line && <p className="mt-2 max-w-[44ch] text-[1.06rem] text-ink-2">{m.line}</p>}
+                  {m.line && <p className="mt-3 max-w-[50ch] text-[1.06rem] leading-relaxed text-ink-2">{m.line}</p>}
                 </div>
               </li>
             );

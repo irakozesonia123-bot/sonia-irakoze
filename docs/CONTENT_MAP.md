@@ -21,23 +21,27 @@ Each confirmed detail has one home. Other pages link to it instead of repeating 
 | Fabrication (lathe, mill, 3D printing, laser cutting), design tools, languages | Resume | Experience › Skills, linked to example projects | |
 | Handler, Kearns Scholar, Dean's List (Fall 2024) | Resume | Experience › Education | Handler also in About › Recognition |
 | Painting, sketching, design | Sonia | Beyond › Art collection | |
-| Rowing, Shotokan karate, dance and Rwandan culture | Sonia | Beyond › Movement (annotated photos) | |
+| Rowing, Shotokan karate, dance and Rwandan culture | Sonia (own words, 9 Nov 2026) | Outside work › Rowing, karate, and dance | |
 | Choir, deaconess, eagle reflection, Isaiah 40:31 | Sonia | Beyond › Singing and faith | |
 | Writing (EAC, QCEC); speaking (Gavel Club "Miss Creativity" 2022, TechGirls info session 2023, Heist pitch 2026) | Evidence + resume | Beyond › Writing and speaking | |
 | Service timeline: CAP workshops 2023, NextGen4All, Boys & Girls Club, ISO mentoring, SAquaSolve | Evidence + experience | Beyond › Service, then and now | Roles also on Experience |
 | Peer Advisor, Student Alumni Ambassador, International Student Mentor | Experience data | Experience | |
 
 ## Held until Sonia supplies details or her own words
+One focused question per engineering project (the rest of each page is complete):
+- **Aero Design:** Which wing or tail change made the biggest difference in the FEA comparisons, and what limit (stress, deflection, or stiffness) drove it?
+- **CubeSat:** Which frame parts are yours, and did a vibration or thermal result change any of them?
+- **Timber truss:** Which limit governed the final design (buckling, compressive stress, or the 5 cm deflection), and what was the starting weight the 34% is measured against?
+
+Other details:
+- **FAWE:** the school's full name, if you'd like it spelled out (the About story currently says "FAWE").
 - **Shoes For Love** and **SOS tutoring:** what they were, your role, and the years. They will be listed as past service.
-- **Karate teaching:** where, when, and in what role.
-- **Choir leadership:** your exact role (for example, section leader or choir director).
-- **Dance and Rwandan culture:** one or two sentences in your own words. The tile shows the label only until then.
+- **Choir leadership:** your exact role, if any (for example, section leader).
 - **Admissions role:** exact title, office, and dates. It stays hidden until then.
 - **Peer Advisor:** your start date.
-- **Rowing and karate:** whether they are current. The text avoids saying so.
 - **Reading:** books you'd like listed. This section is hidden until you send them.
 - **Paintings and sketches:** title, year, and medium for each.
-- **Selected writing:** an excerpt you'd like to share. Optional.
-- **Performance clip:** a singing or dance clip you have permission to share. Optional.
-- **Eagle reflection:** drafted from your keywords; please replace it with your own words.
+- **Eagle reflection:** drafted from your keywords; replace it with your own words whenever you like.
 - **"Netflix lead":** left unresolved until you clarify the role.
+
+Supplied 9 Nov 2026 and now on the site: your words on dance and Rwandan culture, Shotokan karate, rowing, and art.

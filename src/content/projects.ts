@@ -238,7 +238,7 @@ export const projects: Project[] = [
     slug: "aero-design",
     title: "Yellowjackets Aero Design",
     kind: "A University of Rochester student team that designs and builds a competition aircraft.",
-    blurb: "As Design Lead, I modeled wing, tail, and fuselage structures in Siemens NX, compared them with FEA, and tested laser-cut prototypes.",
+    blurb: "As Design Lead, I modeled wing and tail structures in Siemens NX, compared design options in simulation, and built laser-cut prototypes.",
     outcome: "Team cut airframe weight about 10% over 15+ design iterations",
     dates: "2025 – 2026",
     sort: 2025.08,
@@ -250,36 +250,36 @@ export const projects: Project[] = [
     filters: ["Engineering"],
     area: "Aerospace structures",
     tools: ["Siemens NX", "FEA", "Laser cutting", "Prototyping"],
-    cover: { src: "/images/aero/wing-cad.jpg", alt: "Siemens NX model of the wing structure", caption: "Wing structure in Siemens NX.", tag: "My work", want: "Your best CAD screenshot of the wing or full airframe (Siemens NX)." },
+    cover: { src: "/images/aero/wing-cad.jpg", alt: "Siemens NX model of the glider wing structure", caption: "Wing structure I modeled in Siemens NX.", tag: "My work", want: "Your best CAD screenshot of the wing or full airframe (Siemens NX)." },
     links: [],
     story: [
       {
         type: "text",
         title: "The challenge",
-        body: ["A competition aircraft has to be as light as possible and still stiff and stable enough to fly. Every gram removed from the wing or tail changes how loads move through the structure."],
-        figure: { src: "/images/aero/fea-comparison.jpg", alt: "FEA stress results comparing two wing configurations", caption: "FEA comparison of wing or tail configurations.", tag: "Simulation", fit: "contain", want: "An FEA stress or deflection plot comparing two of your design options." },
+        body: [
+          "A glider has to be as light as possible and still stiff enough to hold its shape in flight. Taking material out of the wing or tail changes how loads travel through the structure, so every weight saving has to be checked rather than assumed.",
+        ],
+        figure: { src: "/images/aero/fea-comparison.jpg", alt: "Finite element stress results comparing two wing or tail options", caption: "FEA comparison of two of my wing or tail options. What changed between them, and which one we kept.", tag: "Simulation", fit: "contain", want: "An FEA stress or deflection plot comparing two of your design options." },
       },
       {
-        type: "list",
-        title: "What I did",
-        items: [
-          "Modeled wing, tail, and fuselage structures in Siemens NX.",
-          "Used FEA to compare wing and tail configurations for stress and stability.",
-          "Built and tested laser-cut prototypes.",
-          "Ran the team’s social media.",
+        type: "text",
+        title: "How I worked",
+        body: [
+          "I modeled the wing, tail, and fuselage structures in Siemens NX. Before anything was cut, I used finite element analysis (FEA), a simulation that estimates stress and deflection across a part, to compare wing and tail configurations.",
+          "Options that held up in simulation became laser-cut prototypes, and what each prototype showed went back into the next model.",
         ],
-        figure: { src: "/images/aero/prototype.jpg", alt: "Laser-cut wing ribs and prototype parts on the workbench", caption: "Laser-cut prototype parts.", tag: "Built", want: "A photo of laser-cut parts or a prototype you built, ideally with your hands or you in frame." },
+        figure: { src: "/images/aero/prototype.jpg", alt: "Laser-cut wing ribs and prototype parts on the workbench", caption: "Laser-cut prototype parts I built from the NX model.", tag: "Built", want: "A photo of laser-cut parts or a prototype you built, ideally with your hands or you in frame." },
       },
       {
         type: "contribution",
-        team: ["The 15+ design iterations and the roughly 10% airframe weight reduction are team results."],
-        me: ["Structural CAD for wing, tail, and fuselage", "FEA comparisons of configurations", "Laser-cut prototypes"],
+        team: ["The aircraft as a whole, its design iterations, and the weight reduction above."],
+        me: ["Structural CAD for the wing, tail, and fuselage", "FEA comparisons of wing and tail configurations", "Laser-cut prototypes", "The team’s social media"],
       },
       {
         type: "figures",
         title: "Build and test",
         items: [
-          { src: "/images/aero/team-build.jpg", alt: "The Aero Design team assembling the aircraft", caption: "Team build session.", tag: "Team work", want: "A team build or test-day photo." },
+          { src: "/images/aero/team-build.jpg", alt: "The Aero Design team assembling the glider", caption: "Team build session.", tag: "Team work", want: "A team build or test-day photo." },
         ],
       },
     ],
@@ -322,7 +322,6 @@ export const projects: Project[] = [
         type: "contribution",
         team: [
           "Joseph Kaji built the prototype; Markian Dwulit designed the café staff workflow; Jake Gates led the business model; Mateo Santalucia led the brand and pitch deck.",
-          "The award went to the whole team.",
         ],
         me: [
           "Owned every environmental claim and checked it against sources.",
@@ -454,7 +453,7 @@ export const projects: Project[] = [
     slug: "cubesat-structures",
     title: "UR CubeSat structures",
     kind: "The structural frame of a student-built small satellite.",
-    blurb: "Modeling frame parts in Siemens NX and checking them against launch vibration and thermal loads.",
+    blurb: "Modeling frame parts in Siemens NX and checking them against launch vibration and thermal loads in MATLAB.",
     outcome: "Modeled satellite frame parts and simulated launch vibration and thermal loads",
     dates: "2025 – present",
     sort: 2025.04,
@@ -466,19 +465,24 @@ export const projects: Project[] = [
     filters: ["Engineering"],
     area: "Aerospace structures",
     tools: ["Siemens NX", "MATLAB", "Vibration analysis", "Thermal analysis"],
-    cover: { src: "/images/cubesat/frame-cad.jpg", alt: "Siemens NX model of the CubeSat frame", caption: "CubeSat frame in Siemens NX.", tag: "My work", want: "CAD screenshot of the frame parts you modeled." },
+    cover: { src: "/images/cubesat/frame-cad.jpg", alt: "Siemens NX model of the CubeSat frame", caption: "CubeSat frame parts I modeled in Siemens NX.", tag: "My work", want: "CAD screenshot of the frame parts you modeled." },
     links: [],
     story: [
-      { type: "text", title: "The challenge", body: ["A CubeSat has to stay inside tight mass limits and still survive launch vibration and thermal cycling, with every subsystem fitting inside a small, standard frame."] },
       {
-        type: "list",
-        title: "What I do",
-        items: [
-          "Model structural frame parts in Siemens NX.",
-          "Run vibration and thermal simulations in MATLAB to check the structure against launch conditions.",
-          "Work through fit and integration questions with the avionics and propulsion sub-teams.",
+        type: "text",
+        title: "The challenge",
+        body: [
+          "A CubeSat is a small satellite built to a standard size, so every subsystem has to fit inside a compact frame. That frame then has to survive the shaking of launch and the temperature swings of orbit without adding mass the mission can’t spare.",
         ],
-        figure: { src: "/images/cubesat/simulation.jpg", alt: "Vibration or thermal simulation result for the CubeSat frame", caption: "Simulation result.", tag: "Simulation", fit: "contain", want: "A vibration or thermal plot from your MATLAB work." },
+      },
+      {
+        type: "text",
+        title: "My part",
+        body: [
+          "I work on the structural frame. I model frame parts in Siemens NX and simulate launch vibration and thermal loads in MATLAB to check that the structure holds up under those conditions.",
+          "Because the frame carries every other subsystem, part of the job is resolving fit issues with the avionics and propulsion sub-teams before parts are finalized.",
+        ],
+        figure: { src: "/images/cubesat/simulation.jpg", alt: "Vibration or thermal simulation result for the CubeSat frame", caption: "My MATLAB simulation of the frame under launch loads. What it showed.", tag: "Simulation", fit: "contain", want: "A vibration or thermal plot from your MATLAB work." },
       },
     ],
     needs: ["Frame CAD", "Simulation plot", "Which part of the frame is yours"],
@@ -501,7 +505,7 @@ export const projects: Project[] = [
     filters: ["Engineering"],
     area: "Structures",
     tools: ["Dr.Frame", "Structural analysis"],
-    cover: { src: "/images/truss/model.jpg", alt: "Dr.Frame model of the optimized timber truss", caption: "Optimized truss in Dr.Frame.", tag: "My work", fit: "contain", want: "Dr.Frame screenshot of your final truss, ideally with member forces or the deflected shape." },
+    cover: { src: "/images/truss/model.jpg", alt: "Dr.Frame model of the optimized timber truss", caption: "My final truss in Dr.Frame.", tag: "My work", fit: "contain", want: "Dr.Frame screenshot of your final truss, ideally with member forces or the deflected shape." },
     links: [],
     story: [
       {
@@ -512,10 +516,13 @@ export const projects: Project[] = [
       {
         type: "text",
         title: "Approach",
-        body: ["I modeled and simulated three truss designs in Dr.Frame, picked the strongest candidate, then iterated member sizes to remove weight while keeping stiffness and every limit satisfied. The final design was 34% lighter than my first."],
-        figure: { src: "/images/truss/comparison.jpg", alt: "The three truss designs compared side by side", caption: "Three designs compared.", tag: "Simulation", fit: "contain", want: "The three designs side by side, or a table of weight and deflection for each." },
+        body: [
+          "I modeled three truss designs in Dr.Frame, a structural analysis program, and compared them against the same limits. I kept the strongest of the three, then worked on its member sizes, removing material where the forces allowed it.",
+          "After each change I re-ran the analysis, since smaller members change both the bridge’s self-weight and its stiffness. A change stayed only if every member still passed buckling and stress checks and the span still deflected less than 5 cm. The weight saving is measured against my first design.",
+        ],
+        figure: { src: "/images/truss/comparison.jpg", alt: "The three truss designs compared side by side", caption: "My three designs compared, with the one I developed further.", tag: "Simulation", fit: "contain", want: "The three designs side by side, or a table of weight and deflection for each." },
       },
-      { type: "lesson", title: "What I learned", body: "Every member you lighten changes the load path somewhere else." },
+      { type: "lesson", title: "What I learned", body: "Lightening one member changes the weight and stiffness of the whole structure, so every change has to be checked again against every limit." },
     ],
     needs: ["Dr.Frame screenshots", "Comparison table"],
   },
@@ -555,7 +562,7 @@ export const projects: Project[] = [
         steps: [
           { label: "Discovery", title: "Student survey", body: "45+ responses about how students want to document campus life." },
           { label: "Model", title: "Business model", body: "Pay-per-use sessions plus rentals for organizations. I led operations and financial planning." },
-          { label: "Funding", title: "iZone Make It Happen", body: "Pitched at iZone Pitch Night and won a Make It Happen grant, one of 13 winners from 28 applicants. We also pitched at the Forbes Pitch Competition." },
+          { label: "Funding", title: "iZone Make It Happen", body: "Pitched at iZone Pitch Night, which led to the grant. We also pitched at the Forbes Pitch Competition." },
           { label: "Pilot", title: "Library pilot proposal", body: "Drafted a one-semester pilot proposal for Rush Rhees Library covering privacy, maintenance, placement, accessibility, and continuity after the founders graduate." },
         ],
       },

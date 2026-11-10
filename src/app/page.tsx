@@ -28,7 +28,7 @@ export default function Home() {
             <Sprig />
             <NameMark first="Sonia" last="Irakoze" />
             <p className="mt-5 inline-flex flex-wrap gap-x-2 rounded-full bg-surface/70 px-4 py-1.5 text-[0.98rem] font-semibold text-berry ring-1 ring-line">
-              <span>B.S. {profile.program}</span><span aria-hidden>·</span><span>{profile.classOf}</span>
+              <span>{profile.program}</span><span aria-hidden>·</span><span>{profile.school}</span><span aria-hidden>·</span><span>{profile.classOf}</span>
             </p>
             <p className="mt-4 max-w-[54ch] text-[1.12rem] leading-relaxed text-ink-2">{profile.intro}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -59,7 +59,10 @@ export default function Home() {
             <li key={e.id}>
               <Link href={`/experience#${e.id}`} className="group grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 gap-y-0.5 py-5 transition-[padding] duration-300 hover:pl-2 sm:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)_10rem_auto]">
                 <span className="font-display text-xl font-bold group-hover:text-berry">{e.org}</span>
-                <span className="col-span-2 row-start-2 text-ink-2 sm:col-span-1 sm:row-start-auto">{e.roles[0].title}</span>
+                <span className="col-span-2 row-start-2 text-ink-2 sm:col-span-1 sm:row-start-auto">
+                  {e.roles[0].title}
+                  {e.roles.length > 1 && <span className="block text-[0.9rem] text-ink-3">Since {e.roles[0].start}; joined as {e.roles.at(-1)!.title}</span>}
+                </span>
                 <span className="label col-span-2 row-start-3 sm:col-span-1 sm:row-start-auto">{e.roles.at(-1)!.start && e.roles[0].end ? `${e.roles.at(-1)!.start} – ${e.roles[0].end}` : e.roles[0].start}</span>
                 <ArrowRight className="col-start-2 row-start-1 h-4 w-4 text-ink-3 transition-transform group-hover:translate-x-0.5 group-hover:text-berry sm:col-start-4" aria-hidden />
               </Link>
@@ -83,7 +86,7 @@ export default function Home() {
             <Sprig />
             <h2 id="me-title" className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">Outside <span className="script text-berry">work</span></h2>
             <p className="mt-5 max-w-[52ch] text-[1.1rem] leading-relaxed text-ink-2">
-              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service. There’s more on its own page.
+              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2" aria-label="Interests">
               {["Art", "Rowing", "Karate", "Choir", "Dance", "Words", "Faith", "Service"].map((t, k) => (
