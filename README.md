@@ -45,7 +45,7 @@ All copy lives in **`src/content/`**. Types are in `types.ts`.
 
 **Evidence drawer.** Add `artifacts: [{ kind, label, href?, src?, note? }]` to a project.
 
-**Unverified items.** Set `visibility: "hidden"` to keep something off the site. Missing evidence goes in `needs: [...]` and in `docs/CONTENT_NEEDED.md`; neither is ever rendered.
+**Unverified items.** Set `visibility: "hidden"` to keep something off the site. Missing evidence goes in `needs: [...]`, which is never rendered. Detailed sourcing notes are kept outside this repository.
 
 - **Photos:** add to `public/images/` and reference as `/images/name.jpg`.
 - **Resume:** replace `public/resume/Sonia_Irakoze_Resume.pdf` (public copy has no phone number).
@@ -73,4 +73,4 @@ Pushed to GitHub and connected to Vercel; every push to `main` deploys productio
 When CAD, FEA, and prototype images arrive: add them to `public/images/`, add `cover`, `gallery`, and `artifacts` to the project in `src/content/projects.ts`, then change its `tier` from `"supporting"` to `"flagship"`. It will automatically appear in Selected Work on the homepage and /work. Mechanical work also has its own band on the homepage.
 
 ## Accuracy
-`docs/CLAIMS_AUDIT.md` traces every claim to its source and project. Keep it updated when facts change (for example, SAquaSolve's testing status).
+A claims audit tracing each fact to its source is kept outside this repository. Update the site when facts change (for example, SAquaSolve's testing status).

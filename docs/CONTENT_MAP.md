@@ -40,7 +40,5 @@ Other details:
 - **Peer Advisor:** your start date.
 - **Reading:** books you'd like listed. This section is hidden until you send them.
 - **Paintings and sketches:** title, year, and medium for each.
-- **Eagle reflection:** drafted from your keywords; replace it with your own words whenever you like.
-- **"Netflix lead":** left unresolved until you clarify the role.
 
 Supplied 9 Nov 2026 and now on the site: your words on dance and Rwandan culture, Shotokan karate, rowing, and art; the full name FAWE Girls’ School Gisozi.

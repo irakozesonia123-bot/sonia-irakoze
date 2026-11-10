@@ -1,6 +1,6 @@
 # Photos and screenshots still needed
 
-Private working list. It is not linked from the site or included in any public page.
+Working list (not shown on the site).
 Updated 9 Nov 2026 against what is already in `public/images/`. Nothing below is already on file.
 
 **How it works.** Save each file at the exact path (under `public/`), JPG about 1600 px wide (PNG for
@@ -67,7 +67,7 @@ participants (especially minors) without consent.
 **Already on file, no need to resend:** your current portrait, the SAA portrait, the Blake Quarterly
 cover, SAquaSolve workshop photos and Lake Mirayi, CDOT field and headquarters photos, Compass
 screenshots and idea card, MarketBite screenshots, NSBE convention photos, TechGirls photos, EAC award
-photos, WorldDenver panel, RCL presentation, Projects for Peace grantee photo, and the certificates in
-`sonia-portfolio/assets-originals/certificates/`.
+photos, WorldDenver panel, RCL presentation, Projects for Peace grantee photo, and your certificate
+scans.
 
 See `docs/CONTENT_MAP.md` for details and wording only you can supply.
