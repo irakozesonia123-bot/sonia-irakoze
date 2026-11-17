@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { OnThisPage, PageHeader, Section, Tag } from "@/components/section";
 import { publicExperience, publicLeadership, recsFor } from "@/content/experience";
 import { education, profile, skills } from "@/content/profile";
 import { getProject } from "@/content/projects";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Experience",
-  description: "Sonia Irakoze’s internships at CDOT, AGR Sensors, the Ugandan Water Project, and River Campus Libraries; campus roles; leadership; education; and skills.",
-  alternates: { canonical: "/experience" },
-};
+  description: "Sonia Irakoze’s internships at CDOT, AGR Sensors, the Ugandan Water Project, and River Campus Libraries, plus campus roles, leadership, education, and skills.",
+  path: "/experience",
+});
 
 const dates = (start: string, end: string) => (start && end ? `${start} – ${end}` : start || end);
 

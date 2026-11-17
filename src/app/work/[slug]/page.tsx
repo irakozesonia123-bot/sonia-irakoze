@@ -7,6 +7,8 @@ import { publicExperience } from "@/content/experience";
 import { Story } from "@/components/work/story";
 import { ProjectCover } from "@/components/work/project-card";
 import { Tag } from "@/components/section";
+import { hasFile } from "@/components/figure";
+import { pageMeta } from "@/lib/seo";
 
 export function generateStaticParams() {
   return publicProjects.map((p) => ({ slug: p.slug }));
@@ -16,12 +18,13 @@ export async function generateMetadata({ params }: PageProps<"/work/[slug]">): P
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) return {};
-  return {
+  const cover = p.cover && hasFile(p.cover.src) ? { url: p.cover.src, alt: p.cover.alt } : undefined;
+  return pageMeta({
     title: p.title,
-    description: `${p.kind} ${p.outcome}.`.slice(0, 300),
-    alternates: { canonical: `/work/${p.slug}` },
-    openGraph: { title: p.title, description: p.kind, url: `/work/${p.slug}` },
-  };
+    description: `${p.title}, a project by Sonia Irakoze. ${p.kind} ${p.outcome}.`.slice(0, 300),
+    path: `/work/${p.slug}`,
+    image: cover,
+  });
 }
 
 export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {

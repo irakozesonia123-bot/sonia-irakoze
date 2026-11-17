@@ -21,8 +21,10 @@ export const profile = {
   },
   headshot: { src: "/images/portrait.jpg", alt: "Sonia Irakoze in a pink blazer, smiling" },
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sonia-irakoze.vercel.app",
+  /** Other ordering of the name, used in structured data and search descriptions. */
+  altName: "Irakoze Sonia",
   seoDescription:
-    "Sonia Irakoze is a Mechanical Engineering student at the University of Rochester (Class of 2028) from Kigali, Rwanda. Founder of SAquaSolve Rwanda, builder of CDOT Compass, and member of Aero Design and UR CubeSat.",
+    "Sonia Irakoze (Irakoze Sonia) is a mechanical engineering student at the University of Rochester, Class of 2028, from Kigali, Rwanda. Founder of SAquaSolve Rwanda, builder of CDOT Compass, and member of the UR CubeSat structures team.",
 };
 
 export const nav: NavItem[] = [

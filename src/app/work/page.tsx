@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHeader } from "@/components/section";
 import { ProjectCard, ProjectRow } from "@/components/work/project-card";
 import { WorkFilters } from "@/components/work/work-filters";
 import { featuredSlugs, publicProjects } from "@/content/projects";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Projects",
-  description: "Sonia Irakoze’s projects: SAquaSolve Rwanda, CDOT Compass, Aero Design, MarketBite, bridge work at CDOT, CropSight, CubeSat, a timber truss bridge, UniBooth, and more.",
-  alternates: { canonical: "/work" },
-};
+  description: "Projects by Sonia Irakoze: SAquaSolve Rwanda, CDOT Compass, Aero Design, MarketBite, bridge work at CDOT, CropSight, UR CubeSat, a timber truss bridge, UniBooth, and more.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   const rank = (slug: string) => { const i = featuredSlugs.indexOf(slug); return i === -1 ? 99 : i; };

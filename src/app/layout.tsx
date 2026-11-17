@@ -9,7 +9,7 @@ const display = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", styl
 const sans = Atkinson_Hyperlegible_Next({ subsets: ["latin"], variable: "--font-atkinson", weight: ["400", "700"], adjustFontFallback: false, fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-plex-mono", weight: ["400"] });
 
-const title = `${profile.name} · Mechanical Engineering`;
+const title = `${profile.name} · Mechanical Engineering, University of Rochester`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: profile.seoDescription,
   applicationName: profile.name,
   authors: [{ name: profile.name, url: profile.siteUrl }],
-  keywords: ["Sonia Irakoze", "mechanical engineering", "University of Rochester", "Rwanda", "SAquaSolve", "CDOT Compass", "Aero Design", "water infrastructure", "portfolio"],
+  keywords: ["Sonia Irakoze", "Irakoze Sonia", "mechanical engineering", "University of Rochester", "Rwanda", "SAquaSolve Rwanda", "CDOT Compass", "water infrastructure", "portfolio"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "profile",
@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title, description: profile.seoDescription },
   robots: { index: true, follow: true },
+  // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel to the token from Google Search Console's
+  // "HTML tag" method; it renders <meta name="google-site-verification">.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
 export const viewport: Viewport = {
@@ -53,14 +56,20 @@ const jsonLd = {
       "@type": "Person",
       "@id": `${profile.siteUrl}/#person`,
       name: profile.name,
+      alternateName: profile.altName,
+      givenName: "Sonia",
+      familyName: "Irakoze",
       url: profile.siteUrl,
+      mainEntityOfPage: profile.siteUrl,
       image: `${profile.siteUrl}${profile.headshot.src}`,
       email: `mailto:${profile.email}`,
       jobTitle: "Mechanical Engineering Student",
       description: profile.seoDescription,
-      alumniOf: [{ "@type": "CollegeOrUniversity", name: "University of Rochester" }],
+      affiliation: { "@type": "CollegeOrUniversity", name: "University of Rochester", url: "https://www.rochester.edu" },
+      alumniOf: [{ "@type": "HighSchool", name: "Gashora Girls Academy of Science and Technology" }],
+      homeLocation: { "@type": "Place", name: "Rochester, New York" },
       knowsAbout: ["Mechanical engineering", "Bridge asset management", "Water infrastructure", "Solar-powered water treatment", "Web development", "React", "SQL", "Python"],
-      sameAs: [profile.links.linkedin, profile.links.github],
+      sameAs: [profile.links.linkedin, profile.links.github, profile.links.saquasolve],
     },
     { "@type": "WebSite", "@id": `${profile.siteUrl}/#website`, url: profile.siteUrl, name: profile.name, publisher: { "@id": `${profile.siteUrl}/#person` } },
   ],

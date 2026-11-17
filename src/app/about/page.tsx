@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { OnThisPage, PageHeader, Section } from "@/components/section";
@@ -8,11 +9,11 @@ import { PlacesMap } from "@/components/interactive/places-map";
 import { Feather, Flower } from "@/components/decor";
 import type { Visibility } from "@/content/types";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About me",
-  description: "Sonia Irakoze’s story from Kigali and Gashora to mechanical engineering at Rochester, with recognition, conferences, media, and life outside engineering.",
-  alternates: { canonical: "/about" },
-};
+  description: "About Sonia Irakoze (Irakoze Sonia): from Kigali and Gashora, Rwanda, to mechanical engineering at the University of Rochester, with places, recognition, events, and news.",
+  path: "/about",
+});
 
 const visible = (v: Visibility) => v === "public" || (v === "slot" && showSlots);
 

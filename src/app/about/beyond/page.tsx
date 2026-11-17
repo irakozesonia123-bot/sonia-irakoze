@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BookOpen, ChefHat, Clapperboard, House, Laptop, Moon, Music, Sunrise, Wrench } from "lucide-react";
 import { OnThisPage, Section } from "@/components/section";
@@ -8,11 +9,11 @@ import { ArtStack } from "@/components/interactive/art-stack";
 import { EagleReveal } from "@/components/interactive/eagle-reveal";
 import { artworks, day, eagle, favorites, movement, music, service, words } from "@/content/beyond";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Outside work",
-  description: "The personal side of Sonia Irakoze: painting and sketching, rowing, karate, dance, choir, writing and speaking, faith, service, and an example day.",
-  alternates: { canonical: "/about/beyond" },
-};
+  description: "The personal side of Sonia Irakoze: art, rowing, Shotokan karate, dance, choir and faith, writing and speaking, service, a few favorites, and an example day.",
+  path: "/about/beyond",
+});
 
 const hueBg = { rose: "from-rose-soft to-lav", lav: "from-lav to-sky", sky: "from-sky to-rose-soft" } as const;
 const dayIcon = { sunrise: Sunrise, book: BookOpen, laptop: Laptop, wrench: Wrench, moon: Moon } as const;
