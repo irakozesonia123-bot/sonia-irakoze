@@ -23,7 +23,7 @@ Each confirmed detail has one home. Other pages link to it instead of repeating 
 | Painting, sketching, design | Sonia | Beyond › Art collection | |
 | Cooking, films and shows, music, friends and family | Sonia (17 Nov 2026) | Outside work › A few favorites | |
 | Nyamirambo (Kigali), places stories | Sonia (17 Nov 2026) | About › Places | |
-| SAquaSolve: first RICA results (13 Nov 2026), RGB application pending, EWB agreed support (14 Nov 2026) | Sonia + project documents | SAquaSolve › Milestones | |
+| SAquaSolve: first RICA results (13 Nov 2026), registered with RGB (Sonia, 17 Nov 2026), EWB agreed support (14 Nov 2026) | Sonia + project documents | SAquaSolve › Milestones | |
 | Rowing, Shotokan karate, dance and Rwandan culture | Sonia (own words, 9 Nov 2026) | Outside work › Rowing, karate, and dance | |
 | Choir, deaconess, eagle reflection, Isaiah 40:31 | Sonia | Beyond › Singing and faith | |
 | Writing (EAC, QCEC); speaking (Gavel Club "Miss Creativity" 2022, TechGirls info session 2023, Heist pitch 2026) | Evidence + resume | Beyond › Writing and speaking | |
