@@ -47,6 +47,19 @@ export function PageHeader({ title, intro, children, eyebrow }: { title: ReactNo
   );
 }
 
+/** Compact in-page links shown under a page title. Wraps on phones; not sticky. */
+export function OnThisPage({ items, className = "mt-8" }: { items: [href: string, label: string][]; className?: string }) {
+  return (
+    <nav aria-label="On this page" className={className}>
+      <ul className="flex flex-wrap gap-2 text-sm font-semibold">
+        {items.map(([h, l]) => (
+          <li key={h}><a href={h} className="block rounded-full bg-surface/80 px-3.5 py-1.5 ring-1 ring-line transition-colors hover:ring-berry">{l}</a></li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 export function Tag({ children }: { children: ReactNode }) {
   return <span className="rounded-md bg-lav px-2 py-0.5 font-mono text-[0.72rem] text-ink-2">{children}</span>;
 }

@@ -19,7 +19,7 @@ export default function WorkPage() {
     <>
       <PageHeader
         title="Projects"
-        intro="Engineering, software, and venture projects. Each page shows my part, the team’s part, and the outcome."
+        intro="Engineering, software, and ventures I’ve worked on."
       />
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-10 sm:px-8">
         <WorkFilters

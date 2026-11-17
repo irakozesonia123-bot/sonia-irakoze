@@ -24,11 +24,11 @@ export const values: { title: string; text: string; href: string; link: string; 
 export const recognition: Recognition[] = [
   {
     id: "p4p",
-    title: "Davis Projects for Peace grant",
+    title: "$10,000 grant for SAquaSolve",
     issuer: "Davis Projects for Peace",
     year: "2026",
     sort: 2026.04,
-    why: "$10,000 for SAquaSolve Rwanda. One of two University of Rochester students funded in 2026.",
+    why: "One of two University of Rochester students funded in 2026.",
     href: "/work/saquasolve-rwanda",
     figure: { src: "/images/projects-for-peace-grantee.jpg", alt: "Projects for Peace 2026 grantee graphic with Sonia’s portrait", tag: "Award", fit: "contain" },
     visibility: "public",
@@ -36,7 +36,7 @@ export const recognition: Recognition[] = [
   {
     id: "compass",
     title: "Outstanding AI Improvement, Headquarters Division Winner",
-    issuer: "2026 CDOT Innovations Challenge",
+    issuer: "CDOT Innovations Challenge",
     year: "2026",
     sort: 2026.08,
     why: "For CDOT Compass, the onboarding tool I built as an intern.",
@@ -96,7 +96,7 @@ export const recognition: Recognition[] = [
   },
   {
     id: "izone",
-    title: "iZone Make It Happen grant",
+    title: "Make It Happen grant",
     issuer: "Barbara J. Burger iZone, University of Rochester",
     year: "2026",
     sort: 2026.02,
@@ -126,7 +126,7 @@ export const events: EventNote[] = [
     date: "Aug 2026",
     sort: 2026.08,
     role: "Organizer and co-facilitator",
-    note: "Two days with 53 people from Gashora Sector on safe water, sanitation, and hygiene. Half the point was listening.",
+    note: "Two days with 53 community members and leaders from Gashora Sector on safe water, sanitation, and hygiene, plus four student Youth Ambassadors. Half the point was listening.",
     figure: { src: "/images/sq-ws-presenting.jpg", alt: "A SAquaSolve team member presenting at the community workshop", tag: "Event" },
     links: [{ label: "SAquaSolve", href: "/work/saquasolve-rwanda" }],
     visibility: "public",
@@ -168,13 +168,13 @@ export const events: EventNote[] = [
   },
   {
     id: "nsbe-2025",
-    title: "NSBE 50th Annual Convention",
+    title: "NSBE 2025 Annual Convention",
     place: "Chicago, IL",
     date: "Mar 2025",
     sort: 2025.03,
     role: "First convention",
     note: "Meeting Rwandan engineers there, including a fellow Gashora alumna, helped me commit to my major.",
-    figure: { src: "/images/nsbe-chicago-2025.jpg", alt: "Sonia and a friend in front of the NSBE 50th anniversary backdrop", tag: "Event", pos: "50% 30%" },
+    figure: { src: "/images/nsbe-chicago-2025.jpg", alt: "Sonia and a friend in front of an NSBE 50 years backdrop at the 2025 convention", tag: "Event", pos: "50% 30%" },
     links: [{ label: "Reflection", href: "https://www.linkedin.com/feed/update/urn:li:activity:7311955307604197376/" }],
     visibility: "public",
   },
@@ -215,10 +215,10 @@ export type Place = {
 
 /** Places that shaped me. Only places with evidence; Uganda is deliberately absent (UWP was in New York). */
 export const places: Place[] = [
-  { id: "kigali", name: "Kigali, Rwanda", region: "east-africa", lon: 30.06, lat: -1.95, nudge: [-3, -8], when: "Born and raised", text: "Home. It is also where SAquaSolve’s nine founding members held the general assembly that established the organization in August 2026.", figure: { src: "/images/places/kigali.jpg", alt: "Sonia in Kigali", want: "A photo of you in Kigali." }, link: { label: "SAquaSolve Rwanda", href: "/work/saquasolve-rwanda" } },
-  { id: "gashora", name: "Gashora, Rwanda", region: "east-africa", lon: 30.25, lat: -2.25, nudge: [6, 10], when: "2021 – 2024", text: "Three years at Gashora Girls Academy, beside Lake Mirayi. The lake is the reason SAquaSolve exists.", figure: { src: "/images/sq-lake-mirayi.jpg", alt: "Lake Mirayi with reeds in the foreground", caption: "Lake Mirayi. Photo by Nadine Uwizeyimana." }, link: { label: "SAquaSolve Rwanda", href: "/work/saquasolve-rwanda" } },
-  { id: "arusha", name: "Arusha, Tanzania", region: "east-africa", lon: 36.68, lat: -3.37, when: "2023", text: "Where I received my East African Community essay prize, representing Rwanda.", figure: { src: "/images/eac-award-2.jpg", alt: "Sonia receiving her East African Community essay prize in Arusha", pos: "80% 35%" }, link: { label: "Recognition", href: "/about#recognition" } },
-  { id: "virginia", name: "Blacksburg, Virginia", region: "us", lon: -80.41, lat: 37.23, when: "2023", text: "TechGirls at Virginia Tech: flume experiments on open-channel flow, and my first Python.", figure: { src: "/images/techgirls-virginia-tech.jpg", alt: "Sonia on the Virginia Tech campus at sunset", pos: "50% 40%" }, link: { label: "Flume experiments", href: "/work/virginia-tech-flume" } },
-  { id: "colorado", name: "Denver, Colorado", region: "us", lon: -104.99, lat: 39.74, when: "2023 and 2026", text: "A two-day job shadow at the Colorado Department of Transportation in 2023, then a return in 2026 as an engineering intern, when I built CDOT Compass.", figure: { src: "/images/cdot-welcome-colorado.jpg", alt: "Sonia beside a Welcome to Colorful Colorado sign at CDOT headquarters", pos: "60% 40%" }, link: { label: "CDOT Compass", href: "/work/cdot-compass" } },
-  { id: "rochester", name: "Rochester, New York", region: "us", lon: -77.61, lat: 43.16, when: "2024 – present", text: "Mechanical engineering at the University of Rochester as a Handler Scholar, with Aero Design, the IT Center, and a summer editorial internship.", figure: { src: "/images/rcl-presentation.jpg", alt: "Sonia with colleagues in front of her summer internship presentation slide", pos: "50% 70%" }, link: { label: "Experience", href: "/experience" } },
+  { id: "kigali", name: "Kigali, Rwanda", region: "east-africa", lon: 30.06, lat: -1.95, nudge: [-3, -8], when: "Born and raised", text: "Home. I grew up in Nyamirambo, one of Kigali’s liveliest neighborhoods, and it is still home when I call from Rochester.", figure: { src: "/images/places/kigali.jpg", alt: "Sonia in Kigali", want: "A photo of you in Kigali." }, link: { label: "A few favorites", href: "/about/beyond#favorites" } },
+  { id: "gashora", name: "Gashora, Rwanda", region: "east-africa", lon: 30.25, lat: -2.25, nudge: [6, 10], when: "2021 – 2024", text: "Three years of boarding school at Gashora Girls Academy, living and studying alongside my classmates. The school sits beside Lake Mirayi, which later became the reason for SAquaSolve.", figure: { src: "/images/sq-lake-mirayi.jpg", alt: "Lake Mirayi with reeds in the foreground", caption: "Lake Mirayi. Photo by Nadine Uwizeyimana." }, link: { label: "SAquaSolve Rwanda", href: "/work/saquasolve-rwanda" } },
+  { id: "arusha", name: "Arusha, Tanzania", region: "east-africa", lon: 36.68, lat: -3.37, when: "2023", text: "Where I represented Rwanda. My essay won third prize in the East African Community’s 2022 student essay competition, and I received the prize in Arusha in 2023.", figure: { src: "/images/eac-award-2.jpg", alt: "Sonia receiving her East African Community essay prize in Arusha", pos: "80% 35%" }, link: { label: "Recognition", href: "/about#recognition" } },
+  { id: "virginia", name: "Blacksburg, Virginia", region: "us", lon: -80.41, lat: 37.23, when: "2023", text: "The TechGirls exchange at Virginia Tech in 2023: flume experiments on open-channel flow, and my first Python code.", figure: { src: "/images/techgirls-virginia-tech.jpg", alt: "Sonia on the Virginia Tech campus at sunset", pos: "50% 40%" }, link: { label: "Flume experiments", href: "/work/virginia-tech-flume" } },
+  { id: "colorado", name: "Denver, Colorado", region: "us", lon: -104.99, lat: 39.74, when: "2023 and 2026", text: "The place I hoped to come back to. A two-day TechGirls job shadow at the Colorado Department of Transportation in 2023 left me wanting to return, and in 2026 I did, as an engineering intern who built CDOT Compass.", figure: { src: "/images/cdot-welcome-colorado.jpg", alt: "Sonia beside a Welcome to Colorful Colorado sign at CDOT headquarters", pos: "60% 40%" }, link: { label: "CDOT Compass", href: "/work/cdot-compass" } },
+  { id: "rochester", name: "Rochester, New York", region: "us", lon: -77.61, lat: 43.16, when: "2024 – present", text: "Where my life is now. I study mechanical engineering as a Handler Scholar, and around classes there are shifts at the IT Center, rowing practice, friends, and student communities like NSBE.", figure: { src: "/images/rcl-presentation.jpg", alt: "Sonia with colleagues in front of her summer internship presentation slide", pos: "50% 70%" }, link: { label: "Experience", href: "/experience" } },
 ];

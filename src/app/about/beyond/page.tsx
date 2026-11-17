@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookOpen, Laptop, Moon, Sunrise, Wrench } from "lucide-react";
-import { Section } from "@/components/section";
+import { ArrowLeft, ArrowRight, BookOpen, ChefHat, Clapperboard, House, Laptop, Moon, Music, Sunrise, Wrench } from "lucide-react";
+import { OnThisPage, Section } from "@/components/section";
 import { Fig, hasFile, showSlots, willRender } from "@/components/figure";
 import { Bouquet, Feather, Flower, Sprig } from "@/components/decor";
 import { ArtStack } from "@/components/interactive/art-stack";
 import { EagleReveal } from "@/components/interactive/eagle-reveal";
-import { artworks, day, eagle, movement, music, service, words } from "@/content/beyond";
+import { artworks, day, eagle, favorites, movement, music, service, words } from "@/content/beyond";
 
 export const metadata: Metadata = {
   title: "Outside work",
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 
 const hueBg = { rose: "from-rose-soft to-lav", lav: "from-lav to-sky", sky: "from-sky to-rose-soft" } as const;
 const dayIcon = { sunrise: Sunrise, book: BookOpen, laptop: Laptop, wrench: Wrench, moon: Moon } as const;
+const favIcon = { chef: ChefHat, film: Clapperboard, music: Music, home: House } as const;
 
 export default function BeyondPage() {
   const art = artworks
@@ -36,13 +37,7 @@ export default function BeyondPage() {
           <p className="mt-5 max-w-[54ch] text-[1.12rem] text-ink-2">
             What I do outside class and work.
           </p>
-          <nav aria-label="On this page" className="mt-8">
-            <ul className="flex flex-wrap gap-2 text-sm font-semibold">
-              {[["#art", "Art"], ["#movement", "Rowing, karate, and dance"], ["#faith", "Music and faith"], ["#words", "Writing"], ["#service", "Service"], ["#day", "A day with me"]].map(([h, l]) => (
-                <li key={h}><a href={h} className="block rounded-full bg-surface/80 px-3.5 py-1.5 ring-1 ring-line transition-colors hover:ring-berry">{l}</a></li>
-              ))}
-            </ul>
-          </nav>
+          <OnThisPage items={[["#art", "Art"], ["#movement", "Rowing, karate, and dance"], ["#faith", "Music and faith"], ["#words", "Writing"], ["#service", "Service"], ["#favorites", "A few favorites"], ["#day", "A day with me"]]} />
         </div>
       </header>
 
@@ -142,6 +137,26 @@ export default function BeyondPage() {
             </li>
           ))}
         </ol>
+      </Section>
+
+      {/* A few favorites: small, light cards */}
+      <Section id="favorites" title="A few favorites">
+        <ul className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {favorites.map((f, k) => {
+            const Icon = favIcon[f.icon];
+            return (
+              <li key={f.id} className="rounded-2xl bg-surface p-5 ring-1 ring-line">
+                <div className="flex items-center gap-3">
+                  <span className={`grid h-10 w-10 flex-none place-items-center rounded-full ${["bg-rose-soft text-rose-ink", "bg-lav text-lav-ink", "bg-sky text-sky-ink"][k % 3]}`}>
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <h3 className="text-lg font-semibold">{f.title}</h3>
+                </div>
+                <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-2">{f.text}</p>
+              </li>
+            );
+          })}
+        </ul>
       </Section>
 
       {/* An example day */}

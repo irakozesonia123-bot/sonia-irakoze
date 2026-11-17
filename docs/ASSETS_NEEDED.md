@@ -62,6 +62,7 @@ participants (especially minors) without consent.
 | 2023 TechGirls community workshop | TechGirls Community Action Project | Landscape, no identifiable minors without consent | `/images/techgirls-cap/workshop.jpg` | 3 |
 | Community Action Project certificate | TechGirls Community Action Project | Flat scan | `/images/techgirls-cap/certificate.jpg` | 3 |
 | Floyd Hill girder erection (public site, nothing confidential) | CDOT bridge asset work | Landscape | `/images/cdot/floyd-hill.jpg` | 3 |
+| CropSight: an anonymized example of your validation workflow (for example, a check's output on made-up entries), only with AGR's approval. No employer data, source-book content, or private code | CropSight › What I do | Cropped screenshot or simple diagram | `/images/cropsight/validation-workflow.png` | 3 |
 | Bowl Voyage gameplay | Bowl Voyage | Screenshot | `/images/bowl-voyage/gameplay.jpg` | 4 |
 
 **Already on file, no need to resend:** your current portrait, the SAA portrait, the Blake Quarterly

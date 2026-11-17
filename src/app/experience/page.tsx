@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader, Section, Tag } from "@/components/section";
+import { OnThisPage, PageHeader, Section, Tag } from "@/components/section";
 import { publicExperience, publicLeadership, recsFor } from "@/content/experience";
 import { education, profile, skills } from "@/content/profile";
 import { getProject } from "@/content/projects";
@@ -18,6 +18,7 @@ export default function ExperiencePage() {
     <>
       <PageHeader title="Experience" intro="Internships, campus jobs, and leadership roles.">
         <a href={profile.links.resume} target="_blank" rel="noopener" className="ulink mt-6 inline-block font-semibold">Download my resume (PDF)</a>
+        <OnThisPage items={[["#work-history", "Internships and jobs"], ["#leadership", "Leadership"], ["#education", "Education"], ["#skills", "Skills"]]} className="mt-6" />
       </PageHeader>
 
       <Section id="work-history" title="Internships and jobs">

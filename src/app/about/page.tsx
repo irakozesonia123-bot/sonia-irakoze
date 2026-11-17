@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { PageHeader, Section } from "@/components/section";
+import { OnThisPage, PageHeader, Section } from "@/components/section";
 import { Fig, showSlots, willRender } from "@/components/figure";
 import { events, features, places, recognition, story, values } from "@/content/about";
 import { PlacesMap } from "@/components/interactive/places-map";
@@ -24,9 +24,11 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHeader title="About me" intro="Where I come from, places I’ve lived and worked, and recognition along the way." />
+      <PageHeader title="About me" intro="Where I come from, places I’ve lived and worked, and recognition along the way.">
+        <OnThisPage items={[["#background", "Where I come from"], ["#places", "Places"], ["#recognition", "Recognition"], ["#events", "Conferences and events"], ["#media", "In the news"]]} />
+      </PageHeader>
 
-      <section aria-labelledby="story-title" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <section id="background" aria-labelledby="story-title" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20">
         <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="order-2 mx-auto grid w-full max-w-sm gap-6 md:order-none md:max-w-none">
             <Fig fig={{ src: "/images/nsbe-albany.jpg", alt: "Sonia smiling in a blazer at an engineering conference", pos: "50% 25%" }} aspect="aspect-[4/5]" sizes="(min-width: 768px) 420px, 100vw" zoom={false} />

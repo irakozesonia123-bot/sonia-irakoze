@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowUpRight, FileText, Filter, Hash, Mail, Moon, Search, Shuffle, Sparkles } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ArrowUpRight, FileText, Filter, Hash, Mail, Moon, Search, Shuffle, Sparkles, X } from "lucide-react";
 import { nav, profile } from "@/content/profile";
 import { publicProjects } from "@/content/projects";
 
@@ -15,6 +15,8 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   const router = useRouter();
   const dialog = useRef<HTMLDialogElement>(null);
   const input = useRef<HTMLInputElement>(null);
+  const closeBtn = useRef<HTMLButtonElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState(0);
   const [note, setNote] = useState("");
@@ -60,25 +62,65 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
     const d = dialog.current;
     if (!d) return;
     if (open && !d.open) {
+      opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       setQuery(""); setIndex(0); setNote("");
       d.showModal();
       requestAnimationFrame(() => input.current?.focus());
     } else if (!open && d.open) d.close();
   }, [open]);
 
-  // Keep React state in sync however the dialog closes (Escape, backdrop, or code).
+  // While open, size the dialog to the visible viewport so the onscreen keyboard never hides the results.
+  useEffect(() => {
+    const d = dialog.current;
+    const vv = typeof window !== "undefined" ? window.visualViewport : null;
+    if (!open || !d || !vv) return;
+    const fit = () => d.style.setProperty("--vvh", `${Math.round(vv.height)}px`);
+    fit();
+    vv.addEventListener("resize", fit);
+    return () => { vv.removeEventListener("resize", fit); d.style.removeProperty("--vvh"); };
+  }, [open]);
+
+  // One way out: close the dialog, sync React state, and return focus to whatever opened search.
+  // Safe to call more than once. The native "close" event (Escape) also routes here, but the
+  // close button, backdrop, and results call it directly rather than relying on that event.
+  const dismiss = useCallback(
+    (restoreFocus = true) => {
+      const d = dialog.current;
+      if (d?.open) d.close();
+      onClose();
+      const o = opener.current;
+      opener.current = null;
+      if (restoreFocus && o && o.isConnected) requestAnimationFrame(() => o.focus());
+    },
+    [onClose],
+  );
+
   useEffect(() => {
     const d = dialog.current;
     if (!d) return;
-    const handle = () => onClose();
+    const handle = () => dismiss();
+    const cancel = (e: Event) => { e.preventDefault(); dismiss(); };
     d.addEventListener("close", handle);
-    return () => d.removeEventListener("close", handle);
-  }, [onClose]);
+    d.addEventListener("cancel", cancel);
+    return () => { d.removeEventListener("close", handle); d.removeEventListener("cancel", cancel); };
+  }, [dismiss]);
 
   const activate = (item?: Item) => {
     if (!item) return;
     item.run();
-    if (!item.keepOpen) onClose();
+    if (!item.keepOpen) dismiss(false);
+  };
+
+  // Escape is handled here so closing never depends on the browser's close event, which Chrome
+  // does not always fire after repeated Escape presses. Tab stays inside the dialog: the search
+  // field and the close button are its only tab stops.
+  const onDialogKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") { e.preventDefault(); dismiss(); return; }
+    if (e.key !== "Tab") return;
+    const stops = [input.current, closeBtn.current].filter((x): x is HTMLInputElement | HTMLButtonElement => !!x);
+    const at = stops.indexOf(document.activeElement as HTMLInputElement | HTMLButtonElement);
+    e.preventDefault();
+    stops[(at + (e.shiftKey ? stops.length - 1 : 1)) % stops.length]?.focus();
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -91,14 +133,16 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
   return (
     <dialog
       ref={dialog}
-      onClick={(e) => e.target === dialog.current && dialog.current?.close()}
-      aria-label="Quick search"
-      className="m-auto mt-[10vh] w-[min(580px,calc(100vw-24px))] rounded-2xl border border-line-strong bg-surface p-0 text-ink shadow-2xl backdrop:bg-black/50 backdrop:backdrop-blur-[2px]"
+      onClick={(e) => e.target === dialog.current && dismiss()}
+      aria-label="Search"
+      onKeyDown={onDialogKeyDown}
+      className="cmdk m-auto mt-3 w-[min(580px,calc(100vw-24px))] flex-col overflow-hidden rounded-2xl border border-line-strong bg-surface p-0 text-ink shadow-2xl open:flex backdrop:bg-black/50 backdrop:backdrop-blur-[2px] sm:mt-[10vh]"
     >
-      <div className="flex items-center gap-2 border-b border-line px-4">
-        <Search className="h-4 w-4 text-ink-3" aria-hidden />
-        <label htmlFor="cmdk-input" className="sr-only">Search pages, projects, places, and actions</label>
-        <input
+      <div className="flex items-center gap-2 border-b border-line p-3">
+        <div className="cmdk-field flex h-12 min-w-0 flex-1 items-center gap-2.5 rounded-xl bg-surface-2/60 px-3.5 ring-1 ring-line">
+          <Search className="h-4 w-4 flex-none text-ink-3" aria-hidden />
+          <label htmlFor="cmdk-input" className="sr-only">Search pages, projects, and actions</label>
+          <input
           id="cmdk-input"
           ref={input}
           value={query}
@@ -109,13 +153,22 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
           aria-expanded="true"
           aria-controls="cmdk-list"
           aria-activedescendant={filtered[index] ? `cmdk-${filtered[index].id}` : undefined}
-          className="h-14 w-full bg-transparent text-base outline-none placeholder:text-ink-3 focus-visible:outline-none"
-        />
-        <kbd className="rounded border border-line px-1.5 font-mono text-[0.7rem] text-ink-3">esc</kbd>
+          className="cmdk-input h-full min-w-0 flex-1 bg-transparent text-base placeholder:text-ink-3"
+          />
+        </div>
+        <button
+          ref={closeBtn}
+          type="button"
+          onClick={() => dismiss()}
+          aria-label="Close search"
+          className="grid h-12 w-12 flex-none place-items-center rounded-xl text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink"
+        >
+          <X className="h-5 w-5" aria-hidden />
+        </button>
       </div>
       {note && <p className="border-b border-line bg-surface-2 px-4 py-3 text-[0.95rem]" role="status">{note}</p>}
-      <ul id="cmdk-list" role="listbox" className="max-h-[52vh] overflow-y-auto p-2">
-        {filtered.length === 0 && <li className="px-3 py-6 text-center text-ink-3">No matches. Try another word.</li>}
+      <ul id="cmdk-list" role="listbox" aria-label="Results" className="cmdk-list min-h-0 overflow-y-auto overscroll-contain p-2">
+        {filtered.length === 0 && <li role="presentation" className="px-3 py-6 text-center text-ink-2">No matches. Try another word.</li>}
         {filtered.map((item, i) => {
           const header = item.group !== lastGroup ? item.group : null;
           lastGroup = item.group;
@@ -129,17 +182,17 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
                 aria-selected={i === index}
                 onMouseMove={() => setIndex(i)}
                 onClick={() => activate(item)}
-                className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 ${i === index ? "bg-surface-2" : ""}`}
+                className={`flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 ${i === index ? "bg-rose-soft text-ink shadow-[inset_3px_0_0_0_var(--berry)]" : ""}`}
               >
-                <I className="h-4 w-4 text-ink-3" aria-hidden />
+                <I className={`h-4 w-4 ${i === index ? "text-rose-ink" : "text-ink-3"}`} aria-hidden />
                 <span className="flex-1">{item.label}</span>
-                {item.hint && <span className="font-mono text-xs text-ink-3">{item.hint}</span>}
+                {item.hint && <span className="font-mono text-xs text-ink-2">{item.hint}</span>}
               </div>
             </li>
           );
         })}
       </ul>
-      <p className="border-t border-line px-4 py-2 font-mono text-[0.7rem] text-ink-3">↑ ↓ to move · enter to open · esc to close</p>
+      <p className="hidden border-t border-line px-4 py-2 font-mono text-[0.7rem] text-ink-3 sm:block">↑ ↓ to move · enter to open · esc to close</p>
     </dialog>
   );
 }

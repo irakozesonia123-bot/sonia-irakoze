@@ -60,10 +60,10 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setPaletteOpen(true)}
-              className="hidden h-9 items-center gap-1.5 rounded-full px-2.5 text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink lg:flex"
-              aria-label="Quick search (Command K)"
+              className="flex h-10 min-w-10 items-center justify-center gap-1.5 rounded-full px-2.5 text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink"
+              aria-label="Search (Command K)"
             >
-              <Search className="h-4 w-4" aria-hidden /><kbd className="font-mono text-[0.7rem]">⌘K</kbd>
+              <Search className="h-4 w-4" aria-hidden /><kbd className="hidden font-mono text-[0.7rem] lg:inline">⌘K</kbd>
             </button>
             <ThemeToggle />
             <a href={profile.links.resume} target="_blank" rel="noopener" className="hidden rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-bg transition-colors hover:bg-berry-strong sm:block">

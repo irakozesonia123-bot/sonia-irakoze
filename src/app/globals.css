@@ -247,6 +247,15 @@ html[data-intro] .intro {
   50% { transform: rotate(var(--a, 2deg)); }
 }
 
+/* ───────── Search dialog ─────────
+   One focus treatment on the field wrapper, drawn inside the row's padding so nothing clips.
+   The input's own outline is replaced by it (this rule is unlayered so it beats the global ring). */
+.cmdk-input:focus, .cmdk-input:focus-visible { outline: none; }
+.cmdk-field:focus-within { box-shadow: 0 0 0 2px var(--berry); background: var(--surface); }
+.cmdk { max-height: min(calc(var(--vvh, 100dvh) - 24px), 640px); }
+.cmdk-list { max-height: 52vh; }
+@media (max-width: 639px) { .cmdk-list { max-height: none; flex: 1 1 auto; } }
+
 /* Lined notebook paper */
 .paper {
   background-color: var(--surface);

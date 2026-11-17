@@ -104,6 +104,14 @@ export const service: { when: string; text: string; href?: string }[] = [
   { when: "2025 –", text: "Math and science tutoring at the Boys & Girls Club of Rochester, and mentoring new international students." },
   { when: "2026 –", text: "Founding SAquaSolve Rwanda, including its Youth Ambassador program.", href: "/work/saquasolve-rwanda" },
 ];
+/** A few favorites: ordinary things Sonia enjoys, in her words. */
+export const favorites: { id: string; title: string; text: string; icon: "chef" | "film" | "music" | "home" }[] = [
+  { id: "cooking", title: "Cooking", text: "I love cooking and consider myself a chef at heart. After school, I’d like to start a cooking YouTube channel. For now, that’s an idea for later.", icon: "chef" },
+  { id: "screen", title: "Films and shows", text: "Lupin is a favorite. I enjoy heist stories, science fiction, stories about AI, thrillers, and stories based on real life, and I love Disney and Marvel.", icon: "film" },
+  { id: "music", title: "Music", text: "Tyla, Rema, Sade, and Michael Jackson, along with older R&B, older Afrobeat, and Rwandan music.", icon: "music" },
+  { id: "people", title: "Friends and family", text: "I love laughing and talking with friends and family, and telling stories about growing up in Rwanda and boarding school. I love calling home. My family means a great deal to me.", icon: "home" },
+];
+
 /** An example day: not a fixed routine. Edit freely. */
 export const day: { when: string; title: string; body: string; icon: "sunrise" | "book" | "laptop" | "wrench" | "moon" }[] = [
   { when: "Early", title: "Rowing practice", body: "On the water with my crew before the day fills up.", icon: "sunrise" },

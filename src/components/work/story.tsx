@@ -71,14 +71,14 @@ export function Story({ blocks }: { blocks: StoryBlock[] }) {
           case "contribution":
             return (
               <section key={i} aria-labelledby={`contrib-${i}`} className="rounded-2xl bg-surface-2/70 p-6 sm:p-8">
-                <H id={`contrib-${i}`}>{b.title ?? "Team work and my part"}</H>
+                <H id={`contrib-${i}`}>{b.title ?? "My contribution"}</H>
                 <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-2">
                   <div>
                     <h3 className="label !text-berry">{b.teamLabel ?? "The team"}</h3>
                     <ul className="mt-3 space-y-2 text-ink-2">{b.team.map((t) => <li key={t}>{t}</li>)}</ul>
                   </div>
                   <div>
-                    <h3 className="label !text-rose-ink">My part</h3>
+                    <h3 className="label !text-rose-ink">What I did</h3>
                     <ul className="mt-3 space-y-2">
                       {b.me.map((t) => <li key={t} className="flex gap-3"><span className="mt-[0.7rem] h-[2px] w-3 flex-none bg-rose" aria-hidden /><span>{t}</span></li>)}
                     </ul>
