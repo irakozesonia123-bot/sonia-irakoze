@@ -23,7 +23,7 @@ export const projects: Project[] = [
     prominence: "main",
     visibility: "public",
     role: "Founder; elected President & Legal Representative (August 2026)",
-    team: "Nine founding members, including Technical Lead and Local Coordinator Nadine Uwizeyimana, a water and sanitation engineer at RICA, and a workshop team in Gashora",
+    team: "Nine founding members, including Technical Lead and Local Coordinator Nadine Uwizeyimana, a water and sanitation engineer and the Water and Wastewater Systems Manager at RICA, and a workshop team in Gashora",
     status: "Infrastructure development and engineering planning",
     filters: ["Engineering", "Ventures & Community"],
     area: "Water infrastructure · Nonprofit leadership",
