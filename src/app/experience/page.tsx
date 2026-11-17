@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { OnThisPage, PageHeader, Section, Tag } from "@/components/section";
+import { newsFor } from "@/content/news";
+import { NewsLinks } from "@/components/news";
 import { publicExperience, publicLeadership, recsFor } from "@/content/experience";
 import { education, profile, skills } from "@/content/profile";
 import { getProject } from "@/content/projects";
@@ -56,6 +58,7 @@ export default function ExperiencePage() {
                       {e.relatedProjects.map((s, k) => { const p = getProject(s); return p ? <span key={s}>{k > 0 && " · "}<Link href={`/work/${s}`} className="ulink font-semibold">{p.title}</Link></span> : null; })}
                     </p>
                   )}
+                  <NewsLinks items={newsFor("experience", e.id)} className="mt-3" />
                   {recs.map((r) => (
                     <figure key={r.name} className="mt-5 border-l-2 border-berry pl-4">
                       <blockquote className="text-[0.98rem] leading-relaxed">“{r.quote}”</blockquote>
@@ -81,10 +84,13 @@ export default function ExperiencePage() {
                 <p className="text-ink-2">{l.org}</p>
                 <p className="label mt-1">{l.how} · {dates(l.start, l.end)}</p>
               </div>
-              <p className="text-ink-2">
-                {l.detail}
-                {l.project && <> <Link href={`/work/${l.project}`} className="ulink font-semibold text-ink">Read the case study</Link></>}
-              </p>
+              <div>
+                <p className="text-ink-2">
+                  {l.detail}
+                  {l.project && <> <Link href={`/work/${l.project}`} className="ulink font-semibold text-ink">Read the case study</Link></>}
+                </p>
+                <NewsLinks items={newsFor("leadership", l.id)} className="mt-1.5" />
+              </div>
             </li>
           ))}
         </ul>

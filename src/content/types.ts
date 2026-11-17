@@ -166,16 +166,6 @@ export type EventNote = {
   needs?: string[];
 };
 
-export type Feature = {
-  id: string;
-  outlet: string;
-  headline: string;
-  date: string;
-  sort: number;
-  href?: string;
-  visibility: Visibility;
-};
-
 export type Milestone = { year: string; place: string; text: string };
 
 export type Interest = { id: string; label: string; line: string; figure?: Figure; visibility: Visibility };

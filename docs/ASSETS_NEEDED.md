@@ -36,7 +36,7 @@ participants (especially minors) without consent.
 | A painting (+ title, year, medium) | Outside work › Art stack | Straight on, daylight, no glare, whole canvas | `/images/beyond/painting-1.jpg` | 1 |
 | A sketch (+ title, year, medium) | Outside work › Art stack | Scan or flat photo, whole page | `/images/beyond/sketch-1.jpg` | 2 |
 | Rowing | Outside work › Rowing | On the water, at the boathouse, or with your crew; landscape | `/images/beyond/rowing.jpg` | 2 |
-| Karate | Outside work › Karate | Training or a kata in your gi; landscape | `/images/beyond/karate.jpg` | 2 |
+| Taekwondo | Outside work › Taekwondo | You at practice; landscape | `/images/beyond/taekwondo.jpg` | 2 |
 | Dance | Outside work › Dance | You dancing, ideally Rwandan dance or a cultural event; landscape | `/images/beyond/dance.jpg` | 2 |
 | Choir (with the choir's permission) | Outside work › Music and faith | Wide shot, 16:9 | `/images/beyond/choir.jpg` | 3 |
 

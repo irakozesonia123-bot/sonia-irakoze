@@ -86,10 +86,10 @@ export default function Home() {
             <Sprig />
             <h2 id="me-title" className="mt-2 text-[2.1rem] font-semibold leading-[1.05] sm:text-[2.7rem]">Outside <span className="script text-berry">work</span></h2>
             <p className="mt-5 max-w-[52ch] text-[1.1rem] leading-relaxed text-ink-2">
-              Painting and sketching, rowing, Shotokan karate, choir, dance, writing and speaking, faith, and service.
+              Painting and sketching, rowing, Taekwondo, choir, dance, writing and speaking, faith, and service.
             </p>
             <ul className="mt-6 flex flex-wrap gap-2" aria-label="Interests">
-              {["Art", "Rowing", "Karate", "Choir", "Dance", "Words", "Faith", "Service"].map((t, k) => (
+              {["Art", "Rowing", "Taekwondo", "Choir", "Dance", "Words", "Faith", "Service"].map((t, k) => (
                 <li key={t} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold ${["bg-rose-soft text-rose-ink", "bg-sky text-sky-ink", "bg-surface text-lav-ink"][k % 3]}`}>{t}</li>
               ))}
             </ul>

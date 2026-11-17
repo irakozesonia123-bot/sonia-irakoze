@@ -1,4 +1,4 @@
-import type { EventNote, Feature, Figure, Recognition } from "./types";
+import type { EventNote, Figure, Recognition } from "./types";
 
 /**
  * Everything on the About page: story, values, places, recognition, events, and media. Personal interests live in beyond.ts.
@@ -191,12 +191,6 @@ export const events: EventNote[] = [
   },
 ];
 
-export const features: Feature[] = [
-  { id: "ur-p4p", outlet: "University of Rochester", headline: "2026 Projects for Peace recipients", date: "2026", sort: 2026.05, href: "https://www.rochester.edu/college/studentfellowships/news-events/projects-for-peace.html", visibility: "public" },
-  { id: "p4p-reading-room", outlet: "Davis Projects for Peace", headline: "Reading Room listing for SAquaSolve", date: "Jul 2026", sort: 2026.07, href: "https://www.middlebury.edu/projects-peace/congratulations-our-most-recent-university-rochester-projects-peace-recipients", visibility: "public" },
-  { id: "cdot-lean", outlet: "CDOT Lean Everyday Ideas", headline: "CDOT Compass", date: "Jul 2026", sort: 2026.07, href: "https://docs.google.com/presentation/d/12Ta0FAas_kKpvBQ0F2O1W6uQZGFcWMgNj-wkbhd-SQ0/", visibility: "public" },
-  { id: "worlddenver", outlet: "WorldDenver", headline: "2023 TechGirls participant returns to Denver", date: "Jun 2026", sort: 2026.06, href: "https://www.instagram.com/p/DZdOJtYE6Up/", visibility: "public" },
-];
 
 
 export type Place = {

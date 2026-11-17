@@ -11,7 +11,7 @@ import { artworks, day, eagle, favorites, movement, music, service, words } from
 
 export const metadata: Metadata = pageMeta({
   title: "Outside work",
-  description: "The personal side of Sonia Irakoze: art, rowing, Shotokan karate, dance, choir and faith, writing and speaking, service, a few favorites, and an example day.",
+  description: "The personal side of Sonia Irakoze: art, rowing, Taekwondo, dance, choir and faith, writing and speaking, service, a few favorites, and an example day.",
   path: "/about/beyond",
 });
 
@@ -38,7 +38,7 @@ export default function BeyondPage() {
           <p className="mt-5 max-w-[54ch] text-[1.12rem] text-ink-2">
             What I do outside class and work.
           </p>
-          <OnThisPage items={[["#art", "Art"], ["#movement", "Rowing, karate, and dance"], ["#faith", "Music and faith"], ["#words", "Writing"], ["#service", "Service"], ["#favorites", "A few favorites"], ["#day", "A day with me"]]} />
+          <OnThisPage items={[["#art", "Art"], ["#movement", "Rowing, Taekwondo, and dance"], ["#faith", "Music and faith"], ["#words", "Writing"], ["#service", "Service"], ["#favorites", "A few favorites"], ["#day", "A day with me"]]} />
         </div>
       </header>
 
@@ -53,8 +53,8 @@ export default function BeyondPage() {
         </div>
       </Section>
 
-      {/* Rowing, karate, and dance: annotated photographs, alternating sides */}
-      <Section id="movement" title="Rowing, karate, and dance" tone="sky">
+      {/* Rowing, Taekwondo, and dance: annotated photographs, alternating sides */}
+      <Section id="movement" title="Rowing, Taekwondo, and dance" tone="sky">
         <ul className="space-y-12 sm:space-y-16">
           {movement.map((m, k) => {
             const photo = hasFile(m.figure.src) || showSlots;

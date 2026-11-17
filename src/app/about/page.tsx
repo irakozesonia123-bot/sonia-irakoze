@@ -4,14 +4,16 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { OnThisPage, PageHeader, Section } from "@/components/section";
 import { Fig, showSlots, willRender } from "@/components/figure";
-import { events, features, places, recognition, story, values } from "@/content/about";
+import { events, places, recognition, story, values } from "@/content/about";
+import { featuredNews, otherNews } from "@/content/news";
+import { NewsFeatured, NewsRows } from "@/components/news";
 import { PlacesMap } from "@/components/interactive/places-map";
 import { Feather, Flower } from "@/components/decor";
 import type { Visibility } from "@/content/types";
 
 export const metadata: Metadata = pageMeta({
   title: "About me",
-  description: "About Sonia Irakoze (Irakoze Sonia): from Kigali and Gashora, Rwanda, to mechanical engineering at the University of Rochester, with places, recognition, events, and news.",
+  description: "About Sonia Irakoze (Irakoze Sonia): from Kigali and Gashora, Rwanda, to mechanical engineering at the University of Rochester, with places, recognition, events, and news and mentions.",
   path: "/about",
 });
 
@@ -20,13 +22,12 @@ const visible = (v: Visibility) => v === "public" || (v === "slot" && showSlots)
 export default function AboutPage() {
   const recog = recognition.filter((r) => visible(r.visibility)).sort((a, b) => b.sort - a.sort);
   const evts = events.filter((e) => visible(e.visibility)).sort((a, b) => b.sort - a.sort);
-  const media = features.filter((f) => f.visibility === "public").sort((a, b) => b.sort - a.sort);
   const placeFigs = Object.fromEntries(places.map((p) => [p.id, willRender(p.figure) ? <Fig fig={{ ...p.figure!, caption: p.figure!.caption }} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 440px, 100vw" /> : null]));
 
   return (
     <>
       <PageHeader title="About me" intro="Where I come from, places I’ve lived and worked, and recognition along the way.">
-        <OnThisPage items={[["#background", "Where I come from"], ["#places", "Places"], ["#recognition", "Recognition"], ["#events", "Conferences and events"], ["#media", "In the news"]]} />
+        <OnThisPage items={[["#background", "Where I come from"], ["#places", "Places"], ["#recognition", "Recognition"], ["#events", "Conferences and events"], ["#media", "News and mentions"]]} />
       </PageHeader>
 
       <section id="background" aria-labelledby="story-title" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20">
@@ -106,19 +107,10 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section id="media" title="In the news" tone="lav">
-        <ul className="divide-y divide-line border-y border-line">
-          {media.map((f) => (
-            <li key={f.id}>
-              <a href={f.href} target="_blank" rel="noopener" className="group grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 py-4 sm:grid-cols-[6rem_minmax(0,1fr)_minmax(0,14rem)_auto]">
-                <span className="label hidden sm:block">{f.date}</span>
-                <span className="font-bold group-hover:text-berry">{f.headline}</span>
-                <span className="col-span-2 row-start-2 text-ink-2 sm:col-span-1 sm:row-start-auto">{f.outlet}</span>
-                <ArrowUpRight className="col-start-2 row-start-1 h-4 w-4 text-ink-3 group-hover:text-berry sm:col-start-4" aria-hidden />
-              </a>
-            </li>
-          ))}
-        </ul>
+      <Section id="media" title="News and mentions" intro="Articles, profiles, announcements, and official records that mention me." tone="lav">
+        <NewsFeatured items={featuredNews} />
+        <h3 className="label mt-12">More mentions and records</h3>
+        <div className="mt-3"><NewsRows items={otherNews} /></div>
       </Section>
 
       <section id="interests" aria-labelledby="beyond-cta" className="scroll-mt-20">
@@ -127,7 +119,7 @@ export default function AboutPage() {
             <Feather className="absolute -right-2 -top-6 h-40 w-20 rotate-[28deg] text-lav-ink/50 transition-transform duration-700 group-hover:rotate-[16deg]" />
             <Flower className="h-10 w-10 text-rose transition-transform duration-700 group-hover:rotate-[72deg]" />
             <h2 id="beyond-cta" className="mt-4 text-[2.1rem] font-semibold leading-tight sm:text-[2.8rem]">Outside <span className="script text-berry">work</span></h2>
-            <p className="mt-3 max-w-[50ch] text-[1.08rem] text-ink-2">Art, rowing, karate, music, faith, writing, and service.</p>
+            <p className="mt-3 max-w-[50ch] text-[1.08rem] text-ink-2">Art, rowing, Taekwondo, music, faith, writing, and service.</p>
             <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-ink">See more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden /></span>
           </Link>
         </div>

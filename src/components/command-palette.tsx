@@ -31,7 +31,8 @@ export function CommandPalette({ open, onClose }: { open: boolean; onClose: () =
     return [
       { id: "home", label: "Home", group: "Pages", icon: "hash", run: go("/") },
       ...nav.map((n) => ({ id: `n-${n.href}`, label: n.label, group: "Pages", icon: "hash" as const, run: go(n.href) })),
-      { id: "beyond", label: "Outside work", group: "Pages", icon: "hash", keywords: "personal hobbies art painting rowing karate choir faith eagle", run: go("/about/beyond") },
+      { id: "beyond", label: "Outside work", group: "Pages", icon: "hash", keywords: "personal hobbies art painting rowing taekwondo choir faith eagle favorites", run: go("/about/beyond") },
+      { id: "news", label: "News and mentions", group: "Pages", icon: "hash", keywords: "press articles profiles media coverage announcements in the news", run: go("/about#media") },
       show("Engineering projects", "Engineering", "mechanical cad structures aerospace water bridge"),
       show("Software & data projects", "Software & Data", "code web react python sql"),
       show("Ventures & community projects", "Ventures & Community", "startup nonprofit saquasolve hackathon"),

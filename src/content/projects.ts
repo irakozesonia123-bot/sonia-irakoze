@@ -204,7 +204,7 @@ export const projects: Project[] = [
       {
         type: "figures",
         title: "Recognition",
-        intro: "CDOT’s Process Improvement office published Compass on 2 July 2026 as a Lean Everyday Idea (#BorrowThis). In the 2026 CDOT Innovations Challenge it was named the Headquarters Division Winner for Outstanding AI Improvement. Compass is a public prototype, not an official CDOT system.",
+        intro: "CDOT’s Process Improvement office published Compass on 2 July 2026 as a Lean Everyday Idea (#BorrowThis). In the 2026 CDOT Innovations Challenge it was named the Headquarters Division Winner for Outstanding AI Improvement. At the statewide level, it also received an Honorable Mention for the Outstanding AI-Enabled Improvement Award. Compass is a public prototype, not an official CDOT system.",
         items: [
           { src: "/images/cdot-compass-idea-card.jpg", alt: "CDOT Lean Everyday Ideas card describing CDOT Compass", caption: "Lean Everyday Ideas card, published by CDOT.", tag: "Award", fit: "contain" },
           { src: "/images/compass/innovation-award.jpg", alt: "CDOT Innovations Challenge 2026 Headquarters Division award for CDOT Compass", caption: "2026 CDOT Innovations Challenge, Headquarters Division winner.", tag: "Award", fit: "contain", want: "The award certificate, announcement slide, or a photo from the ceremony." },

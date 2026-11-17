@@ -9,6 +9,8 @@ import { ProjectCover } from "@/components/work/project-card";
 import { Tag } from "@/components/section";
 import { hasFile } from "@/components/figure";
 import { pageMeta } from "@/lib/seo";
+import { newsFor } from "@/content/news";
+import { NewsLinks } from "@/components/news";
 
 export function generateStaticParams() {
   return publicProjects.map((p) => ({ slug: p.slug }));
@@ -35,6 +37,7 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
   const next = main[(main.findIndex((x) => x.slug === p.slug) + 1) % main.length];
   const relatedProjects = (p.related?.projects ?? []).map((s) => getProject(s)).filter((x) => x !== undefined);
   const relatedExp = publicExperience.filter((e) => p.related?.experience?.includes(e.id));
+  const mentions = newsFor("projects", p.slug);
 
   return (
     <article>
@@ -121,6 +124,8 @@ export default async function CaseStudy({ params }: PageProps<"/work/[slug]">) {
             </div>
           )}
         </div>
+
+        {mentions.length > 0 && <NewsLinks items={mentions} className="mt-10 border-t border-line pt-6" />}
 
         {next && next.slug !== p.slug && (
           <Link href={`/work/${next.slug}`} className="group mt-16 flex items-center justify-between gap-4 border-y border-line py-6">

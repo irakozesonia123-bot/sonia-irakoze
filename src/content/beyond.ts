@@ -54,7 +54,7 @@ export const artworks: Artwork[] = [
   },
 ];
 
-/** Rowing, karate, and dance: annotated photographs, each with Sonia’s own words. */
+/** Rowing, Taekwondo, and dance: annotated photographs, each with Sonia’s own words. */
 export const movement: { id: string; label: string; line?: string; hue: "rose" | "lav" | "sky"; figure: Figure }[] = [
   {
     id: "rowing",
@@ -64,11 +64,11 @@ export const movement: { id: string; label: string; line?: string; hue: "rose" |
     figure: { src: "/images/beyond/rowing.jpg", alt: "Sonia rowing", want: "A rowing photo: on the water, the boathouse, or with your crew." },
   },
   {
-    id: "karate",
-    label: "Shotokan karate",
-    line: "I started Shotokan karate at Gashora Girls Academy and continued at Rochester. I enjoy having something to work on that asks for a different kind of focus: paying attention to my stance, repeating a movement, and improving it through practice.",
+    id: "taekwondo",
+    label: "Taekwondo",
+    line: "I started Taekwondo at Gashora Girls Academy and continued at Rochester. I enjoy having something to work on that asks for a different kind of focus: paying attention to my stance, repeating a movement, and improving it through practice.",
     hue: "rose",
-    figure: { src: "/images/beyond/karate.jpg", alt: "Sonia in a karate gi", want: "A karate photo: training, a kata, or your gi." },
+    figure: { src: "/images/beyond/taekwondo.jpg", alt: "Sonia at Taekwondo practice", want: "A Taekwondo photo." },
   },
   {
     id: "dance",
